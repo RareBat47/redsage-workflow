@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: sqlite:///./data/ci_test.db
+      CO_API_KEY: ""
+      COHERE_API_KEY: ""
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Backend tests (unit + integration)
+        run: python -m pytest -m "not e2e" -q
+
+      - name: Backend compile check
+        run: python -m compileall -q backend
+
+      - name: Frontend build
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+
+      - name: Public bundle safety check
+        run: python scripts/verify_public_bundle.py

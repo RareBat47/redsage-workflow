@@ -1,0 +1,29 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Runtime data (created on first run; never commit)
+data/redsage.db
+data/verify_all.db
+data/projects/
+data/chroma/
+data/*.db
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/dist/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
