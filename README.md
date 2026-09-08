@@ -89,6 +89,47 @@ shows the exact build command.
 | Prod-like single process | `scripts\run.ps1` | `scripts/run.sh` |
 | Full verification (tests + build) | `scripts\verify_all.ps1` | `scripts/verify_all.sh` |
 
+## Landing Page
+
+This repository ships with a static landing page in [`site/`](site/) ready
+for GitHub Pages — HTML + CSS only, no build tools, no screenshots required.
+All diagrams (workflow, safety, architecture) are inline SVG, so the page is
+self-contained and readable in about a minute.
+
+**Product summary:** RedSage v2 is a local-first, human-in-the-loop pentest
+workflow companion: scope-safe, evidence-first, report-ready. It locks scope,
+guides a 7-phase PTES methodology, verifies pasted evidence, tracks findings
+through a draft → confirmed lifecycle, and compiles audit-ready Markdown
+reports with a SHA-256 evidence register.
+
+> **Authorized testing only.** RedSage is for systems you are explicitly
+> permitted to test under written rules of engagement. It never executes
+> tools, scans, or exploits — the human operator performs all testing.
+
+### Preview locally
+
+Option 1 — open `site/index.html` directly in a browser.
+
+Option 2 — from the `site/` folder:
+
+```powershell
+python -m http.server 5179
+```
+
+Then open http://127.0.0.1:5179.
+
+### Publish with GitHub Pages
+
+1. Commit the `site/` folder to the `main` branch.
+2. Open **Settings → Pages** in the repository.
+3. Set **Source** to *Deploy from a branch*, **Branch** to `main`, and the
+   folder to **`/site`**.
+4. Click **Save** — the page goes live at
+   `https://<username>.github.io/<repo>/`.
+
+See [`site/README.md`](site/README.md) for edit points (GitHub link and
+email placeholders to replace before publishing).
+
 ## How evidence, findings, and reports work
 
 1. **Lock scope** — create a project and lock its scope (`in_scope_whitelist`,
@@ -117,6 +158,7 @@ See `docs/DEMO.md` for a 3-minute safe walkthrough using simulated evidence.
 ├── frontend/         # React + Vite UI (source; build to frontend/dist)
 ├── tests/            # pytest suite (unit/integration; e2e marked separately)
 ├── scripts/          # dev/build/run/verify helpers (PowerShell + shell)
+├── site/             # static landing page for GitHub Pages (HTML + CSS, inline SVG diagrams)
 ├── data/
 │   └── methodologies/  # baseline PTES methodology JSON (seeded into new projects)
 ├── docs/             # RUN, SECURITY, DEMO, ARCHIVE_FORMAT
