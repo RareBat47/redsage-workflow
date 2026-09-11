@@ -42,6 +42,15 @@ def test_verifier_falls_back_to_ambiguous_low_on_cohere_failure(monkeypatch):
     assert any(asset.value == "https://target.local/backup.zip" for asset in verdict.extracted_assets)
 
 
+def test_verifier_offline_is_ambiguous_and_never_passes(monkeypatch):
+    monkeypatch.delenv("CO_API_KEY", raising=False)
+    monkeypatch.delenv("COHERE_API_KEY", raising=False)
+    verdict = verify_task_evidence("Review checkpoint", "Confirm the checkpoint", "checkpoint complete")
+    assert verdict.verdict == "AMBIGUOUS"
+    assert verdict.confidence == "LOW"
+    assert "manual review" in verdict.summary
+
+
 def test_verify_endpoint_never_500s_and_still_stores_evidence(monkeypatch, tmp_path):
     from backend.services import artifact_manager
 

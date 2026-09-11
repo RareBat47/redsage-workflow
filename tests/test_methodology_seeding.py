@@ -67,3 +67,97 @@ def test_proposal_approval_still_targets_vulnerability_analysis_phase():
     assert approved.status_code == 200
     phases = {phase["name"]: phase for phase in client.get(f"/api/v1/projects/{project_id}/tasks").json()}
     assert any(task["title"] == "Review seeded asset" for task in phases["Phase 4: Vulnerability Analysis"]["tasks"])
+
+
+def test_proposal_approval_honors_non_phase_four_target():
+    import uuid
+
+    from backend.database import SessionLocal
+    from backend.models.schema import WorkflowProposal
+
+    project = client.post("/api/v1/projects", json={"name": "Cross Phase Proposal Test"}).json()
+    project_id = project["id"]
+    proposal_id = f"proposal-{uuid.uuid4()}"
+    db = SessionLocal()
+    db.add(WorkflowProposal(
+        id=proposal_id,
+        project_id=project_id,
+        phase_name="Phase 2: Intelligence Gathering",
+        title="Review intelligence asset",
+        objective="Review authorized intelligence evidence",
+        priority="MEDIUM",
+        target_asset="/discovered-resource",
+        action_type="INVESTIGATION",
+    ))
+    db.commit()
+    db.close()
+
+    approved = client.post(f"/api/v1/projects/{project_id}/proposals/{proposal_id}/approve")
+    assert approved.status_code == 200
+
+    phases = {phase["name"]: phase for phase in client.get(f"/api/v1/projects/{project_id}/tasks").json()}
+    assert any(task["title"] == "Review intelligence asset" for task in phases["Phase 2: Intelligence Gathering"]["tasks"])
+    assert not any(task["title"] == "Review intelligence asset" for task in phases["Phase 4: Vulnerability Analysis"]["tasks"])
+
+
+def test_proposal_approval_rejects_unknown_target_phase_without_creating_task():
+    import uuid
+
+    from backend.database import SessionLocal
+    from backend.models.schema import Task, WorkflowProposal
+
+    project = client.post("/api/v1/projects", json={"name": "Missing Proposal Phase Test"}).json()
+    project_id = project["id"]
+    proposal_id = f"proposal-{uuid.uuid4()}"
+    db = SessionLocal()
+    db.add(WorkflowProposal(
+        id=proposal_id,
+        project_id=project_id,
+        phase_name="Phase 99: Missing",
+        title="Should not be created",
+        objective="Review authorized evidence",
+        priority="LOW",
+        target_asset="/missing-phase-resource",
+        action_type="INVESTIGATION",
+    ))
+    db.commit()
+    task_count = db.query(Task).filter(Task.project_id == project_id).count()
+    db.close()
+
+    response = client.post(f"/api/v1/projects/{project_id}/proposals/{proposal_id}/approve")
+    assert response.status_code == 400
+    assert "target phase" in response.json()["detail"]
+
+    db = SessionLocal()
+    assert db.query(Task).filter(Task.project_id == project_id).count() == task_count
+    db.close()
+
+
+def test_proposal_approval_error_names_the_missing_phase():
+    import uuid
+
+    from backend.database import SessionLocal
+    from backend.models.schema import WorkflowProposal
+
+    project = client.post("/api/v1/projects", json={"name": "Missing Phase Detail Test"}).json()
+    project_id = project["id"]
+    proposal_id = f"proposal-{uuid.uuid4()}"
+    db = SessionLocal()
+    db.add(WorkflowProposal(
+        id=proposal_id,
+        project_id=project_id,
+        phase_name="Phase 9: Does Not Exist",
+        title="Should not be created",
+        objective="Review authorized evidence",
+        priority="LOW",
+        target_asset="/missing-phase-resource",
+        action_type="INVESTIGATION",
+    ))
+    db.commit()
+    db.close()
+
+    response = client.post(f"/api/v1/projects/{project_id}/proposals/{proposal_id}/approve")
+    assert response.status_code == 400
+    detail = response.json()["detail"]
+    assert "target phase" in detail
+    assert "Phase 9: Does Not Exist" in detail

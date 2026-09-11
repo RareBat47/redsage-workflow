@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1600px; height: 900px; overflow: hidden; }
+  body {
+    background: #04060d;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #e6ecf7;
+  }
+  .stage {
+    position: relative;
+    width: 1600px; height: 900px;
+    background:
+      radial-gradient(1100px 620px at 78% -10%, rgba(239,68,68,0.16), transparent 60%),
+      radial-gradient(900px 700px at 6% 110%, rgba(56,130,246,0.12), transparent 55%),
+      linear-gradient(160deg, #070b15 0%, #0a1020 55%, #060910 100%);
+    overflow: hidden;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(148,163,184,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148,163,184,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 90% at 30% 50%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 90% at 30% 50%, #000 30%, transparent 75%);
+  }
+  .glow { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .5; }
+  .g1 { width: 340px; height: 340px; background: #ef4444; top: 120px; right: 210px; opacity: .22; }
+  .g2 { width: 300px; height: 300px; background: #3b82f6; bottom: -60px; left: 220px; opacity: .18; }
+  .vline {
+    position: absolute; top: 0; bottom: 0; width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(239,68,68,0.5) 20%, rgba(239,68,68,0.5) 80%, transparent);
+    left: 680px;
+  }
+  .brand {
+    position: absolute; left: 96px; top: 66px;
+    font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 30px; letter-spacing: 14px; font-weight: 700; color: #f3f6fc;
+  }
+  .brand .dot { color: #ef4444; }
+  .content { position: absolute; left: 96px; top: 240px; width: 620px; }
+  .kicker {
+    display: inline-block;
+    font-family: Consolas, monospace; font-size: 18px; letter-spacing: 4px;
+    color: #f87171; border: 1px solid rgba(239,68,68,0.45);
+    background: rgba(239,68,68,0.08); border-radius: 4px;
+    padding: 6px 14px; text-transform: uppercase;
+  }
+  h1 {
+    margin-top: 30px; font-size: 118px; font-weight: 800; letter-spacing: 1px;
+    line-height: .98; color: #ffffff;
+  }
+  h1 .v2 { color: #ef4444; }
+  .tag {
+    margin-top: 26px; font-size: 25px; line-height: 1.45; color: #9fb0c8;
+    font-family: "Segoe UI", Arial, sans-serif; max-width: 560px;
+  }
+  .chips { margin-top: 40px; }
+  .chip {
+    display: inline-block; margin-right: 12px; margin-top: 8px;
+    font-family: Consolas, monospace; font-size: 16px; color: #cbd5e1;
+    border: 1px solid rgba(148,163,184,0.3); border-radius: 999px;
+    padding: 7px 16px; background: rgba(148,163,184,0.06);
+  }
+  .chip.red { color: #fca5a5; border-color: rgba(239,68,68,0.5); }
+  .right { position: absolute; right: 120px; top: 120px; width: 560px; }
+  .term {
+    background: rgba(10,16,32,0.88);
+    border: 1px solid rgba(148,163,184,0.22);
+    border-radius: 12px; box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+    font-family: Consolas, "Cascadia Mono", monospace; font-size: 20px; line-height: 1.85;
+    padding: 22px 24px 26px;
+  }
+  .term .bar { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .term .t { width: 13px; height: 13px; border-radius: 50%; display: inline-block; }
+  .t1 { background: #ef4444; } .t2 { background: #f59e0b; } .t3 { background: #22c55e; }
+  .p { color: #22c55e; }
+  .c { color: #7dd3fc; }
+  .ok { color: #86efac; }
+  .warn { color: #fbbf24; }
+  .dim { color: #64748b; }
+  .arrows {
+    margin: 26px 0 0 0; display: flex; flex-direction: column; align-items: center;
+    font-family: Consolas, monospace; color: #ef4444; font-size: 24px; letter-spacing: 8px;
+  }
+  .metric-row { display: flex; gap: 44px; margin-top: 34px; padding: 0 6px; }
+  .metric b { display: block; font-size: 30px; color: #fff; font-family: Consolas, monospace; }
+  .metric span { font-size: 15px; color: #8b9cb5; text-transform: uppercase; letter-spacing: 2px; }
+  .footer {
+    position: absolute; left: 96px; bottom: 54px; right: 120px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .footer .l {
+    font-family: Consolas, monospace; font-size: 16px; color: #55647c; letter-spacing: 1px;
+  }
+  .foot-red {
+    font-family: Consolas, monospace; font-size: 15px; color: #f87171;
+    border-top: 1px solid rgba(239,68,68,0.4); padding-top: 8px; letter-spacing: 2px;
+  }
+  .shield { position: absolute; top: 120px; right: 120px; opacity: 0.16; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="grid"></div>
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="vline"></div>
+    <div class="brand">REDSAGE<span class="dot">_</span>v2</div>
+
+    <div class="content">
+      <span class="kicker">Authorized Security Workflow</span>
+      <h1>REDSAGE<br><span class="v2">v2.0</span></h1>
+      <div class="tag">The human-in-the-loop penetration testing
+      companion &mdash; you run the tools, RedSage validates
+      scope, verifies evidence &amp; compiles audit-ready reports.</div>
+      <div class="chips">
+        <span class="chip red">HUMAN-IN-THE-LOOP</span>
+        <span class="chip">LOCAL-FIRST</span>
+        <span class="chip">EVIDENCE VERIFICATION</span>
+        <span class="chip">AUDIT-READY REPORTS</span>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="term">
+        <div class="bar"><span class="t t1"></span><span class="t t2"></span><span class="t t3"></span><span class="dim" style="margin-left:8px">evidence_verify.sh</span></div>
+        <div><span class="c">$</span> target-host <span class="p">juice-shop.local</span></div>
+        <div><span class="c">$</span> scope  <span class="ok">LOCKED &amp; ENFORCED</span>  <span class="warn">rate:10/s</span></div>
+        <div><span class="c">$</span> curl -I https://juice-shop.local <span class="dim"># you run it</span></div>
+        <div><span class="c">$</span> verify evidence.txt</div>
+        <div><span class="ok">&gt; PASS &nbsp;/ HIGH</span> &nbsp;sha256 <span class="dim">3f9c...a21d</span></div>
+        <div><span class="p">&gt; assets:</span> <span class="c">juice-shop.local</span> <span class="c">HOST</span></div>
+        <div><span class="dim">&gt; excerpt redacted &bull; artifact stored</span></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric"><b>14</b><span>Methodology Tasks</span></div>
+        <div class="metric"><b>7</b><span>PTES Phases</span></div>
+        <div class="metric"><b>SHA-256</b><span>Evidence Integrity</span></div>
+        <div class="metric"><b>0</b><span>Auto-Exploits</span></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="l">PYTHON &bull; FASTAPI &bull; REACT &bull; SQLITE &bull; CHROMADB</div>
+      <div class="foot-red">EVIDENCE IN &rarr; SCOPE-VALIDATED &rarr; REPORTS OUT &mdash; YOU STAY IN CONTROL</div>
+    </div>
+  </div>
+</body>
+</html>

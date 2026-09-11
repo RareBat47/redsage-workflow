@@ -5,17 +5,26 @@ import EvidenceLibrary from './pages/EvidenceLibrary';
 import FindingsPanel from './components/FindingsPanel';
 import HistoryDrawer from './components/HistoryDrawer';
 import MentorPanel from './components/MentorPanel';
+import ProjectBriefPanel from './components/ProjectBriefPanel';
+import WorkflowPlannerPanel from './components/WorkflowPlannerPanel';
+import TaskStepsPanel from './components/TaskStepsPanel';
+import BossBrainPanel from './components/BossBrainPanel';
 import ReadinessPanel from './components/ReadinessPanel';
 import ScopeAmendModal from './components/ScopeAmendModal';
 import SearchModal from './components/SearchModal';
 import ErrorBoundary from './components/ErrorBoundary';
 import { API, apiCall } from './services/api';
+import { defaultScopeTarget, targetMatchesWhitelist } from './services/scope';
 import type { EvidenceItem } from './types';
 import './index.css';
 import './day2.css';
 import './day3.css';
+import './brief.css';
+import './steps.css';
+import './planner.css';
+import './boss.css';
 
-type View = 'roadmap' | 'evidence' | 'assets' | 'report';
+type View = 'roadmap' | 'evidence' | 'assets' | 'report' | 'boss';
 
 export default function App() {
   const [projects, setProjects] = useState<any[]>([]);
@@ -39,6 +48,9 @@ export default function App() {
   const [notice, setNotice] = useState('');
   const [activeTarget, setActiveTarget] = useState('');
   const [mentorOpen, setMentorOpen] = useState(false);
+  const [selectedStep, setSelectedStep] = useState<any>();
+  const [briefOpen, setBriefOpen] = useState(false);
+  const [plannerOpen, setPlannerOpen] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
 
   const refresh = async (current = project, preferredTarget = activeTarget) => {
@@ -47,16 +59,20 @@ export default function App() {
     try {
       const nextScope = await apiCall<any>(`/projects/${id}/scope`);
       const whitelist: string[] = nextScope?.in_scope_whitelist ?? [];
-      const effective = preferredTarget && whitelist.some((item) => item.toLowerCase() === preferredTarget.toLowerCase())
+      const effective = preferredTarget && targetMatchesWhitelist(preferredTarget, whitelist)
         ? preferredTarget
-        : whitelist[0] ?? '';
+        : defaultScopeTarget(whitelist);
       if (effective !== preferredTarget) setActiveTarget(effective);
       const [nextTasks, nextProposals, nextFindings, nextEvidence] = await Promise.all([
         apiCall(`/projects/${id}/tasks${effective ? `?target_host=${encodeURIComponent(effective)}` : ''}`),
         apiCall(`/projects/${id}/proposals`), apiCall(`/projects/${id}/findings`),
         apiCall<EvidenceItem[]>(`/projects/${id}/evidence`),
       ]);
-      setScope(nextScope); setTasks(nextTasks); setProposals(nextProposals);
+       setScope(nextScope); setTasks(nextTasks); setProposals(nextProposals);
+       if (selected) {
+         const refreshedSelected = nextTasks.flatMap((phase: any) => phase.tasks).find((task: any) => task.id === selected.id);
+         setSelected(refreshedSelected);
+       }
       setFindings(nextFindings); setEvidence(nextEvidence);
     } catch (err: any) { setError(err.message); }
   };
@@ -152,11 +168,15 @@ export default function App() {
   const downloadUrl = project ? `${API}/projects/${project.id}/report/download` : '#';
   const headerBrand = 'v2 / V1.1';
   return <main>
-    <header><b>REDSAGE <small>{headerBrand}</small></b><span>{project ? project.name : 'No engagement selected'}</span><button onClick={createProject}>+ New Project</button><button onClick={() => fileInput.current?.click()} disabled={importing}>{importing ? 'Importing...' : 'Import Project'}</button>{project && <button onClick={exportProject}>Export Project</button>}<input ref={fileInput} type="file" accept=".zip" hidden onChange={(event) => { const file = event.target.files?.[0]; if (file) importProject(file); event.target.value = ''; }} /><select value={project?.id || ''} onChange={(event) => { const next = projects.find((item) => item.id === event.target.value); setProject(next); setView('roadmap'); setActiveTarget(''); refresh(next, ''); }}><option value="">Project hub</option>{projects.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select><i className={scope?.is_locked ? 'locked' : ''}>{scope?.is_locked ? 'SCOPE LOCKED' : 'SCOPE UNLOCKED'}</i>{project && <><button onClick={() => setAmendOpen(true)} disabled={!scope?.is_locked}>Amend Scope</button><button onClick={() => setHistoryOpen(true)}>History</button><button className="search-trigger" onClick={() => setSearchOpen(true)}>Search <kbd>Ctrl K</kbd></button></>}</header>
-    {project && <nav className="tabs"><button className={view === 'roadmap' ? 'selected-tab' : ''} onClick={() => setView('roadmap')}>Roadmap Canvas</button><button className={view === 'evidence' ? 'selected-tab' : ''} onClick={() => setView('evidence')}>Evidence Library ({evidence.length})</button><button className={view === 'assets' ? 'selected-tab' : ''} onClick={() => setView('assets')}>Assets</button><button className={view === 'report' ? 'selected-tab' : ''} onClick={loadReport}>Report Studio</button></nav>}
+     <header><b>REDSAGE <small>{headerBrand}</small></b><span>{project ? project.name : 'No engagement selected'}</span><button onClick={createProject}>+ New Project</button><button onClick={() => fileInput.current?.click()} disabled={importing}>{importing ? 'Importing...' : 'Import Project'}</button>{project && <button onClick={exportProject}>Export Project</button>}{project && <button onClick={() => setBriefOpen(true)}>Brief</button>}{project && <button onClick={() => setPlannerOpen(true)}>Planner</button>}{project && selected && <button onClick={() => setMentorOpen((open) => !open)}>AI Mentor</button>}<input ref={fileInput} type="file" accept=".zip" hidden onChange={(event) => { const file = event.target.files?.[0]; if (file) importProject(file); event.target.value = ''; }} /><select value={project?.id || ''} onChange={(event) => { const next = projects.find((item) => item.id === event.target.value); setProject(next); setView('roadmap'); setActiveTarget(''); refresh(next, ''); }}><option value="">Project hub</option>{projects.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select><i className={scope?.is_locked ? 'locked' : ''}>{scope?.is_locked ? 'SCOPE LOCKED' : 'SCOPE UNLOCKED'}</i>{project && <><button onClick={() => setAmendOpen(true)} disabled={!scope?.is_locked}>Amend Scope</button><button onClick={() => setHistoryOpen(true)}>History</button><button className="search-trigger" onClick={() => setSearchOpen(true)}>Search <kbd>Ctrl K</kbd></button></>}</header>
+    {project && <nav className="tabs"><button className={view === 'roadmap' ? 'selected-tab' : ''} onClick={() => setView('roadmap')}>Roadmap Canvas</button><button className={view === 'evidence' ? 'selected-tab' : ''} onClick={() => setView('evidence')}>Evidence Library ({evidence.length})</button><button className={view === 'assets' ? 'selected-tab' : ''} onClick={() => setView('assets')}>Assets</button><button className={view === 'report' ? 'selected-tab' : ''} onClick={loadReport}>Report Studio</button><button className={view === 'boss' ? 'selected-tab' : ''} onClick={() => setView('boss')}>Boss Brain</button></nav>}
     {error && <div className="error">{error}<button onClick={() => setError('')}>Dismiss</button></div>}
-    {notice && <div className="notice">{notice}<button onClick={() => setNotice('')}>Dismiss</button></div>}
-    {!project ? <section className="welcome"><h1>Authorized testing, documented.</h1><p>Create an engagement to begin the paste-only evidence workflow.</p></section> : view === 'evidence' ? <EvidenceLibrary evidence={evidence} projectId={project.id} /> : view === 'assets' ? <AssetsView projectId={project.id} onChanged={() => refresh()} /> : view === 'report' ? <section className="report-studio"><label>REPORT STUDIO</label><h1>Formal engagement report</h1><div className="report-grid"><div><button onClick={loadReport}>Refresh Preview</button> <a href={downloadUrl}>Download Report (.md)</a><pre className="report">{report || 'Click Refresh Preview to load the report.'}</pre></div><ReadinessPanel projectId={project.id} /></div></section> : <div className={mentorOpen && selected ? 'layout with-mentor' : 'layout'}><aside>{(scope?.in_scope_whitelist ?? []).length > 0 && <div className="target-picker"><label>ACTIVE TARGET</label><select value={activeTarget} onChange={(event) => { setActiveTarget(event.target.value); refresh(project, event.target.value); }}>{scope.in_scope_whitelist.map((item: string) => <option key={item} value={item}>{item}</option>)}</select><small>Commands and scope safety are computed for this target.</small></div>}<h3>Task tree</h3>{tasks.map((phase) => <section key={phase.id}><strong>{phase.name}</strong>{phase.tasks.map((task: any) => <button className={selected?.id === task.id ? 'active' : ''} onClick={() => { setSelected(task); setVerdict(undefined); }} key={task.id}>{task.status === 'COMPLETED' ? '✓' : '○'} {task.title}</button>)}</section>)}<button onClick={configureScope}>{scope?.is_locked ? 'Scope locked' : 'Configure & Lock Scope'}</button><h3>Proposals ({proposals.length})</h3>{proposals.map((proposal) => <div className="proposal" key={proposal.id}>{proposal.title}<button onClick={() => approve(proposal)}>Approve</button><button onClick={() => dismiss(proposal)}>Dismiss</button></div>)}</aside><article>{selected ? <><label>ACTIVE TASK</label><button className="mentor-toggle" onClick={() => setMentorOpen(!mentorOpen)}>{mentorOpen ? 'Hide Mentor' : 'AI Mentor'}</button><h1>{selected.title}</h1><p>{selected.objective}</p><pre>{selected.resolved_command || 'Lock scope to resolve command'}</pre><h2>Evidence tray</h2><textarea value={rawEvidence} onChange={(event) => setRawEvidence(event.target.value)} placeholder="Paste untrusted tool output here. RedSage never executes it."/><button disabled={!scope?.is_locked || !rawEvidence} onClick={verify}>Verify Evidence</button>{verdict && <div className="verdict"><b>{verdict.verdict}</b><p>{verdict.summary}</p><p className="saved">Saved as {verdict.evidence_id} <button onClick={() => setView('evidence')}>View in Evidence Library</button></p>{verdict.grounded_quotations.map((quote: string) => <blockquote key={quote}>{quote}</blockquote>)}<p>{verdict.extracted_assets.map((asset: any) => <mark key={asset.value}>{asset.type}: {asset.value}</mark>)}</p></div>}</> : <p>Select a task from the tree.</p>}<hr /><FindingsPanel projectId={project.id} findings={findings} evidence={evidence} onChanged={() => refresh()} onError={setError} /></article>{mentorOpen && selected && <MentorPanel projectId={project.id} task={selected} targetHost={activeTarget} onError={setError} />}</div>}
+     {notice && <div className="notice">{notice}<button onClick={() => setNotice('')}>Dismiss</button></div>}
+    {!project ? <section className="welcome"><h1>Authorized testing, documented.</h1><p>Create an engagement to begin the paste-only evidence workflow.</p></section> : view === 'evidence' ? <EvidenceLibrary evidence={evidence} projectId={project.id} /> : view === 'assets' ? <AssetsView projectId={project.id} onChanged={() => refresh()} /> : view === 'report' ? <section className="report-studio"><label>REPORT STUDIO</label><h1>Formal engagement report</h1><div className="report-grid"><div><button onClick={loadReport}>Refresh Preview</button> <a href={downloadUrl}>Download Report (.md)</a><pre className="report">{report || 'Click Refresh Preview to load the report.'}</pre></div><ReadinessPanel projectId={project.id} /></div></section> : view === 'boss' ? <BossBrainPanel projectId={project.id} tasks={tasks} onError={setError} /> : <div className={mentorOpen && selected ? 'layout with-mentor' : 'layout'}><aside>{(scope?.in_scope_whitelist ?? []).length > 0 && <div className="target-picker"><label>ACTIVE TARGET</label><input list="scope-target-options" value={activeTarget} placeholder="host in scope" onChange={(event) => { const value = event.target.value; setActiveTarget(value); if (scope.in_scope_whitelist.some((item: string) => item.toLowerCase() === value.toLowerCase())) refresh(project, value); }} onKeyDown={(event) => { if (event.key === 'Enter') refresh(project, (event.target as HTMLInputElement).value); }} onBlur={(event) => refresh(project, event.target.value)} /><datalist id="scope-target-options">{scope.in_scope_whitelist.filter((item: string) => !item.trim().startsWith('*.')).map((item: string) => <option key={item} value={item} />)}</datalist><small>Commands and scope safety are computed for this target. Wildcard entries (*.example.com) cover the apex and any subdomain — type the exact host.</small></div>}<h3>Task tree</h3>{tasks.map((phase) => <section key={phase.id}><strong>{phase.name}</strong>{phase.tasks.map((task: any) => <button className={selected?.id === task.id ? 'active' : ''} onClick={() => { setSelected(task); setVerdict(undefined); setSelectedStep(undefined); }} key={task.id}>{task.status === 'COMPLETED' ? '✓' : '○'} {task.title}</button>)}</section>)}<button onClick={configureScope}>{scope?.is_locked ? 'Scope locked' : 'Configure & Lock Scope'}</button><h3>Proposals ({proposals.length})</h3>{proposals.map((proposal) => <div className="proposal" key={proposal.id}>{proposal.title}<button onClick={() => approve(proposal)}>Approve</button><button onClick={() => dismiss(proposal)}>Dismiss</button></div>)}</aside><article>{selected ? <><label>ACTIVE TASK</label><button className="mentor-toggle" onClick={() => setMentorOpen(!mentorOpen)}>{mentorOpen ? 'Hide Mentor' : 'AI Mentor'}</button><h1>{selected.title}</h1><p>{selected.objective}</p><pre>{selected.resolved_command || 'Lock scope to resolve command'}</pre><h2>Evidence tray</h2><textarea value={rawEvidence} onChange={(event) => setRawEvidence(event.target.value)} placeholder="Paste untrusted tool output here. RedSage never executes it."/><button disabled={!scope?.is_locked || !rawEvidence} onClick={verify}>Verify Evidence</button>{verdict && <div className="verdict"><b>{verdict.verdict}</b><p>{verdict.summary}</p><p className="saved">Saved as {verdict.evidence_id} <button onClick={() => setView('evidence')}>View in Evidence Library</button></p>{verdict.grounded_quotations.map((quote: string) => <blockquote key={quote}>{quote}</blockquote>)}<p>{verdict.extracted_assets.map((asset: any) => <mark key={asset.value}>{asset.type}: {asset.value}</mark>)}</p></div>}</> : <p>Select a task from the tree.</p>}<hr /><FindingsPanel projectId={project.id} findings={findings} evidence={evidence} onChanged={() => refresh()} onError={setError} /></article>{mentorOpen && selected && <MentorPanel projectId={project.id} task={selected} targetHost={activeTarget} onError={setError} />}</div>}
+     {project && selected && view === 'roadmap' && <TaskStepsPanel projectId={project.id} task={selected} locked={!!scope?.is_locked} onChanged={() => refresh()} onOpenMentor={(step) => { setSelectedStep(step); setMentorOpen(true); }} onError={setError} />}
+     {mentorOpen && project && selected && <MentorPanel projectId={project.id} task={selected} step={selectedStep} targetHost={activeTarget} onError={setError} />}
+     {plannerOpen && project && <WorkflowPlannerPanel project={project} onClose={() => setPlannerOpen(false)} onApplied={() => refresh()} onError={setError} />}
+     {briefOpen && project && <ProjectBriefPanel project={project} onClose={() => setBriefOpen(false)} onSaved={(brief) => { setProject((current: any) => current ? { ...current, brief } : current); setProjects((current) => current.map((item) => item.id === project.id ? { ...item, brief } : item)); }} onError={setError} />}
     {amendOpen && <ScopeAmendModal projectId={project.id} onClose={() => setAmendOpen(false)} onSaved={() => refresh()} />}
     {historyOpen && <HistoryDrawer projectId={project.id} onClose={() => setHistoryOpen(false)} onChanged={() => refresh()} />}
     {searchOpen && <SearchModal projectId={project.id} onClose={() => setSearchOpen(false)} onNavigate={(next) => setView(next === 'assets' ? 'assets' : next === 'evidence' ? 'evidence' : 'roadmap')} />}

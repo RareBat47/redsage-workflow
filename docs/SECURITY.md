@@ -10,6 +10,12 @@ records evidence that the operator collects manually.
 - Every project has a `scopes` row with a whitelist, blacklist, rate limit, and
   lock state.
 - Evidence verification is blocked while a project's scope is unlocked.
+- Whitelist/blacklist entries may be exact hostnames, IPv4/IPv6 addresses,
+  CIDR ranges, or wildcard domains of the form `*.example.com`. A wildcard
+  covers the apex domain and all subdomains at any depth; bare domains stay
+  exact-only. Matching is label-boundary safe, so `evil-example.com` never
+  matches `*.example.com`, and blacklist entries always win over whitelist
+  entries (including blacklist wildcards and CIDR carve-outs).
 - Suggested command templates resolve `{target_host}` from the whitelist and
   expose the command as copyable only when the resolved host is in-scope and
   the scope is locked.
@@ -46,9 +52,8 @@ substitute for legal authorization or network-level controls.
 - With `CO_API_KEY` unset (or `COHERE_API_KEY`), all workflow, evidence,
   reporting, export, and import features run without any outbound call.
 - Only the optional Cohere verification/suggestion features require a key and
-  an outbound call. The public distribution does not include the knowledge-base
-  engine (`core/`) or its vector store (`data/chroma/`); the workflow
-  application itself never requires a key.
+  an outbound call; KB retrieval in `core/` uses a local deterministic
+  embedder and never requires a key.
 
 ## Export/import integrity
 
@@ -69,10 +74,13 @@ See `docs/ARCHIVE_FORMAT.md` for the full layout and limits.
 
 - The database is a local SQLite file (`data/redsage.db`).
 - Artifacts live under `data/projects/`.
-- This public distribution excludes the preserved knowledge base
-  (`core/`, `data/chroma/`); the application does not depend on it.
+- The preserved knowledge base lives in `data/chroma/` and `core/`; neither is
+  modified by the application.
 - Bind servers to `127.0.0.1` in local mode; do not expose the service to
   untrusted networks.
+- The workflow API rejects non-loopback client addresses by default
+  (`127.0.0.1`, `::1`, `localhost`). Set `REDSAGE_ALLOW_REMOTE=1` only when you
+  intentionally expose the service behind your own access controls.
 
 ## Operator responsibility
 

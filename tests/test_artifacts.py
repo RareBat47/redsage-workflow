@@ -21,6 +21,13 @@ def test_saved_artifact_digest_matches_disk(tmp_path, monkeypatch):
     assert digest == hashlib.sha256(content).hexdigest()
 
 
+def test_artifact_size_limit_message_is_consistent():
+    mb = artifact_manager.MAX_ARTIFACT_BYTES // (1024 * 1024)
+    error = artifact_manager.artifact_too_large_error()
+    assert str(error) == f"Artifact exceeds the {mb} MB size limit"
+    assert "5 MB" not in str(error)
+
+
 def test_evidence_list_returns_metadata_and_excerpt(monkeypatch):
     monkeypatch.delenv("CO_API_KEY", raising=False)
     monkeypatch.delenv("COHERE_API_KEY", raising=False)

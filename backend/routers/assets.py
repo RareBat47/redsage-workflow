@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from backend.database import get_db
 from backend.models.schema import Asset, Task, WorkflowProposal
-from backend.services.asset_proposal_service import suggest_safe_tasks
+from backend.services.asset_proposal_service import suggest_safe_tasks, workflow_context
 
 router = APIRouter(prefix="/api/v1/projects/{project_id}/assets", tags=["Assets"])
 
@@ -24,13 +24,13 @@ def suggest_tasks(project_id: str, asset_id: str, db: Session = Depends(get_db))
     if pending_count >= 5: raise HTTPException(400, "Review pending proposals before requesting more")
     duplicate = db.query(WorkflowProposal).filter(WorkflowProposal.project_id == project_id, WorkflowProposal.target_asset == asset.value, WorkflowProposal.action_type == "ASSET_REVIEW").first()
     if duplicate: return {"status": "deduplicated", "created_count": 0}
-    proposals = suggest_safe_tasks(asset.type, asset.value)[:max(0, 5 - pending_count)]
+    proposals = suggest_safe_tasks(asset.type, asset.value, workflow_context(db, project_id))[:max(0, 5 - pending_count)]
     created = 0
     existing_titles = {title for (title,) in db.query(Task.title).filter(Task.project_id == project_id).all()}
     existing_titles.update(title for (title,) in db.query(WorkflowProposal.title).filter(WorkflowProposal.project_id == project_id).all())
     for item in proposals:
         if item.title in existing_titles: continue
-        db.add(WorkflowProposal(id=str(uuid.uuid4()), project_id=project_id, phase_name="Phase 4: Vulnerability Analysis", title=item.title, objective=item.objective, priority=item.priority, target_asset=asset.value, action_type="ASSET_REVIEW", status="PENDING"))
+        db.add(WorkflowProposal(id=str(uuid.uuid4()), project_id=project_id, phase_name=item.phase_name, title=item.title, objective=item.objective, priority=item.priority, target_asset=asset.value, action_type="ASSET_REVIEW", status="PENDING"))
         created += 1
     db.commit()
     return {"status": "proposed", "created_count": created}

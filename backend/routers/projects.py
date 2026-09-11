@@ -4,13 +4,13 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from backend.database import get_db
 from backend.models.schema import Project, Scope
-from backend.schemas.api_schemas import ProjectCreate
+from backend.schemas.api_schemas import ProjectBriefUpdate, ProjectCreate
 from backend.services.workflow_engine import seed_project_tasks
 
 router = APIRouter(prefix="/api/v1/projects", tags=["Projects"])
 
 def project_dict(project):
-    return {"id": project.id, "name": project.name, "description": project.description, "target_type": project.target_type, "status": project.status, "created_at": project.created_at}
+    return {"id": project.id, "name": project.name, "description": project.description, "brief": project.brief, "target_type": project.target_type, "status": project.status, "created_at": project.created_at}
 
 @router.get("")
 def list_projects(db: Session = Depends(get_db)):
@@ -31,3 +31,14 @@ def get_project(project_id: str, db: Session = Depends(get_db)):
     if not project:
         raise HTTPException(404, "Project not found")
     return project_dict(project)
+
+
+@router.put("/{project_id}/brief")
+def update_project_brief(project_id: str, payload: ProjectBriefUpdate, db: Session = Depends(get_db)):
+    project = db.query(Project).filter(Project.id == project_id).first()
+    if not project:
+        raise HTTPException(404, "Project not found")
+    project.brief = payload.text.strip()
+    db.commit()
+    db.refresh(project)
+    return {"status": "updated", "brief": project.brief}

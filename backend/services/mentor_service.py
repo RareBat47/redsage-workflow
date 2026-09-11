@@ -69,9 +69,9 @@ class MentorReply(BaseModel):
     ai_available: bool
 
 
-def build_context_pack(project_id: str, task, db, target_host: str | None = None) -> dict:
+def build_context_pack(project_id: str, task, db, target_host: str | None = None, step_id: str | None = None) -> dict:
     """Assemble a bounded context pack for the mentor prompt (DB metadata only)."""
-    from backend.models.schema import Asset, Evidence, Finding, Scope
+    from backend.models.schema import Asset, Evidence, Finding, Scope, TaskStep
 
     scope = db.query(Scope).filter(Scope.project_id == project_id).first()
     whitelist = json.loads(scope.in_scope_whitelist) if scope else []
@@ -89,14 +89,19 @@ def build_context_pack(project_id: str, task, db, target_host: str | None = None
         .limit(5)
         .all()
     )
-    evidence_rows = (
+    step = None
+    if step_id is not None:
+        step = db.query(TaskStep).filter(TaskStep.id == step_id, TaskStep.task_id == task.id, TaskStep.is_archived.is_(False)).first()
+        if step is None:
+            raise ValueError("Step not found")
+    evidence_query = (
         db.query(Evidence)
         .filter(Evidence.task_id == task.id)
-        .order_by(Evidence.created_at.desc())
-        .limit(3)
-        .all()
     )
-    return {
+    if step is not None:
+        evidence_query = evidence_query.filter(Evidence.step_id == step.id)
+    evidence_rows = evidence_query.order_by(Evidence.created_at.desc()).limit(3).all()
+    context = {
         "task": {
             "title": task.title,
             "objective": task.objective,
@@ -119,6 +124,16 @@ def build_context_pack(project_id: str, task, db, target_host: str | None = None
             {"evidence_id": item.id, "excerpt": item.redacted_excerpt or ""} for item in evidence_rows
         ],
     }
+    if step is not None:
+        context["step"] = {
+            "title": step.title,
+            "objective": step.objective,
+            "why_it_matters": step.why_it_matters,
+            "completion_criteria": step.completion_criteria,
+            "expected_evidence_type": step.expected_evidence_type,
+            "status": step.status,
+        }
+    return context
 
 
 def _static_fallback(mode: str) -> MentorReply:

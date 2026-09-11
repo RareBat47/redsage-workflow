@@ -101,7 +101,13 @@ def _extract_assets_offline(raw: str) -> list[ExtractedAsset]:
 def _offline_verdict(raw: str) -> VerificationVerdict:
     assets = _extract_assets_offline(raw)
     quote = next((line for line in raw.splitlines() if line.strip()), "Evidence submitted for analyst review")
-    return VerificationVerdict(verdict="PASS", confidence="MEDIUM", summary="Evidence was accepted for human review.", grounded_quotations=[quote[:500]], extracted_assets=assets)
+    return VerificationVerdict(
+        verdict="AMBIGUOUS",
+        confidence="LOW",
+        summary="AI verification unavailable; evidence saved; manual review recommended.",
+        grounded_quotations=[quote[:500]],
+        extracted_assets=assets,
+    )
 
 
 def _cohere_failure_verdict(sanitized: str) -> VerificationVerdict:

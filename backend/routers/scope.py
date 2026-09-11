@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from backend.database import get_db
 from backend.models.schema import Scope, ScopeAmendment
-from backend.schemas.api_schemas import ScopeUpdate
+from backend.schemas.api_schemas import ScopeAmend, ScopeUpdate
 from backend.services.scope_validator import is_valid_target
 from backend.services.audit_service import record_event
 
@@ -40,13 +40,13 @@ def lock_scope(project_id: str, db: Session = Depends(get_db)):
     return {"status":"locked", "locked_at":scope.locked_at}
 
 @router.post("/amend")
-def amend_scope(project_id: str, payload: dict, db: Session = Depends(get_db)):
+def amend_scope(project_id: str, payload: ScopeAmend, db: Session = Depends(get_db)):
     scope = get_scope_or_404(project_id, db)
     if not scope.is_locked:
         raise HTTPException(400, "Scope must be locked before it can be amended")
-    targets = [str(target).strip() for target in payload.get("additional_targets", []) if str(target).strip()]
-    authorized_by = str(payload.get("authorized_by", "")).strip()
-    rationale = str(payload.get("rationale", "")).strip()
+    targets = [str(target).strip() for target in payload.additional_targets if str(target).strip()]
+    authorized_by = payload.authorized_by.strip()
+    rationale = payload.rationale.strip()
     if not targets or any(not is_valid_target(target) for target in targets):
         raise HTTPException(422, "Every additional target must be a valid domain or IP")
     if not authorized_by:

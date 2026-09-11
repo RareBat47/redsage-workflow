@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "docs/internal/**": true,
+      "devtools/**": true,
+      "data/projects/**": true,
+      "data/redsage.db": true
+    }
+  }
+}

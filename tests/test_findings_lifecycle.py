@@ -125,6 +125,50 @@ def test_report_includes_only_confirmed_findings_and_drafts_do_not_block():
     assert not any("Draft only exposure" in issue["message"] for issue in readiness["issues"])
 
 
+def test_confirm_rejects_evidence_id_rebind():
+    project_id, evidence_id = _locked_project_with_evidence("Confirm Rebind Guard")
+    second_task = client.get(f"/api/v1/projects/{project_id}/tasks").json()[0]["tasks"][1]
+    second = client.post(
+        f"/api/v1/projects/{project_id}/tasks/{second_task['id']}/verify",
+        json={"raw_content": "second evidence blob"},
+    )
+    assert second.status_code == 200
+    other_evidence_id = second.json()["evidence_id"]
+    assert other_evidence_id != evidence_id
+
+    draft = client.post(
+        f"/api/v1/projects/{project_id}/findings",
+        json={
+            "title": "Linked draft",
+            "severity": "HIGH",
+            "description": "d",
+            "reproduction_steps": "r",
+            "evidence_id": evidence_id,
+        },
+    ).json()
+
+    rebound = client.post(
+        f"/api/v1/projects/{project_id}/findings/{draft['finding_id']}/confirm",
+        json={
+            "evidence_id": other_evidence_id,
+            "description": "Publicly accessible backup archive on the target.",
+            "reproduction_steps": "Navigate to the URL identified in the linked evidence.",
+        },
+    )
+    assert rebound.status_code == 409
+    assert "evidence_id" in rebound.json()["detail"].lower()
+
+    confirm_ok = client.post(
+        f"/api/v1/projects/{project_id}/findings/{draft['finding_id']}/confirm",
+        json={
+            "evidence_id": evidence_id,
+            "description": "Publicly accessible backup archive on the target.",
+            "reproduction_steps": "Navigate to the URL identified in the linked evidence.",
+        },
+    )
+    assert confirm_ok.status_code == 200
+
+
 def test_confirmed_missing_evidence_still_critical():
     import uuid
 

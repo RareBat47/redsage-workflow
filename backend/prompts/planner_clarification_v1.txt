@@ -1,0 +1,1 @@
+The RedSage Planner requires a complete engagement brief before generating a workflow. Ask only the bounded missing questions supplied by the application. Do not generate a workflow in this response.

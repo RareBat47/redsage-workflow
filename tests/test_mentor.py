@@ -129,3 +129,64 @@ def test_mentor_rejects_out_of_scope_target():
     response = _mentor(project_id, task, {"mode": "teach", "user_message": "Explain", "target_host": "evil.example.com"})
     assert response.status_code == 422
     assert "whitelist" in response.json()["detail"].lower()
+
+
+def test_mentor_history_persists_task_turns_across_requests(monkeypatch):
+    monkeypatch.delenv("CO_API_KEY", raising=False)
+    monkeypatch.delenv("COHERE_API_KEY", raising=False)
+    project_id, task = _project_with_task_and_evidence("Mentor History")
+    response = _mentor(project_id, task, {"mode": "teach", "user_message": "Explain the checkpoint"})
+    assert response.status_code == 200
+
+    history = client.get(f"/api/v1/projects/{project_id}/tasks/{task['id']}/mentor/history")
+    assert history.status_code == 200
+    rows = history.json()
+    assert [row["role"] for row in rows] == ["user", "assistant"]
+    assert rows[0]["content"] == "Explain the checkpoint"
+    assert rows[1]["ai_available"] is False
+
+
+def test_step_mentor_context_and_history_are_step_scoped(monkeypatch):
+    monkeypatch.delenv("CO_API_KEY", raising=False)
+    monkeypatch.delenv("COHERE_API_KEY", raising=False)
+    project = client.post("/api/v1/projects", json={"name": "Step Mentor Context"}).json()
+    project_id = project["id"]
+    task = client.get(f"/api/v1/projects/{project_id}/tasks").json()[0]["tasks"][0]
+    step = client.post(
+        f"/api/v1/projects/{project_id}/tasks/{task['id']}/steps",
+        json={
+            "title": "Step context checkpoint",
+            "objective": "Check the step objective",
+            "why_it_matters": "Keep guidance tied to the checkpoint.",
+            "completion_criteria": "A bounded evidence record exists.",
+            "expected_evidence_type": "TERMINAL_LOG",
+        },
+    ).json()
+
+    response = _mentor(project_id, task, {
+        "mode": "guide",
+        "user_message": "How should I approach this checkpoint?",
+        "step_id": step["id"],
+    })
+    assert response.status_code == 200
+
+    from backend.database import SessionLocal
+    from backend.models.schema import Task
+    from backend.services.mentor_service import build_context_pack
+
+    db = SessionLocal()
+    db_task = db.query(Task).filter(Task.id == task["id"]).first()
+    step_context = build_context_pack(project_id, db_task, db, step_id=step["id"])
+    task_context = build_context_pack(project_id, db_task, db)
+    db.close()
+    assert step_context["step"]["completion_criteria"] == "A bounded evidence record exists."
+    assert "step" not in task_context
+
+    history = client.get(
+        f"/api/v1/projects/{project_id}/tasks/{task['id']}/mentor/history",
+        params={"step_id": step["id"]},
+    )
+    assert history.status_code == 200
+    assert len(history.json()) == 2
+    task_history = client.get(f"/api/v1/projects/{project_id}/tasks/{task['id']}/mentor/history")
+    assert task_history.json() == []

@@ -66,6 +66,10 @@ def confirm_finding(project_id: str, finding_id: str, payload: FindingConfirm, d
         value = getattr(payload, field)
         if value is not None:
             setattr(finding, field, value)
+    # Drafts may attach evidence at confirm time; do not silently rebind an
+    # already-linked evidence_id (amend the draft first if a change is intended).
+    if finding.evidence_id and finding.evidence_id != payload.evidence_id:
+        raise HTTPException(409, "evidence_id does not match the draft finding link; update the draft before confirming")
     finding.evidence_id = payload.evidence_id
     evidence = db.query(Evidence).filter(Evidence.id == finding.evidence_id, Evidence.project_id == project_id).first()
     if not evidence:

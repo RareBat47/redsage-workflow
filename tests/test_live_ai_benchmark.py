@@ -858,7 +858,7 @@ def test_finalize_benchmark_report_and_progress():
     add("")
     report = "\n".join(lines)
 
-    report_path = ROOT / "AI_BENCHMARK_REPORT.md"
+    report_path = ROOT / "docs" / "internal" / "AI_BENCHMARK_REPORT.md"
     report_path.write_text(report, encoding="utf-8")
     _update_progress(
         classification_passed,
@@ -885,7 +885,7 @@ def _update_progress(
     injection_ok: bool,
     redaction_ok: bool,
 ) -> None:
-    progress_path = ROOT / "PROGRESS.md"
+    progress_path = ROOT / "docs" / "internal" / "PROGRESS.md"
     text = progress_path.read_text(encoding="utf-8") if progress_path.exists() else ""
 
     heading = "## Live AI Benchmark Results (command-r-08-2024)"

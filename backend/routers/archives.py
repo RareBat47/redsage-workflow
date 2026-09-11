@@ -15,7 +15,7 @@ from sqlalchemy.orm import Session
 from backend.database import get_db
 from backend.models.schema import (
     Asset, AuditEvent, Evidence, Finding, Phase, Project, Scope,
-    ScopeAmendment, Task, WorkflowProposal,
+    ScopeAmendment, Task, TaskStep, MentorMessage, WorkflowProposal,
 )
 from backend.services.archive_service import (
     ARCHIVE_FORMAT_VERSION, artifact_member_path, checksum, json_bytes,
@@ -23,6 +23,7 @@ from backend.services.archive_service import (
 )
 from backend.services.artifact_manager import ensure_project_artifacts_dir, safe_join
 from backend.services.report_builder import build_markdown_report
+from backend.services.report_data import load_report_context
 
 router = APIRouter(prefix="/api/v1/projects", tags=["Project Archives"])
 
@@ -48,24 +49,28 @@ def project_data(project_id: str, db: Session):
     findings = db.query(Finding).filter(Finding.project_id == project_id).all()
     proposals = db.query(WorkflowProposal).filter(WorkflowProposal.project_id == project_id).all()
     audit_events = db.query(AuditEvent).filter(AuditEvent.project_id == project_id).all()
-    return project, scope, amendments, phases, tasks, assets, evidence, findings, proposals, audit_events
+    steps = db.query(TaskStep).join(Task, TaskStep.task_id == Task.id).filter(Task.project_id == project_id).all()
+    mentor_messages = db.query(MentorMessage).filter(MentorMessage.project_id == project_id).all()
+    return project, scope, amendments, phases, tasks, steps, assets, evidence, findings, proposals, audit_events, mentor_messages
 
 
 @router.get("/{project_id}/export")
 def export_project(project_id: str, db: Session = Depends(get_db)):
-    project, scope, amendments, phases, tasks, assets, evidence, findings, proposals, audit_events = project_data(project_id, db)
+    project, scope, amendments, phases, tasks, steps, assets, evidence, findings, proposals, audit_events, mentor_messages = project_data(project_id, db)
     members: dict[str, bytes] = {}
     data = {
-        "projects": [row(project, ["id", "name", "description", "target_type", "status", "created_at"])],
+        "projects": [row(project, ["id", "name", "description", "brief", "target_type", "status", "created_at"])],
         "scopes": [row(scope, ["id", "project_id", "in_scope_whitelist", "out_of_scope_blacklist", "max_rate_limit", "is_locked", "locked_at"])] if scope else [],
         "scope_amendments": [row(item, ["id", "project_id", "added_targets", "authorized_by", "rationale", "created_at"]) for item in amendments],
-        "phases": [row(item, ["id", "project_id", "name", "order_index"]) for item in phases],
-        "tasks": [row(item, ["id", "phase_id", "project_id", "title", "objective", "command_template", "status", "priority", "order_index", "is_ai_proposed", "justification"]) for item in tasks],
+        "phases": [row(item, ["id", "project_id", "name", "order_index", "is_archived", "archived_at", "archived_by"]) for item in phases],
+        "tasks": [row(item, ["id", "phase_id", "project_id", "title", "objective", "command_template", "status", "priority", "order_index", "is_ai_proposed", "justification", "is_archived", "archived_at", "archived_by"]) for item in tasks],
+        "task_steps": [row(item, ["id", "task_id", "title", "objective", "why_it_matters", "completion_criteria", "expected_evidence_type", "status", "order_index", "is_ai_proposed", "is_archived", "archived_at", "archived_by", "justification"]) for item in steps],
         "workflow_proposals": [row(item, ["id", "project_id", "phase_name", "title", "objective", "priority", "target_asset", "action_type", "status", "created_task_id", "created_at"]) for item in proposals],
         "assets": [row(item, ["id", "project_id", "type", "value", "source_task_id"]) for item in assets],
-        "evidence": [row(item, ["id", "project_id", "task_id", "evidence_type", "file_path", "file_size_bytes", "sha256_hash", "redacted_excerpt", "created_at"]) for item in evidence],
+        "evidence": [row(item, ["id", "project_id", "task_id", "step_id", "evidence_type", "file_path", "file_size_bytes", "sha256_hash", "redacted_excerpt", "created_at"]) for item in evidence],
         "findings": [row(item, ["id", "project_id", "title", "severity", "status", "affected_asset", "description", "reproduction_steps", "remediation", "evidence_id"]) for item in findings],
         "audit_events": [row(item, ["id", "project_id", "event_type", "entity_type", "entity_id", "details", "created_at"]) for item in audit_events],
+        "mentor_messages": [row(item, ["id", "project_id", "task_id", "step_id", "mode", "role", "content", "ai_available", "created_at"]) for item in mentor_messages],
     }
     data_bytes = json_bytes(data)
     members["db/project_data.json"] = data_bytes
@@ -79,7 +84,13 @@ def export_project(project_id: str, db: Session = Depends(get_db)):
             members[member] = item.raw_content.encode("utf-8")
         else:
             raise HTTPException(409, f"Evidence artifact is missing: {item.id}")
-    report = build_markdown_report(project, scope, tasks, findings, assets, evidence, amendments)
+    # Prefer the shared loader so archive report.md matches /report preview.
+    context = load_report_context(db, project_id)
+    if context:
+        _project, _scope, report_tasks, report_findings, report_assets, report_evidence, report_amendments = context
+        report = build_markdown_report(_project, _scope, report_tasks, report_findings, report_assets, report_evidence, report_amendments)
+    else:
+        report = build_markdown_report(project, scope, [item for item in tasks if not item.is_archived], findings, assets, evidence, amendments)
     members["reports/report.md"] = report.encode("utf-8")
     manifest = {
         "format_version": ARCHIVE_FORMAT_VERSION,
@@ -152,7 +163,7 @@ async def import_project(file: UploadFile = File(...), db: Session = Depends(get
                 raise ValueError(f"Checksum mismatch for archive member: {path}")
         source_project = data["projects"][0]
         new_project_id = str(uuid.uuid4())
-        id_maps = {"project": {source_project["id"]: new_project_id}, "scope": {}, "amendment": {}, "phase": {}, "task": {}, "asset": {}, "evidence": {}, "finding": {}, "proposal": {}, "audit": {}}
+        id_maps = {"project": {source_project["id"]: new_project_id}, "scope": {}, "amendment": {}, "phase": {}, "task": {}, "step": {}, "asset": {}, "evidence": {}, "finding": {}, "proposal": {}, "audit": {}, "mentor": {}}
         project_dir = ensure_project_artifacts_dir(new_project_id)
         artifact_paths = {}
         try:
@@ -169,30 +180,36 @@ async def import_project(file: UploadFile = File(...), db: Session = Depends(get
             id_maps["amendment"] = {item["id"]: str(uuid.uuid4()) for item in require_dict(data, "scope_amendments")}
             id_maps["phase"] = {item["id"]: str(uuid.uuid4()) for item in require_dict(data, "phases")}
             id_maps["task"] = {item["id"]: str(uuid.uuid4()) for item in require_dict(data, "tasks")}
+            id_maps["step"] = {item["id"]: str(uuid.uuid4()) for item in require_dict(data, "task_steps")}
             id_maps["asset"] = {item["id"]: str(uuid.uuid4()) for item in require_dict(data, "assets")}
             id_maps["finding"] = {item["id"]: str(uuid.uuid4()) for item in require_dict(data, "findings")}
             id_maps["proposal"] = {item["id"]: str(uuid.uuid4()) for item in require_dict(data, "workflow_proposals")}
             id_maps["audit"] = {item["id"]: str(uuid.uuid4()) for item in require_dict(data, "audit_events")}
-            project = Project(id=new_project_id, name=source_project["name"], description=source_project.get("description"), target_type=source_project.get("target_type", "web_app"), status=source_project.get("status", "IN_PROGRESS"), created_at=parse_datetime(source_project.get("created_at")))
+            id_maps["mentor"] = {item["id"]: str(uuid.uuid4()) for item in require_dict(data, "mentor_messages")}
+            project = Project(id=new_project_id, name=source_project["name"], description=source_project.get("description"), brief=source_project.get("brief"), target_type=source_project.get("target_type", "web_app"), status=source_project.get("status", "IN_PROGRESS"), created_at=parse_datetime(source_project.get("created_at")))
             db.add(project)
             for item in require_dict(data, "scopes"):
                 db.add(Scope(id=id_maps["scope"][item["id"]], project_id=new_project_id, in_scope_whitelist=item["in_scope_whitelist"], out_of_scope_blacklist=item["out_of_scope_blacklist"], max_rate_limit=item.get("max_rate_limit", 10), is_locked=item.get("is_locked", False), locked_at=parse_datetime(item.get("locked_at"))))
             for item in require_dict(data, "scope_amendments"):
                 db.add(ScopeAmendment(id=id_maps["amendment"][item["id"]], project_id=new_project_id, added_targets=item["added_targets"], authorized_by=item["authorized_by"], rationale=item["rationale"], created_at=parse_datetime(item.get("created_at"))))
             for item in require_dict(data, "phases"):
-                db.add(Phase(id=id_maps["phase"][item["id"]], project_id=new_project_id, name=item["name"], order_index=item["order_index"]))
+                db.add(Phase(id=id_maps["phase"][item["id"]], project_id=new_project_id, name=item["name"], order_index=item["order_index"], is_archived=item.get("is_archived", False), archived_at=parse_datetime(item.get("archived_at")), archived_by=item.get("archived_by")))
             for item in require_dict(data, "tasks"):
-                db.add(Task(id=id_maps["task"][item["id"]], phase_id=id_maps["phase"][item["phase_id"]], project_id=new_project_id, title=item["title"], objective=item["objective"], command_template=item.get("command_template"), status=item.get("status", "NOT_STARTED"), priority=item.get("priority", "MEDIUM"), order_index=item["order_index"], is_ai_proposed=item.get("is_ai_proposed", False), justification=item.get("justification")))
+                db.add(Task(id=id_maps["task"][item["id"]], phase_id=id_maps["phase"][item["phase_id"]], project_id=new_project_id, title=item["title"], objective=item["objective"], command_template=item.get("command_template"), status=item.get("status", "NOT_STARTED"), priority=item.get("priority", "MEDIUM"), order_index=item["order_index"], is_ai_proposed=item.get("is_ai_proposed", False), justification=item.get("justification"), is_archived=item.get("is_archived", False), archived_at=parse_datetime(item.get("archived_at")), archived_by=item.get("archived_by")))
+            for item in require_dict(data, "task_steps"):
+                db.add(TaskStep(id=id_maps["step"][item["id"]], task_id=id_maps["task"][item["task_id"]], title=item["title"], objective=item.get("objective", ""), why_it_matters=item.get("why_it_matters", ""), completion_criteria=item.get("completion_criteria", ""), expected_evidence_type=item.get("expected_evidence_type", "TERMINAL_LOG"), status=item.get("status", "NOT_STARTED"), order_index=item.get("order_index", 1), is_ai_proposed=item.get("is_ai_proposed", False), is_archived=item.get("is_archived", False), archived_at=parse_datetime(item.get("archived_at")), archived_by=item.get("archived_by"), justification=item.get("justification")))
             for old_id, file_path in artifact_paths.items():
                 item = next(item for item in data["evidence"] if item["id"] == old_id)
                 content = (Path(__file__).resolve().parents[2] / file_path).read_bytes()
-                db.add(Evidence(id=id_maps["evidence"][old_id], project_id=new_project_id, task_id=id_maps["task"][item["task_id"]], evidence_type=item.get("evidence_type", "TERMINAL_LOG"), file_path=file_path, file_size_bytes=len(content), sha256_hash=checksum(content), redacted_excerpt=item.get("redacted_excerpt", ""), created_at=parse_datetime(item.get("created_at"))))
+                db.add(Evidence(id=id_maps["evidence"][old_id], project_id=new_project_id, task_id=id_maps["task"][item["task_id"]], step_id=id_maps["step"].get(item.get("step_id")), evidence_type=item.get("evidence_type", "TERMINAL_LOG"), file_path=file_path, file_size_bytes=len(content), sha256_hash=checksum(content), redacted_excerpt=item.get("redacted_excerpt", ""), created_at=parse_datetime(item.get("created_at"))))
             for item in require_dict(data, "assets"):
                 db.add(Asset(id=id_maps["asset"][item["id"]], project_id=new_project_id, type=item["type"], value=item["value"], source_task_id=id_maps["task"].get(item.get("source_task_id"))))
             for item in require_dict(data, "findings"):
                 db.add(Finding(id=id_maps["finding"][item["id"]], project_id=new_project_id, title=item["title"], severity=item["severity"], status=item.get("status", "DRAFT"), affected_asset=item.get("affected_asset"), description=item["description"], reproduction_steps=item["reproduction_steps"], remediation=item.get("remediation"), evidence_id=id_maps["evidence"].get(item.get("evidence_id"))))
             for item in require_dict(data, "workflow_proposals"):
                 db.add(WorkflowProposal(id=id_maps["proposal"][item["id"]], project_id=new_project_id, phase_name=item["phase_name"], title=item["title"], objective=item["objective"], priority=item.get("priority", "MEDIUM"), target_asset=item["target_asset"], action_type=item["action_type"], status=item.get("status", "PENDING"), created_task_id=id_maps["task"].get(item.get("created_task_id")), created_at=parse_datetime(item.get("created_at"))))
+            for item in require_dict(data, "mentor_messages"):
+                db.add(MentorMessage(id=id_maps["mentor"][item["id"]], project_id=new_project_id, task_id=id_maps["task"].get(item.get("task_id")), step_id=id_maps["step"].get(item.get("step_id")), mode=item.get("mode", "teach"), role=item.get("role", "assistant"), content=item.get("content", ""), ai_available=item.get("ai_available"), created_at=parse_datetime(item.get("created_at"))))
             for item in require_dict(data, "audit_events"):
                 details = json.loads(item.get("details", "{}")) if isinstance(item.get("details", "{}"), str) else item.get("details", {})
                 for key, mapping in (("task_id", "task"), ("evidence_id", "evidence"), ("proposal_id", "proposal")):

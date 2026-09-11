@@ -13,6 +13,11 @@ ARTIFACTS_ROOT = PROJECT_ROOT / "data" / "projects"
 MAX_ARTIFACT_BYTES = 10 * 1024 * 1024
 
 
+def artifact_too_large_error() -> ValueError:
+    megabytes = MAX_ARTIFACT_BYTES // (1024 * 1024)
+    return ValueError(f"Artifact exceeds the {megabytes} MB size limit")
+
+
 def ensure_project_artifacts_dir(project_id: str) -> Path:
     if not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", project_id):
         raise ValueError("Invalid project identifier")
@@ -37,7 +42,7 @@ def save_artifact(project_id: str, evidence_id: str, raw_text: str) -> tuple[str
         raise TypeError("Artifact content must be plain text")
     raw_bytes = raw_text.encode("utf-8")
     if len(raw_bytes) > MAX_ARTIFACT_BYTES:
-        raise ValueError("Artifact exceeds the 10 MB size limit")
+        raise artifact_too_large_error()
     filename = f"{evidence_id}_{int(time.time())}.txt"
     directory = ensure_project_artifacts_dir(project_id)
     target = safe_join(directory, filename)
@@ -77,5 +82,5 @@ def read_artifact(project_id: str, filename: str) -> str:
     if not target.is_file():
         raise FileNotFoundError("Artifact not found")
     if target.stat().st_size > MAX_ARTIFACT_BYTES:
-        raise ValueError("Artifact exceeds the 5 MB size limit")
+        raise artifact_too_large_error()
     return target.read_text(encoding="utf-8")

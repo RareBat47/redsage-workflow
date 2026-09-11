@@ -16,8 +16,16 @@ def change_proposal(project_id, proposal_id, status, db):
     proposal = db.query(WorkflowProposal).filter(WorkflowProposal.id == proposal_id, WorkflowProposal.project_id == project_id).first()
     if not proposal: raise HTTPException(404, "Proposal not found")
     if status == "APPROVED":
-        phase = db.query(Phase).filter(Phase.project_id == project_id, Phase.name.like("%Phase 4%")).first()
-        if not phase: raise HTTPException(400, "No Phase 4 is available for proposed tasks")
+        phase = db.query(Phase).filter(
+            Phase.project_id == project_id,
+            Phase.name == proposal.phase_name,
+            Phase.is_archived.is_(False),
+        ).first()
+        if not phase:
+            raise HTTPException(
+                400,
+                f"No target phase is available for proposed tasks: no active phase named '{proposal.phase_name}' in this project",
+            )
         count = db.query(Task).filter(Task.phase_id == phase.id).count()
         task = Task(id=str(uuid.uuid4()), phase_id=phase.id, project_id=project_id, title=proposal.title, objective=proposal.objective, command_template="curl -i https://{target_host}/" + proposal.target_asset.lstrip("/"), priority=proposal.priority, order_index=count + 1, is_ai_proposed=True)
         db.add(task); db.flush(); proposal.status = status; proposal.created_task_id = task.id

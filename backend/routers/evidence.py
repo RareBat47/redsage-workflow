@@ -7,11 +7,13 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from backend.database import get_db
-from backend.models.schema import Asset, Evidence, Scope, Task, WorkflowProposal
+from backend.models.schema import Asset, Evidence, Scope, Task, TaskStep, WorkflowProposal
 from backend.schemas.api_schemas import EvidenceSubmit
 from backend.services.artifact_manager import read_artifact, save_artifact
 from backend.services.cohere_service import create_safe_excerpt, verify_task_evidence
 from backend.services.audit_service import record_event
+from backend.services.task_state import active_steps, rollup_task_from_steps
+from backend.services.asset_proposal_service import DEFAULT_PHASE, suggest_safe_tasks, workflow_context
 
 router = APIRouter(tags=["Evidence"])
 
@@ -32,6 +34,8 @@ def evidence_metadata(evidence: Evidence) -> dict:
         "evidence_id": evidence.id,
         "task_id": evidence.task_id,
         "task_title": evidence.task.title if evidence.task else None,
+        "step_id": evidence.step_id,
+        "step_title": evidence.step.title if evidence.step else None,
         "created_at": evidence.created_at,
         "file_path": evidence.file_path,
         "file_size_bytes": evidence.file_size_bytes,
@@ -40,27 +44,20 @@ def evidence_metadata(evidence: Evidence) -> dict:
     }
 
 
-@router.post("/api/v1/projects/{project_id}/tasks/{task_id}/verify")
-def verify_evidence(
+def verify_and_persist_evidence(
     project_id: str,
-    task_id: str,
-    payload: EvidenceSubmit,
-    db: Session = Depends(get_db),
-):
-    scope = db.query(Scope).filter(Scope.project_id == project_id).first()
-    task = db.query(Task).filter(Task.id == task_id, Task.project_id == project_id).first()
-    if not scope or not scope.is_locked:
-        raise HTTPException(400, "Cannot verify evidence while scope is unlocked")
-    if not task:
-        raise HTTPException(404, "Task not found")
-
-    raw = payload.raw_content.strip()
+    task: Task,
+    raw: str,
+    db: Session,
+    step: TaskStep | None = None,
+) -> dict:
     evidence_id = next_evidence_id(project_id, db)
     relative_path, size, digest, _filename = save_artifact(project_id, evidence_id, raw)
     evidence = Evidence(
         id=evidence_id,
         project_id=project_id,
         task_id=task.id,
+        step_id=step.id if step else None,
         evidence_type="TERMINAL_LOG",
         file_path=relative_path,
         file_size_bytes=size,
@@ -69,12 +66,13 @@ def verify_evidence(
     )
     db.add(evidence)
 
-    verdict = verify_task_evidence(task.title, task.objective, raw)
+    subject = step or task
+    verdict = verify_task_evidence(subject.title, subject.objective, raw)
     if verdict.verdict == "PASS":
-        task.status = "COMPLETED"
+        subject.status = "COMPLETED"
     elif verdict.verdict == "CONFIRMED_NEGATIVE":
-        task.status = "CONFIRMED_NEGATIVE"
-        task.justification = verdict.summary
+        subject.status = "CONFIRMED_NEGATIVE"
+        subject.justification = verdict.summary
 
     for asset in verdict.extracted_assets:
         if not db.query(Asset).filter(
@@ -95,19 +93,25 @@ def verify_evidence(
                 WorkflowProposal.target_asset == asset.value,
             ).first()
             if not duplicate:
+                refined = suggest_safe_tasks(asset.type, asset.value, workflow_context(db, project_id))[:1]
+                proposal = refined[0] if refined else None
                 db.add(WorkflowProposal(
                     id=str(uuid.uuid4()),
                     project_id=project_id,
-                    phase_name="Phase 4: Vulnerability Analysis",
+                    phase_name=proposal.phase_name if proposal else DEFAULT_PHASE,
                     title=f"Investigate Exposed Asset: {asset.value}",
-                    objective=f"Evaluate whether exposed asset {asset.value} leaks sensitive information or permits unauthorized access.",
+                    objective=proposal.objective if proposal else f"Evaluate whether exposed asset {asset.value} leaks sensitive information or permits unauthorized access.",
                     priority="HIGH",
                     target_asset=asset.value,
                     action_type="INVESTIGATION",
                 ))
-    record_event(db, project_id, "EVIDENCE_VERIFIED", "evidence", evidence.id, {"task_id": task.id, "verdict": verdict.verdict})
-    db.commit()
-    return {
+
+    rollup_task_from_steps(task, project_id, db)
+    details = {"task_id": task.id, "verdict": verdict.verdict}
+    if step:
+        details["step_id"] = step.id
+    record_event(db, project_id, "EVIDENCE_VERIFIED", "evidence", evidence.id, details)
+    response = {
         "verdict": verdict.verdict,
         "confidence": verdict.confidence,
         "summary": verdict.summary,
@@ -116,6 +120,30 @@ def verify_evidence(
         "evidence_id": evidence.id,
         "task_status": task.status,
     }
+    if step:
+        response["step_status"] = step.status
+    db.commit()
+    return response
+
+
+@router.post("/api/v1/projects/{project_id}/tasks/{task_id}/verify")
+def verify_evidence(
+    project_id: str,
+    task_id: str,
+    payload: EvidenceSubmit,
+    db: Session = Depends(get_db),
+):
+    scope = db.query(Scope).filter(Scope.project_id == project_id).first()
+    task = db.query(Task).filter(Task.id == task_id, Task.project_id == project_id).first()
+    if not scope or not scope.is_locked:
+        raise HTTPException(400, "Cannot verify evidence while scope is unlocked")
+    if not task:
+        raise HTTPException(404, "Task not found")
+    if active_steps(task, db):
+        raise HTTPException(409, "this task uses step-level verification")
+
+    raw = payload.raw_content.strip()
+    return verify_and_persist_evidence(project_id, task, raw, db)
 
 
 @router.get("/api/v1/projects/{project_id}/evidence")

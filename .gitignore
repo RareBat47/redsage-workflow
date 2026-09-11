@@ -15,6 +15,7 @@ venv/
 # Runtime data (created on first run; never commit)
 data/redsage.db
 data/verify_all.db
+data/test_sandbox.db
 data/projects/
 data/chroma/
 data/*.db
@@ -27,3 +28,4 @@ frontend/dist/
 .DS_Store
 Thumbs.db
 *.log
+*.tmp
