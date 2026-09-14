@@ -1,4 +1,5 @@
-# RedSage v2 v3 under development with proper care 🙌
+# RedSage v2.
+v3 under development with proper care 🙌
 
 Local-first, single-operator, **human-in-the-loop** penetration testing and
 audit workflow companion. The operator manually runs any tooling outside the
