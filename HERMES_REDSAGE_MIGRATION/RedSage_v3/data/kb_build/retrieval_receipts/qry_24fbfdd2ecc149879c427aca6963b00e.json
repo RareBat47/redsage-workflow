@@ -1,0 +1,79 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_24fbfdd2ecc149879c427aca6963b00e",
+  "created_at": "2026-09-13T18:38:47.664943+00:00",
+  "actor_type": "evaluation",
+  "project_id": null,
+  "query_hash": "e3bc88b55f1e7ecb93f33097b9d5396c2b9b4173017762f0936ff9f1125ecbe9",
+  "policy_version": "workflow-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow_redsage_stop_escalation_taxonomy_7064203f6966:0",
+    "workflow_redsage_scope_authorization_guidance_9960eb764ba4:0",
+    "workflow_ptes_text_by_page_790d0fa6f368:38",
+    "workflow_explanation_168ff67985ad:17",
+    "workflow_ptes_text_by_page_790d0fa6f368:264",
+    "workflow_baseline_methodology_f66a2e699db6:1",
+    "workflow_ptes_text_by_page_790d0fa6f368:20",
+    "workflow_explanation_168ff67985ad:5"
+  ],
+  "score_components": {
+    "workflow_redsage_stop_escalation_taxonomy_7064203f6966:0": {
+      "vector": 0.0,
+      "lexical": 0.8,
+      "trust": 0.25,
+      "policy": 1.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_redsage_scope_authorization_guidance_9960eb764ba4:0": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.25,
+      "policy": 1.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_ptes_text_by_page_790d0fa6f368:38": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.15000000000000002,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_explanation_168ff67985ad:17": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.15000000000000002,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_ptes_text_by_page_790d0fa6f368:264": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.15000000000000002,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_baseline_methodology_f66a2e699db6:1": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.15000000000000002,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_ptes_text_by_page_790d0fa6f368:20": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.15000000000000002,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_explanation_168ff67985ad:5": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.15000000000000002,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": []
+}

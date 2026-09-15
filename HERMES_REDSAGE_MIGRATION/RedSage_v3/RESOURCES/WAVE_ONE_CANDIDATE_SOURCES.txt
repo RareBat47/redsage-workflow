@@ -1,0 +1,388 @@
+REDSAGE v3 KB — WAVE ONE CANDIDATE SOURCE APPROVAL LIST
+========================================================
+
+Status: PROPOSED ONLY — DO NOT DOWNLOAD OR INGEST UNTIL OPERATOR APPROVES
+Purpose: Candidate sources for a workflow-roadmap KB that interprets an
+authorized web-application pentesting question or bug-bounty problem statement
+and produces clarification gates, ordered phases, hypotheses, tasks, evidence
+requirements, stop conditions, and citations.
+
+IMPORTANT LICENSING RULE
+------------------------
+GitHub availability does not prove that a book, document, repository, dataset,
+or write-up may be commercially redistributed or embedded in a paid hosted
+service. Before download/ingestion, record the exact license, repository commit
+or document revision, attribution obligations, ShareAlike/copyleft conditions,
+and any commercial-use restriction. A source without confirmed rights is
+REVIEW-ONLY until permission or a legally safe paraphrase decision exists.
+
+IMPORTANT SAFETY RULE
+---------------------
+We will digest methodology, reasoning, scope, evidence, validation, reporting,
+and remediation material. We will not ingest executable code, credentials,
+secrets, malware, destructive payloads, persistence content, or unauthorized
+attack automation. Tool documentation is deferred to Wave Two.
+
+========================================================
+A. PRIMARY METHODOLOGY BOOK — OPERATOR TO PROVIDE
+========================================================
+
+Candidate:
+- One book selected and uploaded by the operator, focused on bug hunting,
+  penetration-testing methodology, web assessment, or structured security
+  problem-solving.
+
+Preferred characteristics:
+- Legally obtained source file or official publisher/author release.
+- Clear commercial-use permission, or permission for internal/private use with
+  a separate decision for hosted subscription redistribution.
+- Strong coverage of engagement preparation, scope, reasoning, validation,
+  evidence, reporting, and remediation.
+
+Why digest it:
+- Core roadmap sequencing and problem-solving logic.
+- Chapter/section/page citations.
+- Initial phases, tasks, Steps, prerequisites, and completion criteria.
+
+Approval needed:
+- Exact title, edition, author, source, and usage rights.
+- This is the first resource to process; do not assume a pirated GitHub copy is
+  acceptable.
+
+========================================================
+B. OWASP OFFICIAL REPOSITORIES — APPROVE FOR WAVE ONE
+========================================================
+
+B1. OWASP/wstg
+Candidate resource:
+- OWASP Web Security Testing Guide repository.
+Digest:
+- Testing categories, objectives, prerequisites, expected observations,
+  evidence/reporting structure, and section citations.
+Use:
+- Map a web-app problem statement to recognized testing areas.
+- Build roadmap branches without treating category matches as proof.
+
+B2. OWASP/ASVS
+Candidate resource:
+- OWASP Application Security Verification Standard repository.
+Digest:
+- Verification requirements, control families, authentication/session/access
+  control expectations, and versioned requirement identifiers.
+Use:
+- Define what should be verified and what evidence supports a control claim.
+- Support defensible report references.
+
+B3. OWASP/Top10
+Candidate resource:
+- OWASP Top 10 repository, selected current release only.
+Digest:
+- High-level risk categories, definitions, and references.
+Use:
+- Initial problem classification and prioritization.
+- Not a standalone testing procedure and not proof of a finding.
+
+B4. OWASP/CheatSheetSeries
+Candidate resource:
+- OWASP Cheat Sheet Series repository, selected web-app sheets only.
+Initial selection:
+- Authentication, Authorization, Session Management, Input Validation,
+  Threat Modeling only if approved for Wave One, Error Handling, Logging,
+  Secure Headers, and Vulnerable Dependency Management.
+Digest:
+- Defensive control expectations, validation guidance, and remediation.
+Use:
+- Improve hypotheses, expected evidence, and remediation recommendations.
+
+B5. OWASP/API-Security
+Candidate resource:
+- OWASP API Security Top 10 repository.
+Status:
+- DEFERRED unless the operator expands Wave One from web apps to APIs.
+Reason:
+- Keep the first retrieval evaluation focused on web applications.
+
+========================================================
+C. WEAKNESS AND SEVERITY REFERENCES — APPROVE FOR WAVE ONE
+========================================================
+
+C1. MITRE/cwe
+Candidate resource:
+- Official CWE data and relevant web/application weakness entries.
+Digest:
+- Weakness IDs, definitions, relationships, mitigations, and references.
+Use:
+- Normalize observations and hypotheses.
+- Link findings to weakness classes without automatic confirmation.
+
+C2. FIRSTdotorg/cvss
+Candidate resource:
+- Official CVSS specification/calculator guidance, exact version only.
+Digest:
+- Severity vector meanings, impact/exploitability concepts, and scoring rules.
+Use:
+- Make severity reasoning consistent and explainable.
+- Never infer a score from a taxonomy match alone.
+
+C3. NVD data
+Candidate resource:
+- Only targeted NVD/CVE records relevant to selected web technologies, not the
+  entire feed for Wave One.
+Status:
+- CONDITIONAL APPROVAL.
+Use:
+- Technology-specific context, known affected versions, and references.
+Risk:
+- Staleness, scale, and irrelevant retrieval noise.
+
+========================================================
+D. AUTHORIZATION AND SCOPE REFERENCES — APPROVE AS A SMALL CURATED SET
+========================================================
+
+D1. Official bug-bounty platform scope/rules documentation
+Candidate sources:
+- HackerOne disclosure/scope guidance where license and reuse permit.
+- Bugcrowd program/scope guidance where license and reuse permit.
+- Other platform documentation only after rights review.
+Digest:
+- Scope interpretation, exclusions, safe-harbor language, disclosure
+  boundaries, and ambiguity handling.
+Use:
+- Force authorization and scope clarification before roadmap generation.
+- Trigger pause/ask-human behavior when scope is unclear.
+
+D2. Public rules-of-engagement templates
+Candidate sources:
+- Publicly licensed engagement/authorization templates.
+- Prefer official or clearly licensed sources.
+Digest:
+- Authorization fields, target boundaries, exclusions, rate limits,
+  communication/escalation expectations, and evidence custody.
+Use:
+- Generate pre-engagement clarification questions and scope gates.
+
+D3. SANS material
+Status:
+- CONDITIONAL / REVIEW-ONLY until exact commercial reuse rights are confirmed.
+Do not copy restricted course content.
+
+========================================================
+E. OFFICIAL WEB TECHNOLOGY DOCUMENTATION — SMALL SET ONLY
+========================================================
+
+E1. MDN Web Docs
+Candidate resource:
+- Selected official MDN pages for HTTP, cookies, storage, CORS, CSP,
+  same-origin policy, Fetch, and browser security behavior.
+Use:
+- Explain normal web behavior and interpret observations.
+
+E2. RFC Editor / IETF documents
+Candidate resource:
+- Selected HTTP, URI, cookie, TLS, and related standards relevant to the
+  first web-app target profile.
+Use:
+- Ground protocol expectations and avoid framework-specific assumptions.
+
+E3. Official framework/server documentation
+Candidate resource:
+- Documentation for technologies chosen after the first target profile is
+  defined, such as Django, Flask, FastAPI, Express, Rails, Spring, Nginx, or
+  Apache.
+Status:
+- CONDITIONAL — select only technologies relevant to actual evaluation cases.
+Use:
+- Technology-aware roadmap branches and remediation.
+
+E4. PortSwigger Web Security Academy
+Candidate resource:
+- Official educational pages and lab concepts where reuse rights permit.
+Status:
+- CONDITIONAL RIGHTS REVIEW.
+Use:
+- Web vulnerability explanations and safe educational reasoning patterns.
+Do not assume lab content may be copied into a commercial KB.
+
+========================================================
+F. CURATED GITHUB METHODOLOGY REPOSITORIES — DOCS ONLY
+========================================================
+
+F1. OWASP repositories listed above
+Status:
+- PRIMARY and preferred GitHub sources.
+
+F2. OWASP Application Security Verification Standard supporting material
+Status:
+- Include only documentation that is part of the official repository and has
+  compatible licensing/attribution.
+
+F3. Curated methodology/checklist repository candidates
+Candidate search criteria:
+- Maintained within the last reasonable period.
+- Clear permissive license.
+- Documentation/checklists rather than executable tooling.
+- No secrets or customer data.
+- No unrestricted exploit/payload focus.
+- Useful phase/task/evidence/report structure.
+Status:
+- DO NOT NAME OR DOWNLOAD UNTIL REPOSITORY REVIEW.
+Reason:
+- GitHub search results need ownership, license, maintenance, duplication, and
+  safety review before selection.
+
+F4. Awesome lists
+Candidate type:
+- A maintained, permissively licensed list may be used as a discovery index,
+  not as authoritative KB content.
+Use:
+- Find candidate sources for review.
+Do not:
+- Embed the entire list as security truth or follow links automatically.
+
+========================================================
+G. RESPONSIBLE WRITE-UPS — SMALL, REDACTED, RIGHTS-REVIEWED SET
+========================================================
+
+G1. Public platform-disclosed reports
+Candidate sources:
+- HackerOne, Bugcrowd, Intigriti, and vendor disclosure pages where reuse
+  rights and attribution permit.
+Digest:
+- Problem framing, root cause, evidence, impact, severity reasoning,
+  remediation, and report structure.
+
+G2. Vendor security advisories
+Candidate sources:
+- Official vendor advisories relevant to web applications.
+Digest:
+- Root cause, affected versions, impact, remediation, and disclosure quality.
+
+G3. Researcher write-ups
+Candidate sources:
+- Only authors/pages with clear permission or compatible terms.
+Digest:
+- Reasoning patterns and validation logic, not reusable target instructions.
+
+Processing rules for all write-ups:
+- Redact credentials, tokens, PII, target-identifying details, and unnecessary
+  payload material.
+- Label as example/write-up, never as normative methodology.
+- Preserve author, date, URL, license/permission, and attribution.
+
+========================================================
+H. LAB/CTF RESOURCES — SEPARATE COLLECTION, CONDITIONAL APPROVAL
+========================================================
+
+H1. Deliberately vulnerable lab write-ups
+Candidate sources:
+- Official training labs and clearly authorized educational write-ups.
+
+H2. CTF write-ups
+Candidate sources:
+- Small, rights-reviewed set with clear educational context.
+
+Mandatory metadata:
+- source_type=lab
+- environment_scope=lab_only
+- retrieval_default=downranked_or_excluded
+
+Use:
+- Teach clue-to-hypothesis-to-validation reasoning in controlled settings.
+
+Do not:
+- Blend with real engagement methodology.
+- Allow lab assumptions to authorize real target actions.
+- Ingest harmful operational material merely because it is in a CTF write-up.
+
+========================================================
+I. REDSAGE INTERNAL SOURCES — APPROVE FOR WAVE ONE
+========================================================
+
+I1. RedSage v2 verified implementation
+Sources:
+- Code, executed tests, OpenAPI contracts, and verified methodology JSON.
+Use:
+- Preserve scope, evidence, findings, audit, workflow, approval, reporting,
+  archive, and offline behavior during v3 migration.
+
+I2. RedSage v2 safety/domain documentation
+Sources:
+- START_HERE.md, EXPLANATION.md, docs/SECURITY.md, relevant API contracts,
+  and tests, with code/tests taking precedence.
+Use:
+- Prevent roadmap generation from violating RedSage's hard safety rules.
+
+I3. RedSage v3 product and KB policy
+Sources:
+- Approved v3 KB proposal, resource policy, contracts, and product decisions.
+Use:
+- Define source boundaries, citation requirements, human gates, and Hermes
+  integration limits.
+
+Do not ingest:
+- .env files, API keys, credentials, customer data, test clutter, or raw
+  development artifacts.
+
+========================================================
+J. DEFERRED WAVE TWO RESOURCES
+========================================================
+
+- Tool documentation.
+- Threat-modeling frameworks beyond any minimum already required for scope and
+  problem classification.
+- API-focused corpus.
+- Cloud, mobile, network, and IoT documentation.
+- OSSTMM until commercial redistribution rights are confirmed.
+- ISO/IEC content unless separately licensed; paraphrase-only may require a
+  separate legal/product decision.
+- Private examples and tenant-specific corpora.
+- Governance/legal material in the shared KB.
+- Full NVD/CVE feeds.
+
+========================================================
+RECOMMENDED APPROVAL SET
+========================================================
+
+Approve first:
+[ ] A — One operator-provided methodology book.
+[ ] B1 — OWASP WSTG.
+[ ] B2 — OWASP ASVS.
+[ ] B3 — OWASP Top 10.
+[ ] B4 — Selected OWASP Cheat Sheets.
+[ ] C1 — CWE web/application subset.
+[ ] C2 — Current CVSS guidance.
+[ ] D — Small authorization/scope reference set.
+[ ] E1 — Selected MDN web security/protocol pages.
+[ ] E2 — Selected RFC/IETF documents.
+[ ] E3 — Only documentation for the first chosen web technology profile.
+[ ] F — Only individually reviewed, permissively licensed GitHub documentation.
+[ ] G — Small redacted and rights-reviewed write-up set.
+[ ] H — Separate lab/CTF collection, down-weighted by default.
+[ ] I — Verified RedSage v2/v3 product and safety documentation.
+
+Do not approve yet:
+[ ] Unnamed GitHub methodology repositories before repository review.
+[ ] Books found on GitHub without verified rights.
+[ ] Large scraped datasets.
+[ ] Tool repositories or executable scripts.
+[ ] Private examples.
+[ ] OSSTMM/ISO material without rights confirmation.
+
+========================================================
+DOWNLOAD ORDER AFTER APPROVAL
+========================================================
+
+1. Operator-provided methodology book.
+2. RedSage verified product/safety/domain documents.
+3. OWASP WSTG, ASVS, Top 10, and selected Cheat Sheets.
+4. CWE and CVSS selected data.
+5. Authorization/scope references.
+6. Selected MDN/RFC and first web-technology documents.
+7. Individually approved GitHub documentation repositories.
+8. Responsible write-ups.
+9. Separate lab/CTF sources.
+
+Before every download, record URL, repository/document revision, license,
+commit/hash, attribution, content hash, source type, intended collection, and
+human approval. No Cohere embedding begins until extracted content is inspected
+and approved.

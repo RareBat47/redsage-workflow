@@ -1,0 +1,85 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_8b32c912ee3d41f1be2ea7876f0ff3d8",
+  "created_at": "2026-09-15T13:06:07.963129+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "3c06194fa8db14ece11f790c0cb8749b02c01c649ea2108d5ae361f101e1eb5d",
+  "policy_version": "assessment-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "document_21067c07085b1c53:1",
+    "document_d80a98fb0c7c99dc:2",
+    "document_b2c740b49575ecca:18",
+    "document_d80a98fb0c7c99dc:1",
+    "document_5117642b995f99c4:4",
+    "document_b21b04ae0e5d81e1:0",
+    "document_0b1cc87c437fca1c:8",
+    "document_b2c740b49575ecca:17"
+  ],
+  "score_components": {
+    "document_21067c07085b1c53:1": {
+      "vector": 0.0,
+      "lexical": 0.09090909090909091,
+      "trust": 0.25,
+      "policy": 1.0,
+      "lab_penalty": 0.0
+    },
+    "document_d80a98fb0c7c99dc:2": {
+      "vector": 0.0,
+      "lexical": 0.36363636363636365,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_b2c740b49575ecca:18": {
+      "vector": 0.0,
+      "lexical": 0.36363636363636365,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_d80a98fb0c7c99dc:1": {
+      "vector": 0.0,
+      "lexical": 0.36363636363636365,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_5117642b995f99c4:4": {
+      "vector": 0.0,
+      "lexical": 0.36363636363636365,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_b21b04ae0e5d81e1:0": {
+      "vector": 0.0,
+      "lexical": 0.36363636363636365,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_0b1cc87c437fca1c:8": {
+      "vector": 0.0,
+      "lexical": 0.36363636363636365,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_b2c740b49575ecca:17": {
+      "vector": 0.0,
+      "lexical": 0.2727272727272727,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [],
+  "query_classification": null,
+  "ranking_profile": null,
+  "environment_scope": null,
+  "candidate_count": null,
+  "filtered_count": null,
+  "filtered_reasons": {}
+}

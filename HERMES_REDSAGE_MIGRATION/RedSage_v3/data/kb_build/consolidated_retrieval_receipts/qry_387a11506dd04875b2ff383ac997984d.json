@@ -1,0 +1,85 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_387a11506dd04875b2ff383ac997984d",
+  "created_at": "2026-09-15T10:42:07.039480+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "b52cd73b3d4a72565a77ff1e760954734ec2b28f7289e2678d5d4b1247fbc98e",
+  "policy_version": "consolidated-v1",
+  "index_profile": "consolidated:cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "reporting:document_f9e8a3b0f3c854d9:0",
+    "workflow:workflow_authorization_cheat_sheet_7850a8f824ad:0",
+    "workflow:workflow_selected_cheatsheet_authorization_cheat__9296477a4da9:0",
+    "assessment:document_f9e8a3b0f3c854d9:0",
+    "assessment:document_2f531bc72955d4d0:0",
+    "reporting:document_2f531bc72955d4d0:0",
+    "authorization:document_f9e8a3b0f3c854d9:0",
+    "authorization:document_2f531bc72955d4d0:0"
+  ],
+  "score_components": {
+    "reporting:document_f9e8a3b0f3c854d9:0": {
+      "vector": 0.20813357830047607,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_authorization_cheat_sheet_7850a8f824ad:0": {
+      "vector": 0.20722860097885132,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_selected_cheatsheet_authorization_cheat__9296477a4da9:0": {
+      "vector": 0.20722860097885132,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_f9e8a3b0f3c854d9:0": {
+      "vector": 0.20722860097885132,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_2f531bc72955d4d0:0": {
+      "vector": 0.20722860097885132,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "reporting:document_2f531bc72955d4d0:0": {
+      "vector": 0.20722860097885132,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "authorization:document_f9e8a3b0f3c854d9:0": {
+      "vector": 0.20722860097885132,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "authorization:document_2f531bc72955d4d0:0": {
+      "vector": 0.20722860097885132,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [],
+  "query_classification": "authorization_scope",
+  "ranking_profile": "hybrid-v2",
+  "environment_scope": "authorized_engagement",
+  "candidate_count": 144,
+  "filtered_count": 0,
+  "filtered_reasons": {}
+}

@@ -1,0 +1,10 @@
+Path: C:\Users\arifi\AppData\Local\hermes\hermes-agent
+Is worktree: true
+HEAD: ad03f20dd61919ca2135d6904e787a94284aacaf
+Remotes:
+origin	https://github.com/NousResearch/hermes-agent.git (fetch)
+origin	https://github.com/NousResearch/hermes-agent.git (push)
+Status:
+M package-lock.json
+Branches:
+main

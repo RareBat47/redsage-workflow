@@ -1,0 +1,4 @@
+password='Sup3rS3cret!Value'
+Authorization: Bearer <REDACTED_MIGRATION>
+token=<REDACTED_JWT_MIGRATION>
+audit line /backup.zip

@@ -1,0 +1,89 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_c87869b435134d5c8ab353c5f2809bda",
+  "created_at": "2026-09-15T11:29:48.590749+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "3a5650a5541ff4e26d85d15b3c125d7c2126732f8c005056d6b8a721abc1f2fb",
+  "policy_version": "consolidated-v1",
+  "index_profile": "consolidated:cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow:workflow_10_weaker_authentication_in_alternative__cf852c3c6f63:1",
+    "assessment:document_b09f4565a4d8f4d1:1",
+    "identity:document_b09f4565a4d8f4d1:1",
+    "identity:document_b09f4565a4d8f4d1:0",
+    "identity:document_b09f4565a4d8f4d1:2",
+    "api:document_dc7662b13621ba5f:0",
+    "workflow:workflow_06_browser_cache_weaknesses_ea5d7ef8ba1f:3",
+    "workflow:workflow_01_dom_based_cross_site_scripting_b0b4202d33bc:2"
+  ],
+  "score_components": {
+    "workflow:workflow_10_weaker_authentication_in_alternative__cf852c3c6f63:1": {
+      "vector": 0.01852595806121826,
+      "lexical": 1.0,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_b09f4565a4d8f4d1:1": {
+      "vector": 0.01852595806121826,
+      "lexical": 1.0,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "identity:document_b09f4565a4d8f4d1:1": {
+      "vector": 0.01852595806121826,
+      "lexical": 1.0,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "identity:document_b09f4565a4d8f4d1:0": {
+      "vector": 0.0,
+      "lexical": 1.0,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "identity:document_b09f4565a4d8f4d1:2": {
+      "vector": 0.0,
+      "lexical": 1.0,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "api:document_dc7662b13621ba5f:0": {
+      "vector": 0.0,
+      "lexical": 1.0,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_06_browser_cache_weaknesses_ea5d7ef8ba1f:3": {
+      "vector": 0.0,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_01_dom_based_cross_site_scripting_b0b4202d33bc:2": {
+      "vector": 0.0,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [
+    "2 candidate(s) filtered by consolidated KB policy"
+  ],
+  "query_classification": "general_workflow",
+  "ranking_profile": "hybrid-v2",
+  "environment_scope": "authorized_engagement",
+  "candidate_count": 144,
+  "filtered_count": 2,
+  "filtered_reasons": {
+    "not_approved": 2
+  }
+}

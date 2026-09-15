@@ -1,0 +1,61 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_d3dc06f814fd41a090c31d3cb9ac8102",
+  "created_at": "2026-09-15T13:08:05.370282+00:00",
+  "actor_type": "diag",
+  "project_id": null,
+  "query_hash": "187073dc9f199e0560339607252f035318b39900d8e6e7c0adfb55da20992174",
+  "policy_version": "consolidated-v1",
+  "index_profile": "consolidated:cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow:workflow_02_api_broken_object_level_authorization_ca0992e576b8:2",
+    "assessment:document_3f53916c5ca7eb60:2",
+    "authorization:document_3f53916c5ca7eb60:2",
+    "api:document_3f53916c5ca7eb60:2",
+    "workflow:workflow_02_api_broken_object_level_authorization_ca0992e576b8:0"
+  ],
+  "score_components": {
+    "workflow:workflow_02_api_broken_object_level_authorization_ca0992e576b8:2": {
+      "vector": 0.22456419467926025,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_3f53916c5ca7eb60:2": {
+      "vector": 0.22456419467926025,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "authorization:document_3f53916c5ca7eb60:2": {
+      "vector": 0.22456419467926025,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "api:document_3f53916c5ca7eb60:2": {
+      "vector": 0.22456419467926025,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_02_api_broken_object_level_authorization_ca0992e576b8:0": {
+      "vector": 0.152584969997406,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [],
+  "query_classification": "authorization_scope",
+  "ranking_profile": "hybrid-v2",
+  "environment_scope": "authorized_engagement",
+  "candidate_count": 90,
+  "filtered_count": 0,
+  "filtered_reasons": {}
+}

@@ -1,0 +1,71 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_9fcb1c3025ac47229a0bd2cfd0ec70dc",
+  "created_at": "2026-09-13T18:25:51.124526+00:00",
+  "actor_type": "evaluation",
+  "project_id": null,
+  "query_hash": "df51d26d652fd7de8e617a2293ac68e6dbe1a0039967942088a04bdd4b6ac3bd",
+  "policy_version": "workflow-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow_04_attack_surface_identification_56d6029b3fd3:1",
+    "workflow_readme_7e8550af708a:0",
+    "workflow_00_information_gathering_overview_8bec1afe2f7c:0",
+    "workflow_ptes_text_by_page_790d0fa6f368:264",
+    "workflow_checklist_dd58209b14bb:1",
+    "workflow_readme_c275019d8086:0",
+    "workflow_asvs_readme_dac2eba7f801:0",
+    "workflow_ptes_text_by_page_790d0fa6f368:262"
+  ],
+  "score_components": {
+    "workflow_04_attack_surface_identification_56d6029b3fd3:1": {
+      "vector": 0.13876408338546753,
+      "lexical": 0.5,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_readme_7e8550af708a:0": {
+      "vector": 0.0,
+      "lexical": 0.625,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_00_information_gathering_overview_8bec1afe2f7c:0": {
+      "vector": 0.06170153617858887,
+      "lexical": 0.5,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_ptes_text_by_page_790d0fa6f368:264": {
+      "vector": 0.08341622352600098,
+      "lexical": 0.375,
+      "trust": 0.15000000000000002,
+      "lab_penalty": 0.0
+    },
+    "workflow_checklist_dd58209b14bb:1": {
+      "vector": 0.0,
+      "lexical": 0.375,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_readme_c275019d8086:0": {
+      "vector": 0.0,
+      "lexical": 0.375,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_asvs_readme_dac2eba7f801:0": {
+      "vector": 0.0,
+      "lexical": 0.375,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_ptes_text_by_page_790d0fa6f368:262": {
+      "vector": 0.009809792041778564,
+      "lexical": 0.375,
+      "trust": 0.15000000000000002,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": []
+}

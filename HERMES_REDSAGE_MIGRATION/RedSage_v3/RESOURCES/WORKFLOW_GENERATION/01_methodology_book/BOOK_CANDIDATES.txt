@@ -1,0 +1,112 @@
+REDSAGE v3 METHODOLOGY BOOK CANDIDATES
+======================================
+
+Status: candidate recommendations recorded; no book downloaded or ingested.
+
+Search result: copies exist in public GitHub book repositories, but they appear to be unauthorized mirrors of the copyrighted Wiley title; they are not approved sources for a commercial subscription KB and will not be downloaded.
+
+Safe acquisition: the operator should upload a legally obtained copy, or authorize a licensed publisher/library workflow that permits the intended use. Open-access alternatives must be verified independently rather than assumed from a GitHub mirror.
+
+The operator must provide a legally obtained source file or an official source
+with usage rights suitable for the intended deployment. GitHub availability does
+not establish permission to copy a copyrighted book into a hosted subscription
+KB.
+
+WEB APPLICATIONS AND APIs — RECOMMENDED TRACK
+---------------------------------------------
+
+1. Primary structural baseline:
+   The Web Application Hacker's Handbook, 2nd Edition
+   Authors: Dafydd Stuttard and Marcus Pinto
+   Intended use:
+   - Core web vulnerability taxonomy.
+   - Web assessment structure and methodology.
+   - Problem-to-hypothesis-to-validation reasoning.
+   - Evidence and reporting workflow.
+   Rights status:
+   - Copyrighted commercial book.
+   - Do not download from an unofficial GitHub copy.
+   - Operator must upload a legally obtained copy or provide explicit rights.
+   - Hosted subscription redistribution and embedding require a separate rights
+     decision; ingestion may need to create derived, non-verbatim workflow
+     abstractions rather than expose book text.
+
+2. Modern alternative candidate:
+   Bug Bounty Bootcamp
+   Author: Vickie Li
+   Intended use:
+   - Modern bug-bounty workflow patterns.
+   - Multi-step testing reasoning.
+   - Validation, impact, and report-writing examples.
+   Rights status:
+   - Copyrighted commercial book.
+   - Do not download from an unofficial GitHub copy.
+   - Operator must upload a legally obtained copy or provide explicit rights.
+
+3. Additional alternative candidate:
+   Real-World Bug Hunting
+   Author: Peter Yaworski
+   Intended use:
+   - Practical bug-discovery reasoning.
+   - Real-world case-study interpretation.
+   - Evidence, impact, and disclosure patterns.
+   Rights status:
+   - Copyrighted commercial book.
+   - Do not download from an unofficial GitHub copy.
+   - Operator must upload a legally obtained copy or provide explicit rights.
+
+NETWORK, ACTIVE DIRECTORY, AND RED TEAMING — DEFERRED TRACK
+------------------------------------------------------------
+
+4. The Hacker Playbook 3
+   Author: Peter Kim
+   Intended use:
+   - Network and red-team engagement workflow.
+   - Deferred until the web/API roadmap is validated.
+   Rights status:
+   - Copyrighted commercial book; no unofficial download.
+
+5. Red Team Development and Operational Security
+   Authors: Joe Vest and James Tubberville
+   Intended use:
+   - Red-team operational planning and security practices.
+   - Deferred until the relevant product track is approved.
+   Rights status:
+   - Copyrighted commercial book; no unofficial download.
+
+OPEN-ACCESS / FREELY LICENSED CANDIDATES
+-----------------------------------------
+
+6. Penetration Testing Execution Standard (PTES) Technical Guidelines
+   Intended use:
+   - Pre-engagement, intelligence gathering, threat modeling, vulnerability
+     analysis, reporting, and engagement lifecycle structure.
+   Rights status:
+   - Must verify the exact source, license, and commercial reuse conditions.
+   - A GitHub mirror or compiled PDF is not automatically authorized.
+   - Prefer official source or a verified permissive license.
+
+7. OSSTMM 3 / ISECOM material
+   Intended use:
+   - Structured security-testing methodology and operational measurement.
+   Rights status:
+   - Deferred pending commercial redistribution and derivative-use review.
+   - Do not download or ingest into the shared subscription KB yet.
+
+INITIAL RECOMMENDATION
+----------------------
+
+For a Web Applications and APIs first track:
+
+- Preferred: operator-provided, legally obtained Web Application Hacker's
+  Handbook, 2nd Edition, processed as a source with citations and carefully
+  controlled derived workflow abstractions.
+- Modern substitute: Bug Bounty Bootcamp or Real-World Bug Hunting if the
+  operator already has lawful access and prefers a more current bug-bounty focus.
+- Open-access complement: PTES Technical Guidelines only after rights are
+  verified.
+- Keep OSSTMM, network/red-team books, and API-specialist expansion deferred.
+
+The first book must be approved and uploaded before extraction. No Cohere calls
+should occur until the source file, rights decision, page structure, and
+processing scope are reviewed.

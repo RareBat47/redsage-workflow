@@ -1,0 +1,87 @@
+{
+  "suite": "internal_engagement_workflow_v1",
+  "execution_isolation": "fresh_subprocess_per_case",
+  "case_count": 6,
+  "passed_count": 6,
+  "all_passed": true,
+  "results": [
+    {
+      "id": "authorized_web",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "roadmap_receipt": true,
+        "clarifications": true,
+        "step_guidance": true,
+        "safety": true
+      },
+      "status": "READY_FOR_REVIEW",
+      "receipt_id": "qry_a51e9b602e4d4a3cb3f744b4bdc22821"
+    },
+    {
+      "id": "ambiguous_scope",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "roadmap_receipt": true,
+        "clarifications": true,
+        "step_guidance": true,
+        "safety": true
+      },
+      "status": "NEEDS_CLARIFICATION",
+      "receipt_id": null
+    },
+    {
+      "id": "authorized_api",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "roadmap_receipt": true,
+        "clarifications": true,
+        "step_guidance": true,
+        "safety": true
+      },
+      "status": "READY_FOR_REVIEW",
+      "receipt_id": "qry_3d8972d3e5fe4bf78e1cadf92320afd0"
+    },
+    {
+      "id": "authorized_identity",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "roadmap_receipt": true,
+        "clarifications": true,
+        "step_guidance": true,
+        "safety": true
+      },
+      "status": "READY_FOR_REVIEW",
+      "receipt_id": "qry_64145918cf1e41a68c18e54f70208188"
+    },
+    {
+      "id": "authorized_evidence",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "roadmap_receipt": true,
+        "clarifications": true,
+        "step_guidance": true,
+        "safety": true
+      },
+      "status": "READY_FOR_REVIEW",
+      "receipt_id": "qry_7d6b8653812b42939d63f84489597ac3"
+    },
+    {
+      "id": "lab_only",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "roadmap_receipt": true,
+        "clarifications": true,
+        "step_guidance": true,
+        "safety": true
+      },
+      "status": "READY_FOR_REVIEW",
+      "receipt_id": "qry_b87c8d780d0b4db39e5eafeedbcac63e"
+    }
+  ]
+}

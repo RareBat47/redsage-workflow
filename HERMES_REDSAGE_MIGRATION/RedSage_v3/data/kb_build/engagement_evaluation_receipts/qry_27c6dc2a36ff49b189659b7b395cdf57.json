@@ -1,0 +1,21 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_27c6dc2a36ff49b189659b7b395cdf57",
+  "created_at": "2026-09-15T15:41:51.011007+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "6f22c1d4c02ca0b00e18df9ee0533e1dec8fb692e379e8e2fe9f6ae11f93da95",
+  "policy_version": "assessment-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [],
+  "score_components": {},
+  "warnings": [
+    "24 candidate(s) filtered by assessment KB policy"
+  ],
+  "query_classification": null,
+  "ranking_profile": null,
+  "environment_scope": null,
+  "candidate_count": null,
+  "filtered_count": null,
+  "filtered_reasons": {}
+}

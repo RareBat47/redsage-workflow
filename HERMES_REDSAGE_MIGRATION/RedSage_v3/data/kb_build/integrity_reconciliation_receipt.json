@@ -1,0 +1,85 @@
+{
+  "receipt_type": "redsage_v3_kb_integrity_reconciliation",
+  "created_at": "2026-09-15T11:10:35.777592+00:00",
+  "domains": [
+    {
+      "domain": "workflow",
+      "manifest": "D:\\HIGH LEVELS OF WORKS\\RedSage_v3\\data\\kb_build\\workflow_preview_manifest.json",
+      "manifest_sha256": "f852501a78620854a0ff101acd87ecb136deeb3659219f40cea14afcd48f7609",
+      "build_receipt_sha256": "fdcd45ae4f834e994891435411842f7ab3e34d9d58c433afdf0a776cbfde02fb",
+      "receipt_hash_matches_current": false,
+      "collection_name": "redsage_v3_workflow_cohere_v1",
+      "manifest_chunk_count": 3219,
+      "collection_vector_count": 3219,
+      "stale_ids": 0,
+      "missing_ids": 0,
+      "status": "verified_ids_hash_changed_since_build"
+    },
+    {
+      "domain": "assessment_web",
+      "manifest": "D:\\HIGH LEVELS OF WORKS\\RedSage_v3\\data\\kb_build\\assessment_web_preview_manifest.json",
+      "manifest_sha256": "0750643adbbdd06c8fcb3e74cc385bcf78a1a94811678e7b7576f97778ad7430",
+      "build_receipt_sha256": "d3601e2ac8def8216fe52c6d3f2cd796d187f524c8e4dde71b7d93522157eeed",
+      "receipt_hash_matches_current": false,
+      "collection_name": "redsage_v3_assessment_web_cohere_v1",
+      "manifest_chunk_count": 2815,
+      "collection_vector_count": 2815,
+      "stale_ids": 0,
+      "missing_ids": 0,
+      "status": "verified_ids_hash_changed_since_build"
+    },
+    {
+      "domain": "evidence_reporting",
+      "manifest": "D:\\HIGH LEVELS OF WORKS\\RedSage_v3\\data\\kb_build\\reporting_preview_manifest.json",
+      "manifest_sha256": "46ca18aacfd1dd5e8988fc02ec8d77031ea2978ff825bf1fb87cfa6c7e3afffb",
+      "build_receipt_sha256": "c8edf8946164e7f1975e51f098c8a1b861b6886d7ab776bdf779fd9e32e8e091",
+      "receipt_hash_matches_current": false,
+      "collection_name": "redsage_v3_evidence_reporting_cohere_v1",
+      "manifest_chunk_count": 2418,
+      "collection_vector_count": 2418,
+      "stale_ids": 0,
+      "missing_ids": 0,
+      "status": "verified_ids_hash_changed_since_build"
+    },
+    {
+      "domain": "identity",
+      "manifest": "D:\\HIGH LEVELS OF WORKS\\RedSage_v3\\data\\kb_build\\identity_preview_manifest.json",
+      "manifest_sha256": "2e44797ed02f9300ce80cbcbb98f492af20fa54f450c972e6194429d1f629cb6",
+      "build_receipt_sha256": "0389e08fa4b11ef9a9fbe941f5c449ef7e38390419bf6cf969a3e72fef659c3e",
+      "receipt_hash_matches_current": false,
+      "collection_name": "redsage_v3_assessment_identity_cohere_v1",
+      "manifest_chunk_count": 315,
+      "collection_vector_count": 315,
+      "stale_ids": 0,
+      "missing_ids": 0,
+      "status": "verified_ids_hash_changed_since_build"
+    },
+    {
+      "domain": "authorization",
+      "manifest": "D:\\HIGH LEVELS OF WORKS\\RedSage_v3\\data\\kb_build\\authorization_preview_manifest.json",
+      "manifest_sha256": "909af301d6f7c2767a40b6218687b1ab187e00c74fb88631ffa146390ec56569",
+      "build_receipt_sha256": "2b26e8c73aade0a931ae91100318bffc93b47b7d1fa52873c5bf6c672349042a",
+      "receipt_hash_matches_current": false,
+      "collection_name": "redsage_v3_assessment_authorization_cohere_v1",
+      "manifest_chunk_count": 183,
+      "collection_vector_count": 183,
+      "stale_ids": 0,
+      "missing_ids": 0,
+      "status": "verified_ids_hash_changed_since_build"
+    },
+    {
+      "domain": "api",
+      "manifest": "D:\\HIGH LEVELS OF WORKS\\RedSage_v3\\data\\kb_build\\api_preview_manifest.json",
+      "manifest_sha256": "67554653d9894ec93b60da921d8535892608dd98902814347b9724fc441fc412",
+      "build_receipt_sha256": "7b5c750263de2d76141a803f41c3fc682c215aacb13b7d6971ca637201cc0c48",
+      "receipt_hash_matches_current": false,
+      "collection_name": "redsage_v3_assessment_api_cohere_v1",
+      "manifest_chunk_count": 130,
+      "collection_vector_count": 130,
+      "stale_ids": 0,
+      "missing_ids": 0,
+      "status": "verified_ids_hash_changed_since_build"
+    }
+  ],
+  "all_counts_consistent": true
+}

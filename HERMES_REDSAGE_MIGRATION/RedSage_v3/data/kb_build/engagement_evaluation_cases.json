@@ -1,0 +1,8 @@
+[
+  {"id":"authorized_web","problem":"Authorized web application assessment of login and object-level authorization.","selected_step":"Review object-level authorization","expected_status":"READY_FOR_REVIEW","expect_step_guidance":true},
+  {"id":"ambiguous_scope","problem":"Test this website for bugs.","expected_status":"NEEDS_CLARIFICATION","expect_step_guidance":false},
+  {"id":"authorized_api","problem":"Authorized API assessment of object authorization, schema validation, and rate limits.","selected_step":"Review API object authorization","expected_status":"READY_FOR_REVIEW","expect_step_guidance":true},
+  {"id":"authorized_identity","problem":"Authorized web application assessment of authentication and session management.","selected_step":"Review session management","expected_status":"READY_FOR_REVIEW","expect_step_guidance":true},
+  {"id":"authorized_evidence","problem":"Authorized assessment evidence needs false-positive review, severity, and remediation analysis.","selected_step":"Review evidence and reporting","expected_status":"READY_FOR_REVIEW","expect_step_guidance":true},
+  {"id":"lab_only","problem":"Authorized training lab web application for a controlled access-control exercise.","selected_step":"Review controlled authorization hypothesis","expected_status":"READY_FOR_REVIEW","expect_step_guidance":true,"environment_scope":"lab_only"}
+]

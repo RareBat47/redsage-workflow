@@ -1,0 +1,55 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_5f0c20dfc57045d9bcd0a9c16bd1975e",
+  "created_at": "2026-09-14T06:54:50.529310+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "9225017ccda5b94af2eea93532d5e27d0a581147b9dc295e51c10a15ad3d278f",
+  "policy_version": "workflow-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow_03_integrity_checks_871c26f7225e:1",
+    "workflow_02_bypassing_authorization_schema_4e4d1b48431d:0",
+    "workflow_authorization_cheat_sheet_7850a8f824ad:0",
+    "workflow_selected_cheatsheet_authorization_cheat__9296477a4da9:0",
+    "workflow_insecure_direct_object_reference_prevent_e2cddb9100da:2"
+  ],
+  "score_components": {
+    "workflow_03_integrity_checks_871c26f7225e:1": {
+      "vector": 0.09165549278259277,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_02_bypassing_authorization_schema_4e4d1b48431d:0": {
+      "vector": 0.11537224054336548,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_authorization_cheat_sheet_7850a8f824ad:0": {
+      "vector": 0.09688174724578857,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_selected_cheatsheet_authorization_cheat__9296477a4da9:0": {
+      "vector": 0.09688174724578857,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_insecure_direct_object_reference_prevent_e2cddb9100da:2": {
+      "vector": 0.1398342251777649,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": []
+}

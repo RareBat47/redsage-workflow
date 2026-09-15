@@ -1,0 +1,81 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_bd64e617e3854d8aace333b9a0fd01f8",
+  "created_at": "2026-09-13T19:00:26.508763+00:00",
+  "actor_type": "evaluation",
+  "project_id": null,
+  "query_hash": "e3bc88b55f1e7ecb93f33097b9d5396c2b9b4173017762f0936ff9f1125ecbe9",
+  "policy_version": "workflow-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow_redsage_stop_escalation_taxonomy_7064203f6966:0",
+    "workflow_redsage_scope_authorization_guidance_9960eb764ba4:0",
+    "workflow_explanation_168ff67985ad:17",
+    "workflow_baseline_methodology_f66a2e699db6:1",
+    "workflow_explanation_168ff67985ad:5",
+    "workflow_explanation_168ff67985ad:22",
+    "workflow_explanation_168ff67985ad:21",
+    "workflow_baseline_methodology_f66a2e699db6:0"
+  ],
+  "score_components": {
+    "workflow_redsage_stop_escalation_taxonomy_7064203f6966:0": {
+      "vector": 0.0,
+      "lexical": 0.8,
+      "trust": 0.25,
+      "policy": 1.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_redsage_scope_authorization_guidance_9960eb764ba4:0": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.25,
+      "policy": 1.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_explanation_168ff67985ad:17": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_baseline_methodology_f66a2e699db6:1": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_explanation_168ff67985ad:5": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_explanation_168ff67985ad:22": {
+      "vector": 0.0,
+      "lexical": 0.4,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_explanation_168ff67985ad:21": {
+      "vector": 0.0,
+      "lexical": 0.4,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_baseline_methodology_f66a2e699db6:0": {
+      "vector": 0.0,
+      "lexical": 0.4,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [
+    "6 candidate(s) filtered by workflow KB policy"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_09eed7369f4e44aa916ef546836dd815",
+  "created_at": "2026-09-15T16:22:39.914063+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "909187dfec1fdbb25ff6e391a22162946b55f7ca3ff0f69ec457037c9f84c97a",
+  "policy_version": "consolidated-v1",
+  "index_profile": "consolidated:cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "identity:document_19c388e259e0c675:0",
+    "identity:document_4661246b9f360936:0",
+    "api:document_966062f589201163:1",
+    "api:document_ef46a7df7a3cb0bb:1",
+    "identity:document_19c388e259e0c675:1"
+  ],
+  "score_components": {
+    "identity:document_19c388e259e0c675:0": {
+      "vector": 0.042546987533569336,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "identity:document_4661246b9f360936:0": {
+      "vector": 0.042546987533569336,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "api:document_966062f589201163:1": {
+      "vector": 0.0,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "api:document_ef46a7df7a3cb0bb:1": {
+      "vector": 0.0,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "identity:document_19c388e259e0c675:1": {
+      "vector": 0.04238593578338623,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [],
+  "query_classification": "authorization_scope",
+  "ranking_profile": "hybrid-v2",
+  "environment_scope": "authorized_engagement",
+  "candidate_count": 75,
+  "filtered_count": 0,
+  "filtered_reasons": {}
+}

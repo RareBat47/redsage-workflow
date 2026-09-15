@@ -1,0 +1,401 @@
+REDSAGE v3 KB RESOURCE DIGEST APPROVAL LIST
+============================================
+
+Purpose of this file
+--------------------
+This is a proposed resource intake list for the first RedSage v3 Knowledge Base.
+Please evaluate the list before any ingestion, Cohere embedding, or publication.
+No resource should be digested until its category, source, license/usage rights,
+and intended purpose are approved.
+
+The KB's intended job
+---------------------
+When the operator pastes a pentesting question, bug-bounty problem statement,
+assessment brief, or security problemset, RedSage should help generate an
+initial, authorized roadmap. The roadmap should explain what to clarify, what
+phase to start with, what hypotheses to consider, what tasks and steps to
+perform manually, what evidence to collect, when to stop or ask for approval,
+and how to report results. The KB must provide citations and must not execute
+security tools or authorize activity by itself.
+
+PROPOSED RESOURCE CATEGORIES
+============================
+
+01. AUTHORIZED ENGAGEMENT METHODOLOGY BOOKS
+-------------------------------------------
+Examples of content:
+- Penetration-testing engagement lifecycle.
+- Pre-engagement planning.
+- Rules of engagement.
+- Scope definition and exclusions.
+- Reconnaissance and enumeration planning.
+- Validation and evidence collection.
+- Impact assessment.
+- Reporting and retesting.
+
+Purpose in RedSage:
+- Build the overall roadmap structure.
+- Convert an unclear problem into ordered phases.
+- Identify prerequisites, dependencies, stop conditions, and completion criteria.
+- Give the Planner general engagement logic rather than isolated tool commands.
+
+Required treatment:
+- Preserve chapter and page citations.
+- Extract methodology separately from operational examples.
+- Confirm that commercial use is permitted.
+
+02. BUG-BOUNTY METHODOLOGY GUIDES
+----------------------------------
+Examples of content:
+- Reading and classifying bug-bounty problem statements.
+- Asset and attack-surface mapping.
+- Hypothesis-driven testing.
+- Prioritization by impact and likelihood.
+- Distinguishing observations from vulnerabilities.
+- Validating impact safely.
+- Writing accepted-quality reports.
+
+Purpose in RedSage:
+- Teach the system how to interpret a pasted problem statement.
+- Generate an initial investigation roadmap.
+- Connect clues to possible vulnerability classes.
+- Define evidence needed before claiming a finding.
+- Improve prioritization and reduce random testing.
+
+Required treatment:
+- Extract reasoning patterns, not unauthorized target instructions.
+- Keep examples cited and distinguish them from general rules.
+
+03. OWASP PRIMARY RESOURCES
+---------------------------
+Recommended types:
+- Web Security Testing Guide.
+- API Security Top 10.
+- Application Security Verification Standard.
+- OWASP Top 10.
+- OWASP testing checklists and cheat sheets.
+- OWASP threat modeling resources.
+
+Purpose in RedSage:
+- Supply a recognized taxonomy of web and API testing areas.
+- Map problem statements to likely control families.
+- Define verification objectives and evidence expectations.
+- Provide defensible references for roadmap and report output.
+
+Required treatment:
+- Prefer official OWASP sources and version them.
+- Preserve section identifiers and URLs.
+- Do not treat a category match as proof of a vulnerability.
+
+04. PROFESSIONAL TESTING STANDARDS AND FRAMEWORKS
+--------------------------------------------------
+Recommended types:
+- NIST security testing and assessment guidance.
+- PTES methodology.
+- OSSTMM, where legally and practically appropriate.
+- CIS guidance relevant to assessment planning.
+- ISO/IEC security-testing or risk guidance where licensed for use.
+
+Purpose in RedSage:
+- Provide formal engagement structure.
+- Improve consistency and auditability.
+- Define planning, evidence, risk, and reporting practices.
+- Support enterprise-grade trust and subscription positioning.
+
+Required treatment:
+- Check license and redistribution rights carefully.
+- Store standards as references, not copied commercial material without rights.
+- Record the exact edition or revision.
+
+05. VULNERABILITY AND WEAKNESS TAXONOMIES
+-----------------------------------------
+Recommended types:
+- CWE.
+- CVE/NVD data.
+- CAPEC.
+- OWASP vulnerability categories.
+- CVSS documentation and calculators.
+- Vendor severity guidance.
+
+Purpose in RedSage:
+- Normalize different descriptions of the same issue.
+- Map observations to weakness and vulnerability classes.
+- Support severity reasoning.
+- Improve duplicate detection and finding organization.
+- Link roadmap steps to expected failure modes.
+
+Required treatment:
+- Store identifiers, versions, descriptions, and source links.
+- Do not let taxonomy matches automatically confirm findings.
+- Track update date and stale-data status.
+
+06. OFFICIAL TECHNOLOGY DOCUMENTATION
+--------------------------------------
+Recommended types:
+- Official web server documentation.
+- Official API and framework documentation.
+- Authentication and identity-provider documentation.
+- Cloud-provider security documentation.
+- Database, container, and orchestration documentation.
+- Protocol and standards documentation.
+
+Purpose in RedSage:
+- Help identify technology-specific prerequisites.
+- Explain normal versus suspicious behavior.
+- Support accurate asset and version interpretation.
+- Improve roadmap branching for the detected technology stack.
+- Ground remediation recommendations in authoritative documentation.
+
+Required treatment:
+- Prefer official vendor documentation over blog summaries.
+- Record product version and publication date.
+- Never assume a detected technology is authorized to test.
+
+07. CURATED GITHUB REPOSITORIES
+-------------------------------
+Recommended types:
+- Methodology checklists.
+- Security testing playbooks.
+- Reporting templates.
+- Reconnaissance organization frameworks.
+- Vulnerability-class references.
+- Safe evidence and notes templates.
+
+Purpose in RedSage:
+- Provide practical workflow patterns.
+- Discover useful checklist structures and field names.
+- Compare community approaches.
+- Improve task and Step templates.
+
+Required treatment:
+- Review repository ownership, maintenance, license, and commit history.
+- Do not ingest arbitrary repositories or automatically trust code.
+- Ingest documentation and safe workflow material before scripts.
+- Do not execute repository code as part of KB ingestion.
+
+08. RESPONSIBLE BUG-BOUNTY WRITE-UPS
+------------------------------------
+Recommended types:
+- Publicly disclosed vulnerability reports.
+- Researcher write-ups with permission to reuse.
+- Platform-published educational examples.
+- Root-cause and remediation analyses.
+
+Purpose in RedSage:
+- Teach the difference between a clue, hypothesis, validation, and confirmed finding.
+- Improve impact reasoning.
+- Show how evidence is presented.
+- Improve report quality and severity justification.
+- Supply realistic examples for roadmap generation.
+
+Required treatment:
+- Preserve author, publication date, URL, and permission/license.
+- Extract reasoning and reporting structure rather than reusable attack payloads.
+- Redact credentials, tokens, personal data, and sensitive target details.
+
+09. CTF AND SECURITY LAB WRITE-UPS
+----------------------------------
+Recommended types:
+- Legal lab walkthroughs.
+- CTF solution explanations.
+- Deliberately vulnerable training-environment exercises.
+- Defensive explanations of attack chains.
+
+Purpose in RedSage:
+- Teach hypothesis formation and investigative sequencing.
+- Demonstrate how clues lead to next steps.
+- Improve educational Mentor responses.
+- Provide examples of evidence interpretation in controlled environments.
+
+Required treatment:
+- Label clearly as lab/CTF material.
+- Keep it separate from real-world engagement methodology.
+- Exclude or abstract harmful payloads and unauthorized compromise instructions.
+- Do not let lab assumptions become production assumptions.
+
+10. SECURITY TOOL DOCUMENTATION
+-------------------------------
+Recommended types:
+- Official documentation for approved assessment tools.
+- Input and output formats.
+- Safe operating modes.
+- Scope and rate-limit controls.
+- Evidence interpretation.
+- Known limitations and false positives.
+
+Purpose in RedSage:
+- Recommend the correct class of manual activity.
+- Tell the operator what evidence a tool output can and cannot prove.
+- Build tool-neutral task Steps.
+- Improve result interpretation without executing anything.
+
+Required treatment:
+- Ingest documentation, not automatic execution capability.
+- Commands remain display-only and require human review.
+- Never generate destructive, credential-stealing, persistence, or exploit payloads.
+
+11. THREAT MODELING AND ARCHITECTURE RESOURCES
+-----------------------------------------------
+Recommended types:
+- STRIDE and similar threat-modeling methods.
+- Data-flow and trust-boundary guidance.
+- Secure architecture references.
+- Abuse-case and misuse-case methods.
+- Attack-surface analysis frameworks.
+
+Purpose in RedSage:
+- Convert a problem statement into assets, actors, trust boundaries, and hypotheses.
+- Identify likely security properties at risk.
+- Improve prioritization before testing.
+- Generate architecture-aware roadmap branches.
+
+Required treatment:
+- Favor defensive and analytical guidance.
+- Store assumptions explicitly.
+- Never infer authorization from an architecture diagram alone.
+
+12. EVIDENCE, REPORTING, AND REMEDIATION TEMPLATES
+---------------------------------------------------
+Recommended types:
+- Finding templates.
+- Evidence registers.
+- Assessment report structures.
+- Retest templates.
+- Remediation verification checklists.
+- Risk acceptance and exception templates.
+
+Purpose in RedSage:
+- Define expected evidence for each workflow Step.
+- Improve traceability from observation to conclusion.
+- Generate consistent reports.
+- Support customer-facing deliverables and subscription value.
+
+Required treatment:
+- Keep templates structured and versioned.
+- Separate required fields from optional advice.
+- Preserve evidence hashes and source citations.
+
+13. YOUR APPROVED HISTORICAL EXAMPLES
+-------------------------------------
+Recommended types:
+- Your own problem statements.
+- Your own roadmap decisions.
+- Accepted or rejected findings.
+- Preferred report format.
+- Lessons learned.
+- Explicit exclusions and safety preferences.
+
+Purpose in RedSage:
+- Personalize roadmap generation to your preferred workflow.
+- Learn which questions you expect first.
+- Capture your definitions of sufficient evidence.
+- Improve consistency with your working style.
+
+Required treatment:
+- Remove client secrets, credentials, personal data, and identifying details.
+- Mark each item as private and tenant/project scoped.
+- Never merge private examples into shared reference knowledge without approval.
+
+14. SECURITY PROGRAM AND GOVERNANCE RESOURCES
+----------------------------------------------
+Recommended types:
+- Rules of engagement templates.
+- Authorization checklists.
+- Data-retention guidance.
+- Incident escalation procedures.
+- Security assessment quality controls.
+- Privacy and customer-data handling guidance.
+
+Purpose in RedSage:
+- Strengthen pre-engagement gates.
+- Define safe handling and retention.
+- Support enterprise trust, auditability, and subscription operations.
+- Inform policy enforcement around evidence and AI usage.
+
+Required treatment:
+- Prefer authoritative and legally reusable sources.
+- Keep legal advice distinct from product policy.
+- Require human review for organization-specific policies.
+
+15. REDSAGE PRODUCT AND DOMAIN DOCUMENTATION
+--------------------------------------------
+Recommended types:
+- RedSage v2 implementation behavior.
+- RedSage safety model.
+- RedSage API contracts.
+- RedSage methodology JSON.
+- RedSage test cases.
+- RedSage v3 product decisions and policies.
+
+Purpose in RedSage:
+- Preserve the existing logical implementation during migration.
+- Keep roadmap generation aligned with RedSage entities and gates.
+- Prevent regressions in scope, evidence, findings, audit, and approval logic.
+- Make Hermes integration use bounded, accurate tools.
+
+Required treatment:
+- Code and verified tests outrank stale documents.
+- Keep product rules separate from external security knowledge.
+- Update the v2-to-v3 feature map whenever behavior changes.
+
+WHAT WE SHOULD NOT DIGEST BY DEFAULT
+====================================
+
+- Unlicensed books, paid course material, or proprietary content without permission.
+- Arbitrary web scraping dumps.
+- Unreviewed GitHub code repositories.
+- Credentials, API keys, tokens, private keys, or personal data.
+- Customer evidence into shared reference knowledge.
+- Malware, destructive payloads, persistence instructions, or unauthorized attack automation.
+- Content whose purpose is only to execute attacks rather than plan, validate, document, or remediate authorized work.
+- Duplicate, obsolete, or contradictory sources without version and trust labels.
+
+RECOMMENDED FIRST-WAVE DIGEST
+==============================
+
+For the first KB version, I recommend approving only these categories:
+
+1. One legally usable workflow/problem-solving book.
+2. OWASP Web Security Testing Guide and selected OWASP testing resources.
+3. One authorized engagement methodology or standard.
+4. CWE and CVSS reference material.
+5. A small set of official technology documents relevant to the first target type.
+6. A small set of high-quality, licensed GitHub methodology/reporting repositories.
+7. A few clearly authorized lab or bug-bounty write-ups for reasoning examples.
+8. RedSage v2 verified methodology, safety, evidence, and reporting behavior.
+
+This first wave is intentionally limited so retrieval quality, citations, safety
+classification, Cohere cost, and roadmap usefulness can be evaluated before the
+corpus grows.
+
+EXPECTED OUTPUT OF THE KB
+==========================
+
+For a pasted problem statement, the KB should help produce:
+
+1. Problem classification.
+2. Missing clarification questions.
+3. Authorization and scope prerequisites.
+4. Relevant assets and technologies.
+5. Security hypotheses.
+6. Ordered phases.
+7. Tasks and Steps.
+8. Expected evidence for each Step.
+9. Stop conditions and human approval gates.
+10. Finding and reporting requirements.
+11. Source citations and confidence.
+
+The KB provides guidance and evidence-backed context; it does not execute tools,
+expand authorization, confirm findings, or approve workflow changes automatically.
+
+APPROVAL QUESTIONS FOR CLAUDE REVIEW
+=====================================
+
+1. Which categories should be approved for the first ingestion wave?
+2. Which categories should be deferred or rejected?
+3. Should lab/CTF material be included at all, and if yes, how strictly separated?
+4. Should official tool documentation be included in v1, or deferred until after methodology retrieval works?
+5. Which target types should the first technology documentation cover: web apps, APIs, cloud, mobile, network, or another category?
+6. Are there additional resource categories needed for initial roadmap generation?
+7. What licensing or privacy restrictions should be mandatory before ingestion?
+8. Should private examples be included in the first KB, or kept for a later tenant-private corpus?

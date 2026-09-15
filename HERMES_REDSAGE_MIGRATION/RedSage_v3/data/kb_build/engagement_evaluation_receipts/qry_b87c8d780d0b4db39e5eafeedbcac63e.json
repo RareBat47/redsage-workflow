@@ -1,0 +1,23 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_b87c8d780d0b4db39e5eafeedbcac63e",
+  "created_at": "2026-09-15T15:41:50.212988+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "019d2999bc048bbf4d51de3759847389bb9c9a30a6bfb81cf27ec56a0ddcd022",
+  "policy_version": "consolidated-v1",
+  "index_profile": "consolidated:cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [],
+  "score_components": {},
+  "warnings": [
+    "144 candidate(s) filtered by consolidated KB policy"
+  ],
+  "query_classification": "authorization_scope",
+  "ranking_profile": "hybrid-v2",
+  "environment_scope": "lab_only",
+  "candidate_count": 144,
+  "filtered_count": 144,
+  "filtered_reasons": {
+    "not_lab_scope": 144
+  }
+}

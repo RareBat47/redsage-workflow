@@ -1,0 +1,71 @@
+{
+  "case_count": 6,
+  "results": [
+    {
+      "id": "authorized_web_assessment",
+      "status": "retrieved",
+      "citation_count": 8,
+      "query_id": "qry_b34fca7d17e84f1d9d015ae0b4c0bb0b",
+      "top_paths": [
+        "03_owasp/wstg/document/4-Web_Application_Security_Testing/01-Information_Gathering/04-Attack_Surface_Identification.md",
+        "03_owasp/wstg/document/4-Web_Application_Security_Testing/00-Introduction_and_Objectives/README.md",
+        "03_owasp/wstg/document/4-Web_Application_Security_Testing/01-Information_Gathering/00-Information_Gathering_Overview.md"
+      ]
+    },
+    {
+      "id": "ambiguous_authorization",
+      "status": "retrieved",
+      "citation_count": 8,
+      "query_id": "qry_444efc7b0eae406bb059b796ee220e9d",
+      "top_paths": [
+        "03_owasp/wstg/document/4-Web_Application_Security_Testing/05-Authorization/02-Bypassing_Authorization_Schema.md",
+        "03_owasp/wstg/document/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management/05-Enumerate_Infrastructure_and_Application_Admin_Interfaces.md",
+        "03_owasp/wstg/document/4-Web_Application_Security_Testing/03-Identity_Management/04-Account_Enumeration_and_Guessable_User_Account.md"
+      ]
+    },
+    {
+      "id": "out_of_scope_target",
+      "status": "retrieved",
+      "citation_count": 8,
+      "query_id": "qry_bd64e617e3854d8aace333b9a0fd01f8",
+      "top_paths": [
+        "10_stop_escalation/REDSAGE_STOP_ESCALATION_TAXONOMY.md",
+        "09_scope_authorization/REDSAGE_SCOPE_AUTHORIZATION_GUIDANCE.md",
+        "02_redsage_domain/v2_verified/EXPLANATION.md"
+      ]
+    },
+    {
+      "id": "lab_scoped_web_test",
+      "status": "retrieved",
+      "citation_count": 8,
+      "query_id": "qry_e3fed7d403304691beb8918068c46ef2",
+      "top_paths": [
+        "03_owasp/asvs_README.md",
+        "03_owasp/cheatsheet_series/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.md",
+        "03_owasp/cheatsheet_series/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.md"
+      ]
+    },
+    {
+      "id": "authentication_issue",
+      "status": "retrieved",
+      "citation_count": 8,
+      "query_id": "qry_a4991052e2054be1982b7da57e152ee0",
+      "top_paths": [
+        "03_owasp/wstg/document/4-Web_Application_Security_Testing/06-Session_Management/11-Concurrent_Sessions.md",
+        "03_owasp/wstg/document/4-Web_Application_Security_Testing/06-Session_Management/06-Logout_Functionality.md",
+        "03_owasp/cheatsheet_series/cheatsheets/Session_Management_Cheat_Sheet.md"
+      ]
+    },
+    {
+      "id": "api_problem",
+      "status": "retrieved",
+      "citation_count": 8,
+      "query_id": "qry_d264e2381f06446089b1b01bd553e649",
+      "top_paths": [
+        "03_owasp/cheatsheet_series/cheatsheets/Bot_Management_and_Anti-Automation_Cheat_Sheet.md",
+        "03_owasp/cheatsheet_series/cheatsheets/Multi_Tenant_Security_Cheat_Sheet.md",
+        "03_owasp/cheatsheet_series/cheatsheets/AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.md"
+      ]
+    }
+  ]
+}

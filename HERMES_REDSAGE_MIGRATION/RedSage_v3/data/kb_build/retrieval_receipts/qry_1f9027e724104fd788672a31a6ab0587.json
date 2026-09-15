@@ -1,0 +1,79 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_1f9027e724104fd788672a31a6ab0587",
+  "created_at": "2026-09-13T18:39:06.936932+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "fbadae0b30eb3d57aaa047f1d7da75f5f33ba253abc9f3212eb785ac6dc31195",
+  "policy_version": "workflow-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow_redsage_stop_escalation_taxonomy_7064203f6966:0",
+    "workflow_redsage_scope_authorization_guidance_9960eb764ba4:0",
+    "workflow_05_oauth_weaknesses_443971cab113:3",
+    "workflow_00_information_gathering_overview_8bec1afe2f7c:0",
+    "workflow_json_web_token_cheat_sheet_0bdd46db63d5:7",
+    "workflow_explanation_168ff67985ad:22",
+    "workflow_explanation_168ff67985ad:7",
+    "workflow_business_logic_security_cheat_sheet_549d12d72149:10"
+  ],
+  "score_components": {
+    "workflow_redsage_stop_escalation_taxonomy_7064203f6966:0": {
+      "vector": 0.0,
+      "lexical": 0.8,
+      "trust": 0.25,
+      "policy": 1.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_redsage_scope_authorization_guidance_9960eb764ba4:0": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.25,
+      "policy": 1.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_05_oauth_weaknesses_443971cab113:3": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_00_information_gathering_overview_8bec1afe2f7c:0": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_json_web_token_cheat_sheet_0bdd46db63d5:7": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_explanation_168ff67985ad:22": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.15000000000000002,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_explanation_168ff67985ad:7": {
+      "vector": 0.0,
+      "lexical": 0.6,
+      "trust": 0.15000000000000002,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_business_logic_security_cheat_sheet_549d12d72149:10": {
+      "vector": 0.0,
+      "lexical": 0.4,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": []
+}

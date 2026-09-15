@@ -1,0 +1,55 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_cc150d5fe85a4c7db5d8d8cd0fe102cc",
+  "created_at": "2026-09-14T10:10:24.729952+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "32d0d11f3cc57fa716009aa7688dee6089b177fc94a32d21ed01256177d5cab3",
+  "policy_version": "assessment-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "document_97fe6fafd3d3f39e:1",
+    "document_3769b7706bd96b1d:1",
+    "document_3f53916c5ca7eb60:2",
+    "document_b9e53f33b1a8840d:29",
+    "document_57827476d6abde0c:4"
+  ],
+  "score_components": {
+    "document_97fe6fafd3d3f39e:1": {
+      "vector": 0.12623566389083862,
+      "lexical": 0.6,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_3769b7706bd96b1d:1": {
+      "vector": 0.10826879739761353,
+      "lexical": 0.5,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_3f53916c5ca7eb60:2": {
+      "vector": 0.1709585189819336,
+      "lexical": 0.4,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_b9e53f33b1a8840d:29": {
+      "vector": 0.12463665008544922,
+      "lexical": 0.4,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_57827476d6abde0c:4": {
+      "vector": 0.11456483602523804,
+      "lexical": 0.4,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": []
+}

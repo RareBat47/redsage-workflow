@@ -1,0 +1,85 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_10d4646d10a843c68f14e02d57172abf",
+  "created_at": "2026-09-15T13:06:02.999914+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "c0a61554a16081008931263538a98e6cd04667fdc4f2321941d410b74f35bb75",
+  "policy_version": "assessment-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "document_19c388e259e0c675:0",
+    "document_4661246b9f360936:0",
+    "document_b09f4565a4d8f4d1:2",
+    "document_7b62f244eefdb176:1",
+    "document_19c388e259e0c675:30",
+    "document_4661246b9f360936:30",
+    "document_19c388e259e0c675:1",
+    "document_4661246b9f360936:1"
+  ],
+  "score_components": {
+    "document_19c388e259e0c675:0": {
+      "vector": 0.04249429702758789,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_4661246b9f360936:0": {
+      "vector": 0.04249429702758789,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_b09f4565a4d8f4d1:2": {
+      "vector": 0.06020921468734741,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_7b62f244eefdb176:1": {
+      "vector": 0.14526784420013428,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_19c388e259e0c675:30": {
+      "vector": 0.07960844039916992,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_4661246b9f360936:30": {
+      "vector": 0.07960844039916992,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_19c388e259e0c675:1": {
+      "vector": 0.04382014274597168,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_4661246b9f360936:1": {
+      "vector": 0.04382014274597168,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [],
+  "query_classification": null,
+  "ranking_profile": null,
+  "environment_scope": null,
+  "candidate_count": null,
+  "filtered_count": null,
+  "filtered_reasons": {}
+}

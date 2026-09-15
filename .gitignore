@@ -29,3 +29,14 @@ frontend/dist/
 Thumbs.db
 *.log
 *.tmp
+
+# Migration safety exclusions
+HERMES_REDSAGE_MIGRATION.zip
+HERMES_REDSAGE_MIGRATION/**/.env
+HERMES_REDSAGE_MIGRATION/**/auth.json
+HERMES_REDSAGE_MIGRATION/**/.venv/
+HERMES_REDSAGE_MIGRATION/**/.venv_test/
+HERMES_REDSAGE_MIGRATION/**/node_modules/
+HERMES_REDSAGE_MIGRATION/**/__pycache__/
+HERMES_REDSAGE_MIGRATION/**/*.exe
+HERMES_REDSAGE_MIGRATION/**/.git/

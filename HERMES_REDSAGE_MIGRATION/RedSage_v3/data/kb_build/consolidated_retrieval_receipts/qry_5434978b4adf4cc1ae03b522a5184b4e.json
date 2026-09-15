@@ -1,0 +1,82 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_5434978b4adf4cc1ae03b522a5184b4e",
+  "created_at": "2026-09-14T17:22:58.983962+00:00",
+  "actor_type": "hardening-smoke",
+  "project_id": null,
+  "query_hash": "f90b3fed3719dde13c220d01cb853b40961b362513bf66677865709c4a3376a1",
+  "policy_version": "consolidated-v1",
+  "index_profile": "consolidated:cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "document_3f3665da4b48fd64:0",
+    "workflow_00_information_gathering_overview_8bec1afe2f7c:0",
+    "document_7c02c85a3d445ace:0",
+    "document_2388fcda63f491c6:4",
+    "document_2388fcda63f491c6:4",
+    "document_966062f589201163:4",
+    "document_ef46a7df7a3cb0bb:4",
+    "workflow_authorization_cheat_sheet_7850a8f824ad:0"
+  ],
+  "score_components": {
+    "document_3f3665da4b48fd64:0": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.25,
+      "policy": 1.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_00_information_gathering_overview_8bec1afe2f7c:0": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_7c02c85a3d445ace:0": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_2388fcda63f491c6:4": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_966062f589201163:4": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_ef46a7df7a3cb0bb:4": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_authorization_cheat_sheet_7850a8f824ad:0": {
+      "vector": 0.0,
+      "lexical": 0.3333333333333333,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [
+    "14 candidate(s) filtered by consolidated KB policy"
+  ],
+  "query_classification": "authorization_scope",
+  "ranking_profile": "hybrid-v2",
+  "environment_scope": "authorized_engagement",
+  "candidate_count": 144,
+  "filtered_count": 14,
+  "filtered_reasons": {
+    "not_approved": 14
+  }
+}

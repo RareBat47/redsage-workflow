@@ -1,0 +1,31 @@
+{
+  "scope": "migration package copy only; source environments were not modified",
+  "passes": [
+    {
+      "redaction_counts_by_pattern": {
+        "bearer_token": 134,
+        "cohere_token": 6,
+        "generic_secret_assignment": 12,
+        "jwt": 151,
+        "openai_style_token": 5
+      },
+      "touched_file_count": 146
+    },
+    {
+      "redaction_counts_by_pattern": {
+        "private_key": 5
+      },
+      "touched_file_count": 1
+    }
+  ],
+  "total_redaction_counts_by_pattern": {
+    "bearer_token": 134,
+    "cohere_token": 6,
+    "generic_secret_assignment": 12,
+    "jwt": 151,
+    "openai_style_token": 5,
+    "private_key": 5
+  },
+  "secret_values_recorded": false,
+  "note": "Counts only. No secret values are recorded. Redactions were applied only to the collected migration-package copies."
+}

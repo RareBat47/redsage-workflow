@@ -1,0 +1,137 @@
+REDSAGE v3 WORKFLOW-GENERATION RESOURCE DOWNLOAD MANIFEST
+===========================================================
+
+Status
+------
+Partial resource collection is present. No Cohere ingestion or embedding has started.
+
+Current file-count snapshot
+---------------------------
+- 03_owasp: 604+ files including raw WSTG and CheatSheetSeries checkouts, selected OWASP markdown files, and ASVS/Top10 archives.
+- 02_redsage_domain: 7 files.
+- 04_cwe_cvss: 2 reference files.
+- 05_web_platform_docs: 3 reference files.
+- 09_scope_authorization: 1 RedSage-authored policy.
+- 10_stop_escalation: 1 RedSage-authored policy.
+
+The raw repository checkouts and archives are not the final indexed corpus. The ingestion selector must include documentation-only files after license, safety, and relevance review.
+
+Downloaded and verified locally
+--------------------------------
+
+1. OWASP Web Security Testing Guide
+   Path: 03_owasp/wstg
+   URL: https://github.com/OWASP/wstg.git
+   Revision: 3da95e4 (verified shallow clone HEAD)
+   License observed: CC BY-SA 4.0 from LICENSE file.
+   Intended use: web-application testing objectives and roadmap structure.
+
+2. OWASP CheatSheetSeries
+   Path: 03_owasp/cheatsheet_series
+   URL: https://github.com/OWASP/CheatSheetSeries.git
+   Revision: 030528e (verified shallow clone HEAD)
+   License observed: CC BY-SA 4.0 from LICENSE.md.
+   Intended use: selected defensive control guidance, evidence expectations, remediation guidance.
+   Notes: repository contains many files; only selected markdown documentation should be ingested.
+
+3. Selected OWASP Cheat Sheets
+   Path: 03_owasp/selected_cheatsheet_*.md
+   Selected topics:
+   - Authentication
+   - Authorization
+   - Session Management
+   - Input Validation
+   - Cross-Site Scripting Prevention
+   - Cross-Site Request Forgery Prevention
+   - Content Security Policy
+   - Error Handling
+   - Logging
+   - REST Security
+   Intended use: web-app roadmap evidence expectations and remediation guidance.
+
+4. OWASP ASVS
+   Path: 03_owasp/_archives/ASVS-master.zip
+   URL: https://codeload.github.com/OWASP/ASVS/zip/refs/heads/master
+   Status: archive downloaded, but archive integrity/extraction still requires verification before ingestion.
+   Intended use: verification requirements and control mapping.
+
+5. OWASP Top 10
+   Path: 03_owasp/_archives/Top10-master.zip
+   URL: https://codeload.github.com/OWASP/Top10/zip/refs/heads/master
+   Status: archive downloaded, but archive integrity/extraction still requires verification before ingestion.
+   Also present: 03_owasp/top10_README.md.
+   Intended use: high-level vulnerability category mapping.
+
+6. RedSage v2 verified domain references
+   Path: 02_redsage_domain/v2_verified
+   Copied from v2 without .env, database, artifacts, or secrets:
+   - START_HERE.md
+   - EXPLANATION.md
+   - AGENTS.md
+   - SECURITY.md
+   - baseline_methodology.json
+   Intended use: preserve verified v2 workflow, safety, scope, evidence, audit, reporting, and approval behavior during v3 roadmap generation.
+
+7. RedSage v3 KB/product proposal references
+   Path: 02_redsage_domain
+   Files:
+   - KB_V3_SUBSCRIPTION_PROPOSAL.md
+   - README.md
+   Intended use: v3 KB contracts, tenancy, provenance, Hermes boundaries, subscription architecture, and safety policy.
+
+8. CVSS reference material
+   Path: 04_cwe_cvss
+   Files:
+   - CVSS_README.md
+   - CVSS_V4_SPECIFICATION.html
+   Intended use: severity reasoning support.
+
+9. MDN web platform reference material
+   Path: 05_web_platform_docs
+   Files:
+   - MDN_CONTENT_README.md
+   - MDN_HTTP_INDEX.md
+   - MDN_SECURITY_INDEX.md
+   Intended use: web platform and browser behavior context.
+
+10. RedSage-authored scope and stop policies
+   Paths:
+   - 09_scope_authorization/REDSAGE_SCOPE_AUTHORIZATION_GUIDANCE.md
+   - 10_stop_escalation/REDSAGE_STOP_ESCALATION_TAXONOMY.md
+   Intended use: highest-priority retrieval rules for authorization, scope ambiguity, pause conditions, and human approval gates.
+
+11. PTES Technical Guidelines — inspection copy
+   Path: 01_methodology_book/ptes/
+   Files: pentest-standard.pdf, PTES_README.html, extracted/PTES_text_by_page.txt
+   PDF: 237 pages; SHA-256: 44e7600d882746d46e83a95857fbd5ab276f30be41f441c892577054302e3c90
+   Intended use: engagement lifecycle, pre-engagement, scope, evidence, reporting, and roadmap structure.
+   Status: downloaded and page-preserving extraction verified; not Cohere-indexed.
+   Rights: public inspection source identified, but commercial redistribution/embedding rights are not assumed and require review.
+
+Not downloaded yet
+------------------
+- Operator-provided methodology book; candidate analysis recorded in `01_methodology_book/BOOK_CANDIDATES.txt`.
+- CWE selected data: use official MITRE data endpoint or a verified repository path next.
+- RFC/IETF selected documents.
+- First web-technology-specific docs beyond MDN.
+- Vetted third-party GitHub methodology documentation.
+- Responsible write-ups.
+- Separate lab/CTF sources.
+
+Safety and cost status
+----------------------
+- No Cohere API calls were made.
+- No embedding/indexing was performed.
+- No user book was available to ingest.
+- No executable repository code was run.
+- Resources are separated under the workflow-generation namespace.
+- Lab/CTF material will use a separate collection and metadata namespace.
+- Private examples and governance/legal material remain excluded.
+
+Next verification work
+----------------------
+1. Verify and extract ASVS and Top10 archives safely.
+2. Build a documentation-only source selector.
+3. Hash every selected source file.
+4. Produce an ingestion preview before any Cohere calls.
+5. Upload and inspect the methodology book.

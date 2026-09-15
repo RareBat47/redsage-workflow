@@ -1,0 +1,71 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_9d3860e611e341c9b8e7a35985f2e15e",
+  "created_at": "2026-09-13T18:25:52.745296+00:00",
+  "actor_type": "evaluation",
+  "project_id": null,
+  "query_hash": "6490e06d254233b4328ae83abd6202b16a6f95b6885cb912a1ca4d5bc8db7cc8",
+  "policy_version": "workflow-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow_asvs_readme_dac2eba7f801:0",
+    "workflow_server_side_request_forgery_prevention_c_c72eb7e7d4a4:2",
+    "workflow_llm_prompt_injection_prevention_cheat_sh_657f212a0fa1:7",
+    "workflow_02_bypassing_authorization_schema_4e4d1b48431d:0",
+    "workflow_03_integrity_checks_871c26f7225e:1",
+    "workflow_readme_c275019d8086:0",
+    "workflow_server_side_request_forgery_prevention_c_c72eb7e7d4a4:12",
+    "workflow_03_session_fixation_4cb92a87b036:1"
+  ],
+  "score_components": {
+    "workflow_asvs_readme_dac2eba7f801:0": {
+      "vector": 0.0,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_server_side_request_forgery_prevention_c_c72eb7e7d4a4:2": {
+      "vector": 0.0,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_llm_prompt_injection_prevention_cheat_sh_657f212a0fa1:7": {
+      "vector": 0.0,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_02_bypassing_authorization_schema_4e4d1b48431d:0": {
+      "vector": 0.0,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_03_integrity_checks_871c26f7225e:1": {
+      "vector": 0.0,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_readme_c275019d8086:0": {
+      "vector": 0.0,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_server_side_request_forgery_prevention_c_c72eb7e7d4a4:12": {
+      "vector": 0.0,
+      "lexical": 0.2857142857142857,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_03_session_fixation_4cb92a87b036:1": {
+      "vector": 0.0,
+      "lexical": 0.2857142857142857,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": []
+}

@@ -1,0 +1,28 @@
+{
+  "package": "D:\\HERMES_MIGRATION\\HERMES_REDSAGE_MIGRATION",
+  "archive": "D:\\HERMES_MIGRATION\\HERMES_REDSAGE_MIGRATION.zip",
+  "file_count_before_report": 2810,
+  "package_bytes_before_zip": 1011852267,
+  "checks": {
+    "required_paths_present": true,
+    "no_env_files": true,
+    "no_auth_json": true,
+    "no_private_key_files": true,
+    "no_windows_virtualenv_or_node_modules_or_caches": true,
+    "no_windows_executables": true,
+    "no_obvious_secret_assignments": true,
+    "restore_prompt_present": true,
+    "restore_prompt_nonempty": true,
+    "v2_git_status_record_present": true,
+    "v3_damage_marker_present": true,
+    "hermes_memories_present": true,
+    "hermes_skills_present": true
+  },
+  "missing_required_paths": [],
+  "forbidden_paths": [],
+  "env_files": [],
+  "auth_files": [],
+  "private_key_files": [],
+  "exe_files": [],
+  "secret_assignment_hits": []
+}

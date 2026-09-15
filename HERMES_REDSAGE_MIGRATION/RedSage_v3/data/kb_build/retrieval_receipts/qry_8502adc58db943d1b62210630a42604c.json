@@ -1,0 +1,71 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_8502adc58db943d1b62210630a42604c",
+  "created_at": "2026-09-13T18:25:53.258005+00:00",
+  "actor_type": "evaluation",
+  "project_id": null,
+  "query_hash": "b9b30a5c711ef45fc1fcfea07f5833f6f06b5c26bf0e8703e4521193bf37d7a9",
+  "policy_version": "workflow-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow_11_concurrent_sessions_bf6b4c953616:1",
+    "workflow_06_logout_functionality_b4f6edef58b9:3",
+    "workflow_session_management_cheat_sheet_63b0dcc25871:30",
+    "workflow_selected_cheatsheet_session_management_c_095d0894085e:30",
+    "workflow_checklist_dd58209b14bb:14",
+    "workflow_06_logout_functionality_b4f6edef58b9:1",
+    "workflow_ptes_text_by_page_790d0fa6f368:273",
+    "workflow_checklist_dd58209b14bb:13"
+  ],
+  "score_components": {
+    "workflow_11_concurrent_sessions_bf6b4c953616:1": {
+      "vector": 0.2129616141319275,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_06_logout_functionality_b4f6edef58b9:3": {
+      "vector": 0.07613480091094971,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_session_management_cheat_sheet_63b0dcc25871:30": {
+      "vector": 0.16397970914840698,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_selected_cheatsheet_session_management_c_095d0894085e:30": {
+      "vector": 0.16397970914840698,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_checklist_dd58209b14bb:14": {
+      "vector": 0.1125836968421936,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_06_logout_functionality_b4f6edef58b9:1": {
+      "vector": 0.10114806890487671,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_ptes_text_by_page_790d0fa6f368:273": {
+      "vector": 0.13692724704742432,
+      "lexical": 0.42857142857142855,
+      "trust": 0.15000000000000002,
+      "lab_penalty": 0.0
+    },
+    "workflow_checklist_dd58209b14bb:13": {
+      "vector": 0.13974535465240479,
+      "lexical": 0.2857142857142857,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": []
+}

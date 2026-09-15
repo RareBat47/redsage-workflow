@@ -1,0 +1,3 @@
+Path: D:/HIGH LEVELS OF WORKS/RedSage_v3
+Is worktree: false
+No Git repository found at audit time.

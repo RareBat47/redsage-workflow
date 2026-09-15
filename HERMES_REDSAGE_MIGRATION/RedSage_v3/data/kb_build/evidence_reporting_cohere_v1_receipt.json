@@ -1,0 +1,17 @@
+{
+  "receipt_type": "redsage_v3_workflow_cohere_index",
+  "created_at": "2026-09-14T10:25:43.287192+00:00",
+  "manifest_path": "D:\\HIGH LEVELS OF WORKS\\RedSage_v3\\data\\kb_build\\reporting_preview_manifest.json",
+  "manifest_sha256": "c8edf8946164e7f1975e51f098c8a1b861b6886d7ab776bdf779fd9e32e8e091",
+  "collection_name": "redsage_v3_evidence_reporting_cohere_v1",
+  "vector_count": 2418,
+  "batch_size": 96,
+  "index_profile": {
+    "provider": "cohere",
+    "model": "embed-english-v3.0",
+    "document_input_type": "search_document",
+    "query_input_type": "search_query",
+    "dimensions": 1024
+  },
+  "embedding_status": "indexed"
+}

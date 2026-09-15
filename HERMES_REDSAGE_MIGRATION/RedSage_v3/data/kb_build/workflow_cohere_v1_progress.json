@@ -1,0 +1,7 @@
+{
+  "collection_name": "redsage_v3_workflow_cohere_v1",
+  "completed_batches": 16,
+  "total_batches": 34,
+  "vector_count": 1536,
+  "status": "running"
+}

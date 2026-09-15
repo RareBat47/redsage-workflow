@@ -1,0 +1,71 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_7eefe08d00174890a423cb21776c1780",
+  "created_at": "2026-09-13T18:25:51.668736+00:00",
+  "actor_type": "evaluation",
+  "project_id": null,
+  "query_hash": "590c778d550bf52bfe104c9e17f987cb46c4e5c1f993b2d1a9f2d6bb815c6ae8",
+  "policy_version": "workflow-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow_02_bypassing_authorization_schema_4e4d1b48431d:0",
+    "workflow_05_enumerate_infrastructure_and_applicat_514210ea3862:0",
+    "workflow_04_account_enumeration_and_guessable_use_5a7a7084357b:0",
+    "workflow_07_defenses_against_application_misuse_db78fd5d98c3:0",
+    "workflow_07_defenses_against_application_misuse_db78fd5d98c3:1",
+    "workflow_04_account_enumeration_and_guessable_use_5a7a7084357b:6",
+    "workflow_03_integrity_checks_871c26f7225e:2",
+    "workflow_03_sensitive_information_sent_via_unencr_ab3cedeaf9c8:1"
+  ],
+  "score_components": {
+    "workflow_02_bypassing_authorization_schema_4e4d1b48431d:0": {
+      "vector": 0.027325749397277832,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_05_enumerate_infrastructure_and_applicat_514210ea3862:0": {
+      "vector": 0.021830081939697266,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_04_account_enumeration_and_guessable_use_5a7a7084357b:0": {
+      "vector": 0.0031353235244750977,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_07_defenses_against_application_misuse_db78fd5d98c3:0": {
+      "vector": 0.0,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_07_defenses_against_application_misuse_db78fd5d98c3:1": {
+      "vector": 0.0,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_04_account_enumeration_and_guessable_use_5a7a7084357b:6": {
+      "vector": 0.0,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_03_integrity_checks_871c26f7225e:2": {
+      "vector": 0.0,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_03_sensitive_information_sent_via_unencr_ab3cedeaf9c8:1": {
+      "vector": 0.0,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": []
+}

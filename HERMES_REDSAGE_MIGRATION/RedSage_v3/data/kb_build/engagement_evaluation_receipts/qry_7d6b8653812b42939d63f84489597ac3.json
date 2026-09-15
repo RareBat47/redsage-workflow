@@ -1,0 +1,89 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_7d6b8653812b42939d63f84489597ac3",
+  "created_at": "2026-09-15T15:41:42.025729+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "f4374e5f8b43f4efdd57f92456205bba78af03dc0a1fbbbcb084665867147034",
+  "policy_version": "consolidated-v1",
+  "index_profile": "consolidated:cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "authorization:document_3f3665da4b48fd64:0",
+    "workflow:workflow_baseline_methodology_f66a2e699db6:2",
+    "workflow:workflow_baseline_methodology_f66a2e699db6:1",
+    "workflow:workflow_explanation_168ff67985ad:19",
+    "assessment:document_d80a98fb0c7c99dc:2",
+    "assessment:document_d80a98fb0c7c99dc:1",
+    "assessment:document_b2c740b49575ecca:19",
+    "reporting:document_d80a98fb0c7c99dc:2"
+  ],
+  "score_components": {
+    "authorization:document_3f3665da4b48fd64:0": {
+      "vector": 0.0,
+      "lexical": 0.1111111111111111,
+      "trust": 0.25,
+      "policy": 1.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_baseline_methodology_f66a2e699db6:2": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_baseline_methodology_f66a2e699db6:1": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_explanation_168ff67985ad:19": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_d80a98fb0c7c99dc:2": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_d80a98fb0c7c99dc:1": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_b2c740b49575ecca:19": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "reporting:document_d80a98fb0c7c99dc:2": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.25,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [
+    "4 candidate(s) filtered by consolidated KB policy"
+  ],
+  "query_classification": "authorization_scope",
+  "ranking_profile": "hybrid-v2",
+  "environment_scope": "authorized_engagement",
+  "candidate_count": 144,
+  "filtered_count": 4,
+  "filtered_reasons": {
+    "not_approved": 4
+  }
+}

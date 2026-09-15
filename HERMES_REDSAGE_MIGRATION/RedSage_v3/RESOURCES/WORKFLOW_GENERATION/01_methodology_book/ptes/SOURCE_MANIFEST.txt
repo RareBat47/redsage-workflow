@@ -1,0 +1,32 @@
+SOURCE MANIFEST — PTES TECHNICAL GUIDELINES
+============================================
+
+Source name: The Penetration Testing Execution Standard Documentation
+Source family: PTES
+Source URLs:
+- https://pentest-standard.readthedocs.io/en/latest/tree.html
+- https://buildmedia.readthedocs.org/media/pdf/pentest-standard/latest/pentest-standard.pdf
+Local files:
+- PTES_README.html
+- pentest-standard.pdf
+SHA-256:
+- PTES_README.html: f697e86b59213c975768241718898e7dd3dfb0014d86bd60d67794061def5dc5
+- pentest-standard.pdf: 44e7600d882746d46e83a95857fbd5ab276f30be41f441c892577054302e3c90
+Observed PDF pages: 237
+
+Intended use:
+- Engagement lifecycle and roadmap structure.
+- Pre-engagement scope and rules-of-engagement questions.
+- Intelligence gathering, threat modeling, vulnerability analysis, and reporting phases.
+
+Rights status:
+- Public documentation was downloaded for inspection.
+- Commercial redistribution/embedding rights are not assumed from public availability.
+- Operator/legal review is required before publication in a hosted subscription KB.
+- Prefer derived, cited workflow abstractions if redistribution rights are unclear.
+
+Processing status:
+- Downloaded: yes
+- Extracted: not yet
+- Cohere embedded: no
+- Published to KB: no

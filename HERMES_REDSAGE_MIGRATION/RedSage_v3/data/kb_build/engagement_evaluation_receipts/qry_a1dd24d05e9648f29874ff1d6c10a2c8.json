@@ -1,0 +1,85 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_a1dd24d05e9648f29874ff1d6c10a2c8",
+  "created_at": "2026-09-15T13:09:27.399004+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "c953360ddde5d03f69d5d386488d323c5cc29bb98d06477022382da2c8bed239",
+  "policy_version": "consolidated-v1",
+  "index_profile": "consolidated:cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "authorization:document_3769b7706bd96b1d:1",
+    "assessment:document_3769b7706bd96b1d:1",
+    "workflow:workflow_03_integrity_checks_871c26f7225e:1",
+    "reporting:document_3769b7706bd96b1d:1",
+    "reporting:document_f9e8a3b0f3c854d9:0",
+    "workflow:workflow_authorization_cheat_sheet_7850a8f824ad:0",
+    "workflow:workflow_selected_cheatsheet_authorization_cheat__9296477a4da9:0",
+    "assessment:document_f9e8a3b0f3c854d9:0"
+  ],
+  "score_components": {
+    "authorization:document_3769b7706bd96b1d:1": {
+      "vector": 0.07806944847106934,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_3769b7706bd96b1d:1": {
+      "vector": 0.07759511470794678,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_03_integrity_checks_871c26f7225e:1": {
+      "vector": 0.07744455337524414,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "reporting:document_3769b7706bd96b1d:1": {
+      "vector": 0.07744455337524414,
+      "lexical": 0.7142857142857143,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "reporting:document_f9e8a3b0f3c854d9:0": {
+      "vector": 0.10293042659759521,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_authorization_cheat_sheet_7850a8f824ad:0": {
+      "vector": 0.1016799807548523,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_selected_cheatsheet_authorization_cheat__9296477a4da9:0": {
+      "vector": 0.1016799807548523,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_f9e8a3b0f3c854d9:0": {
+      "vector": 0.1016799807548523,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [],
+  "query_classification": "authorization_scope",
+  "ranking_profile": "hybrid-v2",
+  "environment_scope": "authorized_engagement",
+  "candidate_count": 144,
+  "filtered_count": 0,
+  "filtered_reasons": {}
+}

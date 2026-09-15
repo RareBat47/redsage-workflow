@@ -1,0 +1,81 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_3e5824027587487cb402055007439813",
+  "created_at": "2026-09-13T19:18:35.254979+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "00669af0c2e6e0e15b458e7672c8b42bad9e8f26c1dbd71486eb024e396997b4",
+  "policy_version": "workflow-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow_04_attack_surface_identification_56d6029b3fd3:1",
+    "workflow_readme_c275019d8086:5",
+    "workflow_readme_7e8550af708a:0",
+    "workflow_virtual_patching_cheat_sheet_e0ed3d46d730:4",
+    "workflow_00_information_gathering_overview_8bec1afe2f7c:0",
+    "workflow_readme_c275019d8086:0",
+    "workflow_10_map_application_architecture_090055db760a:0",
+    "workflow_07_defenses_against_application_misuse_db78fd5d98c3:0"
+  ],
+  "score_components": {
+    "workflow_04_attack_surface_identification_56d6029b3fd3:1": {
+      "vector": 0.16989243030548096,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_readme_c275019d8086:5": {
+      "vector": 0.008675992488861084,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_readme_7e8550af708a:0": {
+      "vector": 0.0923270583152771,
+      "lexical": 0.5,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_virtual_patching_cheat_sheet_e0ed3d46d730:4": {
+      "vector": 0.08767187595367432,
+      "lexical": 0.5,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_00_information_gathering_overview_8bec1afe2f7c:0": {
+      "vector": 0.08275246620178223,
+      "lexical": 0.5,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_readme_c275019d8086:0": {
+      "vector": 0.07481980323791504,
+      "lexical": 0.5,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_10_map_application_architecture_090055db760a:0": {
+      "vector": 0.0714913010597229,
+      "lexical": 0.5,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow_07_defenses_against_application_misuse_db78fd5d98c3:0": {
+      "vector": 0.0,
+      "lexical": 0.5,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [
+    "7 candidate(s) filtered by workflow KB policy"
+  ]
+}

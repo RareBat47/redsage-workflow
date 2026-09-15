@@ -1,0 +1,55 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_df4b8101f0884bdfafe4c6c873b3dd4d",
+  "created_at": "2026-09-14T11:05:36.613176+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "d0ea0b408ecf7d19bba3b764068acb872847c0dd67685528a5155d7c0839c454",
+  "policy_version": "identity-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "document_7c7a95cf110986b9:0",
+    "document_7b62f244eefdb176:1",
+    "document_19c388e259e0c675:0",
+    "document_4661246b9f360936:0",
+    "document_19c388e259e0c675:1"
+  ],
+  "score_components": {
+    "document_7c7a95cf110986b9:0": {
+      "vector": 0.29263120889663696,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_7b62f244eefdb176:1": {
+      "vector": 0.2730104923248291,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_19c388e259e0c675:0": {
+      "vector": 0.2540184259414673,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_4661246b9f360936:0": {
+      "vector": 0.2540184259414673,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_19c388e259e0c675:1": {
+      "vector": 0.1945238709449768,
+      "lexical": 0.6666666666666666,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": []
+}

@@ -1,0 +1,71 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_c1202d003d914f25a69650c9eeaa7195",
+  "created_at": "2026-09-13T18:25:53.827147+00:00",
+  "actor_type": "evaluation",
+  "project_id": null,
+  "query_hash": "be2c007b5fa9fdf06eb13f3aa8dfbf610d41421de4628cf526945cccc2dc766b",
+  "policy_version": "workflow-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "workflow_bot_management_and_anti_automation_cheat_9a550dab5c6f:1",
+    "workflow_multi_tenant_security_cheat_sheet_fd4df6e9dea4:13",
+    "workflow_aml_sanctions_ai_agent_payments_cheat_sh_1a5c4990b18d:7",
+    "workflow_bot_management_and_anti_automation_cheat_9a550dab5c6f:6",
+    "workflow_04_api_broken_function_level_authorizati_34db104da43e:0",
+    "workflow_aml_sanctions_ai_agent_payments_cheat_sh_1a5c4990b18d:6",
+    "workflow_ai_agent_security_cheat_sheet_66da78782ca2:6",
+    "workflow_02_api_broken_object_level_authorization_ca0992e576b8:2"
+  ],
+  "score_components": {
+    "workflow_bot_management_and_anti_automation_cheat_9a550dab5c6f:1": {
+      "vector": 0.0,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_multi_tenant_security_cheat_sheet_fd4df6e9dea4:13": {
+      "vector": 0.0,
+      "lexical": 0.5714285714285714,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_aml_sanctions_ai_agent_payments_cheat_sh_1a5c4990b18d:7": {
+      "vector": 0.0,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_bot_management_and_anti_automation_cheat_9a550dab5c6f:6": {
+      "vector": 0.0,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_04_api_broken_function_level_authorizati_34db104da43e:0": {
+      "vector": 0.0,
+      "lexical": 0.42857142857142855,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_aml_sanctions_ai_agent_payments_cheat_sh_1a5c4990b18d:6": {
+      "vector": 0.005439877510070801,
+      "lexical": 0.2857142857142857,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_ai_agent_security_cheat_sheet_66da78782ca2:6": {
+      "vector": 0.0,
+      "lexical": 0.2857142857142857,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    },
+    "workflow_02_api_broken_object_level_authorization_ca0992e576b8:2": {
+      "vector": 0.0,
+      "lexical": 0.2857142857142857,
+      "trust": 0.2,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": []
+}

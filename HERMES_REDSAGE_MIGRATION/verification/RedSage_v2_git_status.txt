@@ -1,0 +1,26 @@
+Path: D:\HIGH LEVELS OF WORKS\RedSage_v2
+Is worktree: true
+HEAD: 44574749b1834c496e16715e44e64f46f0eed564
+Remotes:
+origin	https://github.com/RareBat47/redsage-workflow.git (fetch)
+origin	https://github.com/RareBat47/redsage-workflow.git (push)
+Status:
+M backend/services/task_state.py
+ M docs/internal/PROGRESS.md
+ M frontend/src/components/TaskStepsPanel.tsx
+ M frontend/src/main.tsx
+ M frontend/src/types/index.ts
+ M interfaces/mcp_server.py
+ M tests/test_api_contracts.py
+ M tests/test_task_steps.py
+?? .hermes.md
+?? AGENTS.md
+?? SOUL.md
+?? docs/internal/HERMES_CONTEXT_SUMMARY.md
+?? docs/internal/HERMES_MCP_CONFIG.md
+?? docs/internal/KB_COMPLIANCE_NOTES.md
+?? docs/internal/archive/
+?? optional-skills/
+?? skills/
+Branches:
+main

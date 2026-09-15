@@ -1,0 +1,85 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_a32dd7ac672e4e058e9b3aa348067fde",
+  "created_at": "2026-09-15T13:03:12.508123+00:00",
+  "actor_type": "operator",
+  "project_id": null,
+  "query_hash": "2cdd76e078f771e421fce65f546b37d17ea86973e182c0bc2148ab21c8b566ab",
+  "policy_version": "assessment-v1",
+  "index_profile": "cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "document_b9e53f33b1a8840d:29",
+    "document_3f53916c5ca7eb60:0",
+    "document_0b1cc87c437fca1c:3",
+    "document_57827476d6abde0c:6",
+    "document_3f53916c5ca7eb60:2",
+    "document_0b1cc87c437fca1c:1",
+    "document_b09f4565a4d8f4d1:2",
+    "document_5605d37c6eada8a0:2"
+  ],
+  "score_components": {
+    "document_b9e53f33b1a8840d:29": {
+      "vector": 0.03586924076080322,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_3f53916c5ca7eb60:0": {
+      "vector": 0.0,
+      "lexical": 0.5555555555555556,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_0b1cc87c437fca1c:3": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_57827476d6abde0c:6": {
+      "vector": 0.0,
+      "lexical": 0.4444444444444444,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_3f53916c5ca7eb60:2": {
+      "vector": 0.0691366195678711,
+      "lexical": 0.3333333333333333,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_0b1cc87c437fca1c:1": {
+      "vector": 0.06499993801116943,
+      "lexical": 0.3333333333333333,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_b09f4565a4d8f4d1:2": {
+      "vector": 0.011214196681976318,
+      "lexical": 0.3333333333333333,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "document_5605d37c6eada8a0:2": {
+      "vector": 0.0,
+      "lexical": 0.3333333333333333,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [],
+  "query_classification": null,
+  "ranking_profile": null,
+  "environment_scope": null,
+  "candidate_count": null,
+  "filtered_count": null,
+  "filtered_reasons": {}
+}

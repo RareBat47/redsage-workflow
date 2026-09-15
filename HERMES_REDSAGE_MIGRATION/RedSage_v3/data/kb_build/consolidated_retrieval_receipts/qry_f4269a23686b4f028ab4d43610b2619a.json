@@ -1,0 +1,85 @@
+{
+  "receipt_type": "redsage_v3_workflow_retrieval",
+  "query_id": "qry_f4269a23686b4f028ab4d43610b2619a",
+  "created_at": "2026-09-15T11:09:02.768152+00:00",
+  "actor_type": "verification",
+  "project_id": null,
+  "query_hash": "8b8ff4334a2565f432b7017fb303a721e80a35d4b55ce7e97436685bc3d6d542",
+  "policy_version": "consolidated-v1",
+  "index_profile": "consolidated:cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024,cohere/embed-english-v3.0:1024",
+  "selected_chunk_ids": [
+    "reporting:document_4661246b9f360936:0",
+    "workflow:workflow_session_management_cheat_sheet_63b0dcc25871:0",
+    "workflow:workflow_selected_cheatsheet_session_management_c_095d0894085e:0",
+    "assessment:document_19c388e259e0c675:0",
+    "assessment:document_4661246b9f360936:0",
+    "reporting:document_19c388e259e0c675:0",
+    "identity:document_19c388e259e0c675:0",
+    "identity:document_4661246b9f360936:0"
+  ],
+  "score_components": {
+    "reporting:document_4661246b9f360936:0": {
+      "vector": 0.10552793741226196,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_session_management_cheat_sheet_63b0dcc25871:0": {
+      "vector": 0.10533994436264038,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "workflow:workflow_selected_cheatsheet_session_management_c_095d0894085e:0": {
+      "vector": 0.10533994436264038,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_19c388e259e0c675:0": {
+      "vector": 0.10533994436264038,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "assessment:document_4661246b9f360936:0": {
+      "vector": 0.10533994436264038,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "reporting:document_19c388e259e0c675:0": {
+      "vector": 0.10533994436264038,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "identity:document_19c388e259e0c675:0": {
+      "vector": 0.10533994436264038,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    },
+    "identity:document_4661246b9f360936:0": {
+      "vector": 0.10533994436264038,
+      "lexical": 0.7777777777777778,
+      "trust": 0.2,
+      "policy": 0.0,
+      "lab_penalty": 0.0
+    }
+  },
+  "warnings": [],
+  "query_classification": "authorization_scope",
+  "ranking_profile": "hybrid-v2",
+  "environment_scope": "authorized_engagement",
+  "candidate_count": 144,
+  "filtered_count": 0,
+  "filtered_reasons": {}
+}

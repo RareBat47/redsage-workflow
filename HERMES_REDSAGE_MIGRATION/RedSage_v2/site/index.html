@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RedSage v2 — Human-in-the-Loop Pentest Workflow Companion</title>
+<meta name="description" content="RedSage v2: a local-first, human-in-the-loop pentest workflow companion. Scope-safe, evidence-first, report-ready. Authorized testing only.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23101415'/%3E%3Cpath d='M16 5c3 6 7 8 7 13a7 7 0 1 1-14 0c0-5 4-7 7-13z' fill='none' stroke='%2372e0ba' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#151e1e"/><path d="M16 5c3 6 7 8 7 13a7 7 0 1 1-14 0c0-5 4-7 7-13z" fill="none" stroke="#72e0ba" stroke-width="2.5"/></svg>
+      RedSage&nbsp;<small>v2</small>
+    </a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#different">Differentiators</a>
+      <a href="#safety">Safety</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#outputs">Outputs</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <h1>RedSage v2</h1>
+    <p class="tagline">Human-in-the-loop pentest workflow companion: <b>scope-safe, evidence-first, report-ready.</b></p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:hello@redsage.example">Request Demo</a>
+      <a class="btn" href="#how">View How It Works</a>
+    </div>
+    <p class="badge">⚠ Authorized testing only&nbsp;•&nbsp;No tool execution&nbsp;•&nbsp;Local-first</p>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how">
+  <div class="wrap">
+    <span class="kicker">How it works</span>
+    <h2>From scope lock to report, one governed flow.</h2>
+    <p class="lead">The human tester runs every tool manually. RedSage structures the engagement, verifies what you paste in, and keeps the audit trail.</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 900 250" role="img" aria-label="Workflow diagram: Scope Lock, Task, Paste Evidence, Verify and Extract, Proposals with Approve and Undo, Finding, Report Export">
+        <defs>
+          <marker id="wa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#72e0ba"/>
+          </marker>
+        </defs>
+        <!-- row 1 -->
+        <rect x="15"  y="20" width="190" height="52" rx="8" class="box accent"/>
+        <text x="110" y="51" class="btext">1 · Scope Lock</text>
+        <rect x="245" y="20" width="190" height="52" rx="8" class="box"/>
+        <text x="340" y="51" class="btext">2 · Task</text>
+        <rect x="475" y="20" width="190" height="52" rx="8" class="box"/>
+        <text x="570" y="51" class="btext">3 · Paste Evidence</text>
+        <rect x="705" y="20" width="180" height="52" rx="8" class="box"/>
+        <text x="795" y="51" class="btext">4 · Verify &amp; Extract</text>
+        <line x1="207" y1="46" x2="241" y2="46" class="arrow" marker-end="url(#wa)"/>
+        <line x1="437" y1="46" x2="471" y2="46" class="arrow" marker-end="url(#wa)"/>
+        <line x1="667" y1="46" x2="701" y2="46" class="arrow" marker-end="url(#wa)"/>
+        <!-- elbow to row 2 -->
+        <polyline points="795,72 795,105 110,105 110,141" class="arrow" fill="none" marker-end="url(#wa)"/>
+        <!-- row 2 -->
+        <rect x="15"  y="145" width="190" height="56" rx="8" class="box"/>
+        <text x="110" y="169" class="btext">5 · Proposals</text>
+        <text x="110" y="188" class="bsub">(Approve / Undo)</text>
+        <rect x="245" y="145" width="190" height="56" rx="8" class="box"/>
+        <text x="340" y="178" class="btext">6 · Finding</text>
+        <rect x="475" y="145" width="190" height="56" rx="8" class="box accent"/>
+        <text x="570" y="178" class="btext">7 · Report Export</text>
+        <line x1="207" y1="173" x2="241" y2="173" class="arrow" marker-end="url(#wa)"/>
+        <line x1="437" y1="173" x2="471" y2="173" class="arrow" marker-end="url(#wa)"/>
+        <!-- caption inside svg -->
+        <text x="450" y="235" class="dnote" text-anchor="middle">Evidence is accepted only after the scope is locked · proposed workflow changes always need human approval</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ DIFFERENTIATORS ============ -->
+<section id="different">
+  <div class="wrap">
+    <span class="kicker">What makes it different</span>
+    <h2>Governed, verifiable, reviewable.</h2>
+    <ul class="diff-list">
+      <li><b>Scope gate + amendments + audit trail</b><span>Testing stays inside the authorized whitelist; every scope change is authorized, reasoned, and permanently logged.</span></li>
+      <li><b>Evidence artifacts on disk + SHA-256 integrity register</b><span>Pasted tool output is stored as a file with a cryptographic digest — a chain of custody for every claim.</span></li>
+      <li><b>Governed workflow adaptation (proposals, not silent edits)</b><span>When the workflow should change, RedSage queues a proposal for human approval — and approvals can be undone.</span></li>
+      <li><b>Report readiness scoring + formal report output</b><span>A readiness auditor checks evidence coverage before you export an audit-ready engagement report.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SAFETY ============ -->
+<section id="safety">
+  <div class="wrap">
+    <span class="kicker">Safety by design</span>
+    <h2>The human tests. The app documents.</h2>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 900 250" role="img" aria-label="Safety diagram: the human operator executes security tools externally; RedSage only provides guidance, verification, and documentation; pasted evidence is untrusted and prompt-injection resistant">
+        <defs>
+          <marker id="sa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#72e0ba"/>
+          </marker>
+        </defs>
+        <!-- human -->
+        <rect x="15" y="35" width="270" height="130" rx="10" class="box"/>
+        <text x="150" y="70" class="btitle" text-anchor="middle">HUMAN OPERATOR</text>
+        <text x="150" y="100" class="bsub" text-anchor="middle">Executes security tools</text>
+        <text x="150" y="122" class="bsub" text-anchor="middle">externally — outside the app</text>
+        <!-- app -->
+        <rect x="615" y="35" width="270" height="130" rx="10" class="box accent"/>
+        <text x="750" y="70" class="btitle" text-anchor="middle">REDSAGE V2 — APP ONLY</text>
+        <text x="750" y="97"  class="bsub" text-anchor="middle">Guidance</text>
+        <text x="750" y="119" class="bsub" text-anchor="middle">Verification</text>
+        <text x="750" y="141" class="bsub" text-anchor="middle">Documentation</text>
+        <!-- arrow -->
+        <line x1="290" y1="100" x2="608" y2="100" class="arrow" marker-end="url(#sa)"/>
+        <text x="450" y="88" class="btext" text-anchor="middle">pastes tool output</text>
+        <rect x="355" y="112" width="190" height="26" rx="13" class="pill"/>
+        <text x="450" y="129" class="pilltext" text-anchor="middle">UNTRUSTED EVIDENCE</text>
+        <!-- note -->
+        <rect x="15" y="195" width="870" height="38" rx="8" class="notebox"/>
+        <text x="450" y="219" class="dnote" text-anchor="middle">Clipped · regex-redacted · prompt-injection resistant — evidence text can never steer the AI or the verdicts</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE ============ -->
+<section id="architecture">
+  <div class="wrap">
+    <span class="kicker">Architecture (local-first)</span>
+    <h2>Everything runs on your machine.</h2>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 900 280" role="img" aria-label="Architecture diagram: Browser UI connects to a local FastAPI server, which stores data in SQLite and evidence artifacts on disk; an optional connection to the Cohere API provides AI verification and mentor features">
+        <defs>
+          <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#72e0ba"/>
+          </marker>
+        </defs>
+        <!-- browser -->
+        <rect x="15" y="40" width="210" height="90" rx="10" class="box"/>
+        <text x="120" y="78"  class="btitle" text-anchor="middle">Browser UI</text>
+        <text x="120" y="102" class="bsub"   text-anchor="middle">React app · localhost</text>
+        <!-- fastapi -->
+        <rect x="345" y="40" width="210" height="90" rx="10" class="box accent"/>
+        <text x="450" y="78"  class="btitle" text-anchor="middle">Local FastAPI</text>
+        <text x="450" y="102" class="bsub"   text-anchor="middle">workflow engine</text>
+        <!-- storage -->
+        <rect x="675" y="40" width="210" height="90" rx="10" class="box"/>
+        <text x="780" y="71"  class="btitle" text-anchor="middle">SQLite + Artifacts</text>
+        <text x="780" y="94"  class="bsub"   text-anchor="middle">metadata in DB</text>
+        <text x="780" y="114" class="bsub"   text-anchor="middle">evidence files on disk</text>
+        <!-- bidirectional arrows -->
+        <line x1="228" y1="85" x2="340" y2="85" class="arrow" marker-start="url(#aa)" marker-end="url(#aa)"/>
+        <line x1="558" y1="85" x2="670" y2="85" class="arrow" marker-start="url(#aa)" marker-end="url(#aa)"/>
+        <!-- optional cohere -->
+        <line x1="450" y1="130" x2="450" y2="181" class="arrow" marker-end="url(#aa)"/>
+        <rect x="300" y="185" width="300" height="56" rx="10" class="box dashed"/>
+        <text x="450" y="209" class="btitle" text-anchor="middle">Optional: Cohere API</text>
+        <text x="450" y="230" class="bsub"   text-anchor="middle">verification · mentor — only if API key set</text>
+        <!-- no-scanning note -->
+        <text x="450" y="268" class="dnote" text-anchor="middle">The app never executes scans, tools, or attacks — every test is run manually by the human operator.</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ OUTPUTS ============ -->
+<section id="outputs">
+  <div class="wrap">
+    <span class="kicker">Outputs</span>
+    <h2>What you walk away with.</h2>
+    <div class="outputs-grid">
+      <div class="card"><span class="ico">📄</span><h3>Formal Markdown report</h3><p>Scope attestation, methodology matrix, and confirmed findings — each with an evidence reference.</p></div>
+      <div class="card"><span class="ico">🧾</span><h3>Evidence Register &amp; Integrity Log</h3><p>A report appendix listing every artifact with file, size, timestamp, and SHA-256 digest.</p></div>
+      <div class="card"><span class="ico">📦</span><h3>Project export / import archive</h3><p>A checksummed ZIP of the whole project — portable, verifiable, importable with remapped IDs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap contact">
+    <span class="kicker">Contact</span>
+    <h2>See it in action.</h2>
+    <p class="lead">Request a walkthrough or explore the repository.</p>
+    <div class="contact-row">
+      <input type="email" placeholder="you@example.com" aria-label="Your email (static placeholder)">
+      <button class="btn primary" type="button">Request Demo</button>
+      <a class="btn" href="https://github.com/RareBat47/redsage-workflow" rel="noopener">GitHub</a>
+    </div>
+    <p class="fineprint">Static page — no form backend. Email: hello@redsage.example</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><b>RedSage v2</b> — human-in-the-loop pentest workflow companion.</span>
+    <span>Authorized testing only · No tool execution · Local-first · MIT licensed</span>
+  </div>
+</footer>
+
+</body>
+</html>

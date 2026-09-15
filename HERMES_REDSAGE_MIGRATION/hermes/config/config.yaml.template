@@ -1,0 +1,581 @@
+model:
+  default: gpt-5.6-terra
+  provider: azure-foundry
+  base_url: https://arifinnabid47-9700-resource.openai.azure.com/openai/v1
+  key_env: AZURE_FOUNDRY_API_KEY
+  api_mode: chat_completions
+  aliases:
+    default: custom:agentrouter-openai:glm-5.3
+    hard: custom:agentrouter-claude:claude-opus-4.6
+    fast: custom:agentrouter-openai:gpt-5.5/glm-5.2
+    final: custom:agentrouter-openai:gpt-5.5/glm-5.2
+    reason: custom:agentrouter-openai:gpt-5.5/glm-5.2
+    quick: custom:agentrouter-claude:claude-opus-4.6
+  auth_mode: api_key
+providers:
+  custom:
+    name: Custom
+    base_url: http://127.0.0.1:20128/v1
+    model: xkiro/openai/gpt-5.6-luna
+    discover_models: true
+    models:
+      qwen3.8-max-0902: {}
+      kimi/kimi-k3: {}
+      qwen3.8-flash: {}
+      kimi-k3: {}
+      qwen3.8-27b: {}
+      ZHIPU/GLM-5.3: {}
+      deepseek-v4-pro-0813: {}
+      qwen3.8-2.4t-a95b: {}
+      qwen3.7-text-embedding: {}
+      qwen-image-3.0-pro: {}
+      qwen-image-3.0: {}
+      qwen3.8-max: {}
+      deepseek-v4-flash-0731: {}
+      qwen-audio-3.0-asr-flash: {}
+      qwen3.7-flash-2026-07-15: {}
+      qwen3.7-flash: {}
+      glm-5.2-fast-preview: {}
+      kimi-k2.7-code: {}
+      glm-5.2: {}
+      qwen-image-2.0-pro-2026-06-22: {}
+      qwen3.7-max-2026-06-08: {}
+      qwen3.7-plus-2026-05-26: {}
+      qwen3.7-plus: {}
+      glm-5.1: {}
+      qwen3.7-max-2026-05-17: {}
+      qwen3.7-max-preview: {}
+      qwen3.7-max-2026-05-20: {}
+      qwen3.7-max: {}
+      qwen3.5-livetranslate-flash-realtime-2026-05-19: {}
+      qwen3.5-livetranslate-flash-realtime: {}
+      deepseek-v4-flash: {}
+      deepseek-v4-pro: {}
+      qwen-image-2.0-pro-2026-04-22: {}
+      qwen3.6-27b: {}
+      qwen3.5-plus-2026-04-20: {}
+      qwen3.6-max-preview: {}
+      qwen3.6-35b-a3b: {}
+      qwen3.6-flash: {}
+      qwen3.6-flash-2026-04-16: {}
+      qwen3.5-omni-plus-realtime-2026-03-15: {}
+      qwen3.5-omni-plus-realtime: {}
+      qwen3.5-omni-plus-2026-03-15: {}
+      qwen3.5-omni-plus: {}
+      qwen3.5-omni-flash-realtime-2026-03-15: {}
+      qwen3.5-omni-flash-realtime: {}
+      qwen3.5-omni-flash-2026-03-15: {}
+      qwen3.5-omni-flash: {}
+      qwen3.6-plus-2026-04-02: {}
+      qwen3.6-plus: {}
+      wan2.7-image-pro: {}
+      wan2.7-image: {}
+      deepseek-v3.2: {}
+      qwen-image-2.0-2026-03-03: {}
+      qwen-image-2.0-pro: {}
+      qwen-image-2.0-pro-2026-03-03: {}
+      qwen-image-2.0: {}
+      qwen3-asr-flash-2026-02-10: {}
+      qwen3.5-flash-2026-02-23: {}
+      qwen3.5-flash: {}
+      qwen3.5-122b-a10b: {}
+      qwen3.5-35b-a3b: {}
+      qwen3.5-27b: {}
+      qwen3-coder-next: {}
+      qwen3.5-397b-a17b: {}
+      qwen3.5-plus-2026-02-15: {}
+      qwen3.5-plus: {}
+      qwen3-asr-flash-realtime-2026-02-10: {}
+      qwen3-tts-vc-2026-01-22: {}
+      qwen3-tts-instruct-flash-2026-01-26: {}
+      qwen3-tts-instruct-flash: {}
+      qwen3-tts-vd-2026-01-26: {}
+      qwen3-tts-instruct-flash-realtime-2026-01-22: {}
+      qwen3-tts-instruct-flash-realtime: {}
+      qwen3-tts-vd-realtime-2026-01-15: {}
+      qwen3-vl-flash-2026-01-22: {}
+      qwen3-max-2026-01-23: {}
+      qwen-image-edit-max-2026-01-16: {}
+      qwen-image-edit-max: {}
+      qwen3-tts-vc-realtime-2026-01-15: {}
+      qwen-image-plus-2026-01-09: {}
+      qwen-plus-character: {}
+      qwen-flash-character: {}
+      qwen-image-max-2025-12-30: {}
+      qwen-image-max: {}
+      qwen-flash: {}
+      z-image-turbo: {}
+      qwen3-vl-plus-2025-12-19: {}
+      qwen3-tts-vd-realtime-2025-12-16: {}
+      qwen-image-edit-plus-2025-12-15: {}
+      qwen3-omni-flash-realtime-2025-12-01: {}
+      qwen3-omni-flash-2025-12-01: {}
+      qwen3-livetranslate-flash-2025-12-01: {}
+      qwen3-livetranslate-flash: {}
+      qwen-mt-lite: {}
+      qwen-plus-2025-12-01: {}
+      qwen3-tts-vc-realtime-2025-11-27: {}
+      qwen3-tts-flash-2025-11-27: {}
+      qwen3-tts-flash-realtime-2025-11-27: {}
+      qwen-vl-ocr-2025-11-20: {}
+      qwen-mt-flash: {}
+      ccai-pro: {}
+      tongyi-tingwu-slp: {}
+      qwen-image-edit-plus: {}
+      qwen-image-edit-plus-2025-10-30: {}
+      qwen3-asr-flash-realtime-2025-10-27: {}
+      qwen3-asr-flash-realtime: {}
+      qwen3-vl-flash: {}
+      text-embedding-v4: {}
+      qwen-image-edit: {}
+      qwen3-vl-flash-2025-10-15: {}
+      qwen3-tts-flash: {}
+      qwen3-tts-flash-2025-09-18: {}
+      qwen3-tts-flash-realtime-2025-09-18: {}
+      qwen3-tts-flash-realtime: {}
+      qwen3-omni-flash-realtime: {}
+      qwen3-omni-flash: {}
+      qwen3-omni-flash-2025-09-15: {}
+      qwen3-omni-flash-realtime-2025-09-15: {}
+      qwen3-omni-30b-a3b-captioner: {}
+      qwen3-s2s-flash-realtime: {}
+      qwen3-livetranslate-flash-realtime: {}
+      qwen3-livetranslate-flash-realtime-2025-09-22: {}
+      text-embedding-v3: {}
+      qwen-plus-latest: {}
+      qwen-plus-2025-01-25: {}
+      qwq-plus-2025-03-05: {}
+      qwen-mt-turbo: {}
+      qwen-mt-plus: {}
+      qwen-coder-plus: {}
+      qwq-plus: {}
+      qvq-max: {}
+      qwen-omni-turbo: {}
+      qwen3-8b: {}
+      qwen3-30b-a3b: {}
+      qwen3-235b-a22b: {}
+      qwen-plus-2025-04-28: {}
+      qwen3-coder-plus: {}
+      qwen3-coder-480b-a35b-instruct: {}
+      qwen3-235b-a22b-instruct-2507: {}
+      qwen-plus-2025-07-14: {}
+      qwen3-coder-plus-2025-07-22: {}
+      qwen3-235b-a22b-thinking-2507: {}
+      qwen3-coder-flash: {}
+      qwen-vl-max: {}
+      qwen3-max: {}
+      qwen3-max-2025-09-23: {}
+      qwen-image-plus: {}
+      qwen3-vl-plus: {}
+      qwen3-vl-235b-a22b-instruct: {}
+      qwen3-vl-235b-a22b-thinking: {}
+      qwen3-30b-a3b-thinking-2507: {}
+      qwen3-30b-a3b-instruct-2507: {}
+      qwen3-14b: {}
+      qwen3-32b: {}
+      qwen-vl-plus: {}
+      qwen3-coder-plus-2025-09-23: {}
+      qwen3-vl-plus-2025-09-23: {}
+      qwen-plus-2025-09-11: {}
+      qwen3-next-80b-a3b-thinking: {}
+      qwen3-next-80b-a3b-instruct: {}
+      qwen3-max-preview: {}
+      qwen2-7b-instruct: {}
+      qwen-max: {}
+      qwen-plus: {}
+      qwen-turbo: {}
+      deepseek/deepseek-v4-pro: {}
+      xkiro/openai/gpt-5:
+        6-luna: {}
+        6-sol: {}
+        3-codex-spark: {}
+      xkiro/deepseek/deepseek-v4-pro-0813: {}
+      xkiro/minimax/minimax-m2:
+        '7': {}
+      xkiro/anthropic/claude-opus-5: {}
+      xkiro/openai/gpt-5.6-luna: {}
+      xkiro/openai/gpt-5.6-sol: {}
+      xkiro/openai/gpt-5.3-codex-spark: {}
+      xkiro/minimax/minimax-m2.7: {}
+    key_env: OMNIROUTE_API_KEY
+    api_mode: chat_completions
+  xkiro:
+    name: XKIRO.DEEP
+    api: https://api.xkiro.com/v1
+    key_env: HERMES_CUSTOM_API_XKIRO_COM_API_KEY
+    transport: chat_completions
+    model: openai/gpt-5.6-luna
+  agentrouter-claude:
+    name: AgentRouter Claude
+    api: anthropic-messages
+    transport: anthropic_messages
+    key_env: HERMES_CUSTOM_AGENTROUTER_ORG_API_KEY
+    models:
+      claude-opus-4-6:
+        alias: Claude Opus 4.6 via AgentRouter
+    discover_models: false
+    model: claude-opus-4.6
+    base_url: https://agentrouter.org
+  agentrouter-openai:
+    name: AgentRouter openai
+    api: OpenAI Compatible
+    transport: chat_completions
+    key_env: HERMES_CUSTOM_AGENTROUTER_ORG_API_KEY
+    models:
+      gpt-5.5/glm-5.2:
+        alias: GPT-5.5/GLM-5.2
+    discover_models: false
+    model: glm-5.3
+    base_url: https://agentrouter.org/v1
+    api_mode: chat_completions
+  azure-foundry:
+    name: Azure Foundry
+    base_url: https://arifinnabid47-9700-resource.openai.azure.com/openai/v1
+    key_env: AZURE_FOUNDRY_API_KEY
+    api_mode: chat_completions
+    default_model: gpt-5.6-terra
+    discover_models: true
+database:
+  journal_mode: wal
+runtime:
+  nofile_soft_limit: 4096
+agent:
+  max_turns: 500
+  service_tier: ''
+  fast_auto_seconds: 60
+  verbose: false
+  reasoning_effort: medium
+  personalities: {}
+terminal:
+  backend: local
+  cwd: .
+  timeout: 180
+  home_mode: auto
+  container_cpu: 1
+  container_memory: 5120
+  container_disk: 51200
+  container_persistent: true
+  docker_mount_cwd_to_workspace: false
+  lifetime_seconds: 300
+browser:
+  inactivity_timeout: 120
+  extension_control:
+    enabled: false
+tool_loop_guardrails:
+  warnings_enabled: true
+  hard_stop_enabled: false
+  non_interactive_hard_stop_enabled: true
+  warn_after:
+    exact_failure: 2
+    same_tool_failure: 3
+    idempotent_no_progress: 2
+  hard_stop_after:
+    exact_failure: 5
+    same_tool_failure: 8
+    idempotent_no_progress: 5
+compression:
+  enabled: true
+  checkpoint_required: false
+  progress_notices: false
+  threshold: 0.5
+  target_ratio: 0.2
+  protect_last_n: 20
+  min_tail_user_messages: 1
+  max_attempts: 3
+  proactive_prune_tokens: 0
+  proactive_prune_min_result_chars: 8000
+  proactive_prune_min_reclaim_tokens: 4096
+  hygiene_max_turn_hold_seconds: 10
+  protect_first_n: 3
+  codex_gpt55_autoraise: true
+  codex_app_server_auto: native
+  codex_responses_native: false
+  idle_compact_after_seconds: 0
+prompt_caching:
+  cache_ttl: 5m
+display:
+  compact: false
+  busy_input_mode: interrupt
+  bell_on_complete: false
+  bell_on_prompt: false
+  show_reasoning: false
+  background_process_notifications: concise
+  streaming: true
+  skin: default
+  interim_assistant_messages: true
+  tool_progress: all
+  cleanup_progress: false
+  long_running_notifications: true
+  busy_ack_detail: true
+stt:
+  enabled: true
+  language: en
+  local:
+    model: base
+  openai:
+    model: whisper-1
+    language: ''
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  nudge_interval: 10
+delegation:
+  max_iterations: 250
+skills:
+  creation_nudge_interval: 15
+approvals:
+  mode: smart
+command_allowlist:
+  - script execution via heredoc
+kanban:
+  review_dispatch: true
+code_execution:
+  timeout: 300
+  max_tool_calls: 50
+gateway:
+  signal_interrupt_grace_timeout: 1
+  delivery_ledger: true
+  platform_connect_timeout: 30
+  loop_watchdog: true
+  loop_watchdog_probe_interval_s: 30.0
+  loop_watchdog_probe_timeout_s: 10.0
+  loop_watchdog_max_strikes: 3
+  bot_loop_guard:
+    enabled: true
+    max_events: 20
+    window_seconds: 300
+    cooldown_seconds: 600
+  startup_watchdog: true
+  startup_watchdog_timeout_seconds: 300
+  write_sessions_json: true
+  scale_to_zero:
+    idle_timeout_minutes: 2
+  restart_loop_guard:
+    max_restarts: 3
+    window_seconds: 60
+    max_gap_seconds: 300
+  respawn_storm:
+    max_starts: 5
+    window_seconds: 120
+  message_timestamps:
+    enabled: false
+  max_inbound_media_bytes: 134217728
+  trust_env: true
+  strict: false
+  media_delivery_allow_dirs: []
+  trust_recent_files: true
+  trust_recent_files_seconds: 600
+  api_server:
+    max_concurrent_runs: 10
+streaming:
+  enabled: false
+telemetry:
+  shared_metrics:
+    enabled: false
+    send: false
+updates:
+  check: true
+  pre_update_backup: false
+  backup_keep: 5
+  non_interactive_local_changes: stash
+_config_version: 42
+group_sessions_per_user: true
+platform_toolsets:
+  cli:
+    - hermes-cli
+  telegram:
+    - hermes-telegram
+  discord:
+    - hermes-discord
+  whatsapp:
+    - hermes-whatsapp
+  slack:
+    - hermes-slack
+  signal:
+    - hermes-signal
+  homeassistant:
+    - hermes-homeassistant
+  qqbot:
+    - hermes-qqbot
+  yuanbao:
+    - hermes-yuanbao
+  teams:
+    - hermes-teams
+  google_chat:
+    - hermes-google_chat
+custom_providers:
+  - name: xKiro.Deep
+    base_url: https://api.xkiro.com/v1
+    key_env: HERMES_CUSTOM_API_XKIRO_COM_API_KEY
+    model: openai/gpt-5.6-sol
+    api_mode: chat_completions
+    models:
+      xiaomi/mimo-v2.5: {}
+      openai/gpt-5.6-terra: {}
+      anthropic/claude-sonnet-4.6: {}
+      openai/gpt-5.3-codex-spark: {}
+      google/gemini-2.5-flash: {}
+      openai/gpt-5.6-luna: {}
+      z-ai/glm-5.2: {}
+      openai/gpt-5.5: {}
+      openai/gpt-5.4: {}
+      openai/gpt-5.4-mini: {}
+      anthropic/claude-opus-4.8: {}
+      anthropic/claude-sonnet-5: {}
+      google/gemini-3.8-flash: {}
+      openai/gpt-6-astra: {}
+      openai/gpt-5.6-sol: {}
+      google/gemini-3.5-flash: {}
+      anthropic/claude-fable-5: {}
+      anthropic/claude-opus-5: {}
+      google/gemini-3.1-pro: {}
+      qwen/qwen3.7-max: {}
+      x-ai/grok-build-0.1: {}
+      google/gemini-3-flash: {}
+      x-ai/grok-4.5: {}
+      moonshotai/kimi-k3: {}
+      moonshotai/kimi-k2.7-code: {}
+      moonshotai/kimi-k2.6: {}
+      mistralai/mistral-large-2512: {}
+      moonshotai/kimi-k2.5: {}
+      mistralai/mistral-medium-3.5: {}
+      mistralai/mistral-small-2603: {}
+      mistralai/codestral-2508: {}
+      mistralai/devstral-medium: {}
+      z-ai/glm-5.3-flash: {}
+      z-ai/glm-5.1: {}
+      anthropic/claude-haiku-4.5: {}
+      z-ai/glm-5.3: {}
+      z-ai/glm-5v-turbo: {}
+      google/gemini-2.5-pro: {}
+      mistralai/ministral-8b: {}
+      mistralai/ministral-3b: {}
+      minimax/minimax-m2.7: {}
+      google/gemini-3.7-flash: {}
+      x-ai/grok-4.6: {}
+      z-ai/glm-4.7: {}
+      z-ai/glm-4.5: {}
+      z-ai/glm-4.5-air: {}
+      z-ai/glm-4.7-flashx: {}
+      z-ai/glm-4.5-airx: {}
+      z-ai/glm-4.5-flash: {}
+      deepseek/deepseek-v4-flash-vision-exp: {}
+      deepseek/deepseek-v4-flash-0731: {}
+      anthropic/claude-opus-4.6: {}
+      z-ai/glm-4.6v: {}
+      minimax/minimax-m3: {}
+      google/gemini-3.6-flash: {}
+      minimax/minimax-m2.5: {}
+      z-ai/glm-5-turbo: {}
+      z-ai/glm-4.5-x: {}
+      tencent/hy4-preview: {}
+      mistralai/ministral-14b: {}
+      tencent/hy3: {}
+      z-ai/glm-5: {}
+      z-ai/glm-4.6: {}
+      z-ai/glm-4.7-flash: {}
+      z-ai/glm-4.6v-flash: {}
+      z-ai/glm-4.5v: {}
+      xiaomi/mimo-v2.5-pro: {}
+      deepseek/deepseek-v4-pro-0813: {}
+      sensenova/sensenova-6.8-flash-lite: {}
+      meta/muse-spark-1.2-contributor: {}
+      nvidia/nemotron-3-nano: {}
+      qwen/qwen3.7-plus: {}
+      nvidia/nemotron-3-nano-omni: {}
+      sensenova/sensenova-6.7-flash-lite: {}
+      anthropic/claude-fable-5-1: {}
+      qwen/qwen3.6-plus: {}
+      qwen/qwen3.5-plus: {}
+      qwen/qwen3.8-max: {}
+      nvidia/llama-3.3-nemotron-super-49b: {}
+      anthropic/claude-opus-4.7: {}
+      z-ai/glm-4.6v-flashx: {}
+      nvidia/nemotron-3-ultra: {}
+      nvidia/nemotron-3-super: {}
+    models_discovered: true
+  - name: Agentrouter.org
+    base_url: https://agentrouter.org
+    key_env: HERMES_CUSTOM_AGENTROUTER_ORG_API_KEY
+    model: claude-opus-4-6
+    api_mode: anthropic_messages
+    models:
+      claude-opus-4-6: {}
+    discover_models: false
+mcp_servers:
+  redsage-kb:
+    command: ${REDSAGE_V2_ROOT}/.venv/Scripts/python.exe
+    args:
+      - -m
+      - interfaces.mcp_server
+    connect_timeout: 60.0
+    enabled: true
+    cwd: ${REDSAGE_V2_ROOT}
+  redsage-v3-workflow-kb:
+    command: C:\Users\arifi\redsage-v3-mcp.cmd
+    connect_timeout: 60.0
+    enabled: true
+  redsage-v3-assessment-web-kb:
+    command: C:\Users\arifi\redsage-v3-assessment-mcp.cmd
+    connect_timeout: 60.0
+    enabled: true
+  redsage-v3-evidence-reporting-kb:
+    command: C:\Users\arifi\redsage-v3-reporting-mcp.cmd
+    connect_timeout: 60.0
+    enabled: true
+  redsage-v3-identity-kb:
+    command: C:\Users\arifi\redsage-v3-identity-mcp.cmd
+    connect_timeout: 60.0
+    enabled: true
+  redsage-v3-api-kb:
+    command: C:\Users\arifi\redsage-v3-api-mcp.cmd
+    connect_timeout: 60.0
+    enabled: true
+  redsage-v3-consolidated-roadmap:
+    command: C:\Users\arifi\redsage-v3-consolidated-roadmap.cmd
+    connect_timeout: 60.0
+    enabled: true
+  redsage-v3-engagement-workflow:
+    command: C:\Users\arifi\redsage-v3-engagement-mcp.cmd
+    connect_timeout: 60.0
+    enabled: true
+
+# ── Security ──────────────────────────────────────────────────────────
+# Secret redaction is ON by default — strings that look like API keys,
+# tokens, and passwords are masked in tool output, logs, and chat
+# responses before the model or user ever sees them. Set redact_secrets
+# to false to disable (e.g. when developing the redactor itself).
+# tirith pre-exec scanning is enabled by default when the tirith binary
+# is available. Configure via security.tirith_* keys or env vars
+# (TIRITH_ENABLED, TIRITH_BIN, TIRITH_TIMEOUT, TIRITH_FAIL_OPEN).
+#
+# security:
+#   redact_secrets: true
+#   tirith_enabled: true
+#   tirith_path: "tirith"
+#   tirith_timeout: 5
+#   tirith_fail_open: true
+
+# ── Fallback Model ────────────────────────────────────────────────────
+# Automatic provider failover when primary is unavailable.
+# Uncomment and configure to enable. Triggers on rate limits (429),
+# overload (529), service errors (503), or connection failures.
+#
+# Supported providers:
+#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
+#   openai-codex (OAuth — hermes auth) — OpenAI Codex
+#   nous         (OAuth — hermes auth) — Nous Portal
+#   zai          (ZAI_API_KEY)         — Z.AI / GLM
+#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
+#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
+#   minimax      (MINIMAX_API_KEY)     — MiniMax
+#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
+#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
+#
+# For custom OpenAI-compatible endpoints, add base_url and key_env.
+#
+# fallback_model:
+#   provider: openrouter
+#   model: anthropic/claude-sonnet-4
