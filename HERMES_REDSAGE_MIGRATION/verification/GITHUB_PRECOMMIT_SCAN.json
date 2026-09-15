@@ -1,8 +1,8 @@
 {
   "scan_scope": "exact worktree files eligible for git add",
-  "file_count": 1464,
+  "file_count": 2747,
   "checks": {
-    "required_present": false,
+    "required_present": true,
     "no_env": true,
     "no_auth_json": true,
     "no_private_key_files": true,
@@ -11,9 +11,7 @@
     "no_nested_git_internals": true,
     "no_high_confidence_secret_patterns": false
   },
-  "missing": [
-    "HERMES_REDSAGE_MIGRATION/RedSage_v3/data/kb_build/AUTHORIZATION_INDEX_REPAIR_REQUIRED.md"
-  ],
+  "missing": [],
   "env_files": [],
   "auth_files": [],
   "private_key_files": [],
@@ -21,48 +19,37 @@
   "forbidden_paths": [],
   "nested_git_paths": [],
   "secret_hits": [
-    "HERMES_REDSAGE_MIGRATION/RedSage_v2/backend/services/asset_proposal_service.py:assignment:api_key",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v2/backend/services/cohere_service.py:assignment:api_key",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v2/backend/services/mentor_service.py:assignment:api_key",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v2/backend/services/planner_service.py:assignment:api_key",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v2/core/embeddings.py:assignment:api_key",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v2/docs/internal/completed_initiatives/workflow_generation_2026/WORKSPACE_INVENTORY.md:assignment:api_key",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v2/docs/internal/old_runbooks/REDSAGE_V2_ONE_DAY_BUILD_RUNBOOK.md:assignment:api_key",
     "HERMES_REDSAGE_MIGRATION/RedSage_v2/tests/test_release_hardening.py:assignment:SECRET_PASSWORD",
     "HERMES_REDSAGE_MIGRATION/RedSage_v3/KB/cohere_embeddings.py:assignment:api_key",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/cheatsheet_series/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.md:assignment:csrfToken",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/cheatsheet_series/cheatsheets/Django_Security_Cheat_Sheet.md:assignment:SECRET_KEY",
     "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/cheatsheet_series/cheatsheets/Docker_Security_Cheat_Sheet.md:assignment:my_secret",
     "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/cheatsheet_series/cheatsheets/DotNet_Security_Cheat_Sheet.md:assignment:ViewStateUserKey",
     "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/cheatsheet_series/cheatsheets/JSON_Web_Token_Cheat_Sheet.md:assignment:bad_secret",
     "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/cheatsheet_series/cheatsheets/Java_Security_Cheat_Sheet.md:assignment:privateKey",
     "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/cheatsheet_series/cheatsheets/Multi_Tenant_Security_Cheat_Sheet.md:assignment:cache_key",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/cheatsheet_series/cheatsheets/Secrets_Management_Cheat_Sheet.md:assignment:new_password",
+    "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/cheatsheet_series/cheatsheets/Secrets_Management_Cheat_Sheet.md:assignment:ClientRequestToken",
     "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/cheatsheet_series/cheatsheets/Serverless_FaaS_Security_Cheat_Sheet.md:assignment:SECRET_KEY",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/selected_cheatsheet_Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.md:assignment:csrfToken",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v3/RESOURCES/WORKFLOW_GENERATION/03_owasp/wstg/document/4-Web_Application_Security_Testing/01-Information_Gathering/05-Review_Web_Page_Content_for_Information_Leakage.md:assignment:secretAccessKey",
-    "HERMES_REDSAGE_MIGRATION/RedSage_v3/core/embeddings.py:assignment:api_key",
     "HERMES_REDSAGE_MIGRATION/hermes/skills/autonomous-ai-agents/hermes-agent/references/native-mcp.md:assignment:SOME_API_KEY",
     "HERMES_REDSAGE_MIGRATION/hermes/skills/autonomous-ai-agents/hermes-agent/references/webhooks.md:assignment:WEBHOOK_SECRET",
     "HERMES_REDSAGE_MIGRATION/hermes/skills/creative/ascii-video/references/composition.md:assignment:grid_key",
     "HERMES_REDSAGE_MIGRATION/hermes/skills/productivity/airtable/SKILL.md:assignment:AIRTABLE_API_KEY",
-    "HERMES_REDSAGE_MIGRATION/hermes/skills/productivity/google-workspace/scripts/gws_bridge.py:assignment:access_token",
     "HERMES_REDSAGE_MIGRATION/hermes/skills/productivity/pdf/scripts/pdf_secure.py:assignment:user_password",
     "HERMES_REDSAGE_MIGRATION/hermes/skills/productivity/teams-meeting-pipeline/SKILL.md:assignment:MSGRAPH_CLIENT_SECRET",
-    "HERMES_REDSAGE_MIGRATION/hermes/skills/software-development/github/references/repo-management.md:assignment:public_key",
     "HERMES_REDSAGE_MIGRATION/hermes/skills/software-development/llm-provider-triage/references/hermes-provider-probe-cookbook.md:assignment:API_KEY",
-    "backend/services/asset_proposal_service.py:assignment:api_key",
-    "backend/services/cohere_service.py:assignment:api_key",
-    "backend/services/mentor_service.py:assignment:api_key",
-    "backend/services/planner_service.py:assignment:api_key",
-    "core/embeddings.py:assignment:api_key",
-    "docs/internal/completed_initiatives/workflow_generation_2026/WORKSPACE_INVENTORY.md:assignment:api_key",
     "docs/internal/old_runbooks/REDSAGE_V2_ONE_DAY_BUILD_RUNBOOK.md:assignment:CO_API_KEY",
     "docs/internal/old_runbooks/REDSAGE_V2_ONE_DAY_BUILD_RUNBOOK.md:bearer",
     "tests/test_release_hardening.py:assignment:SECRET_PASSWORD",
     "tests/test_release_hardening.py:jwt",
     "tests/test_smoke_demo.py:bearer"
   ],
-  "large_files": [],
+  "large_files": [
+    {
+      "bytes": 447475712,
+      "path": "HERMES_REDSAGE_MIGRATION/RedSage_v2/data/chroma/chroma.sqlite3"
+    },
+    {
+      "bytes": 178507776,
+      "path": "HERMES_REDSAGE_MIGRATION/RedSage_v3/data/kb_build/chroma/chroma.sqlite3"
+    }
+  ],
   "secret_values_recorded": false
 }
